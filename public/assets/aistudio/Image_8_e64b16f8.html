@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "primary-fixed-dim": "#98d3bd",
+          "error-container": "#ffdad6",
+          "on-tertiary": "#ffffff",
+          "primary-container": "#0d4d3d",
+          "inverse-on-surface": "#e7f3f4",
+          "on-tertiary-fixed": "#321200",
+          "secondary": "#006a66",
+          "error": "#ba1a1a",
+          "tertiary-fixed-dim": "#ffb68c",
+          "surface-bright": "#effcfd",
+          "surface-container-highest": "#d9e5e6",
+          "surface-container-lowest": "#ffffff",
+          "on-tertiary-container": "#ff9756",
+          "on-error-container": "#93000a",
+          "on-surface": "#121d1e",
+          "tertiary-fixed": "#ffdbc9",
+          "surface-container": "#e4f0f1",
+          "surface": "#effcfd",
+          "secondary-container": "#9cf1ec",
+          "secondary-fixed": "#9cf1ec",
+          "on-surface-variant": "#404945",
+          "background": "#effcfd",
+          "on-secondary-fixed": "#00201f",
+          "tertiary-container": "#713200",
+          "surface-dim": "#d0dcdd",
+          "primary-fixed": "#b3efd9",
+          "inverse-surface": "#273233",
+          "secondary-fixed-dim": "#80d5d0",
+          "tertiary": "#4f2100",
+          "primary": "#003528",
+          "surface-variant": "#d9e5e6",
+          "on-primary": "#ffffff",
+          "inverse-primary": "#98d3bd",
+          "surface-tint": "#2f6857",
+          "on-primary-fixed": "#002118",
+          "surface-container-high": "#deeaeb",
+          "on-secondary-container": "#02706d",
+          "on-primary-container": "#82bda8",
+          "on-secondary": "#ffffff",
+          "on-tertiary-fixed-variant": "#753400",
+          "outline-variant": "#bfc9c3",
+          "on-primary-fixed-variant": "#125040",
+          "surface-container-low": "#eaf6f7",
+          "on-error": "#ffffff",
+          "outline": "#707975",
+          "on-background": "#121d1e",
+          "on-secondary-fixed-variant": "#00504d"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "gutter": "1.5rem",
+          "margin-mobile": "1.25rem",
+          "space-xs": "0.25rem",
+          "space-lg": "1.5rem",
+          "gutter-mobile": "1rem",
+          "margin": "3rem",
+          "space-xl": "2.5rem",
+          "space-sm": "0.5rem",
+          "space-md": "1rem"
+        },
+        "fontFamily": {
+          "body-sm": ["Plus Jakarta Sans"],
+          "body-md": ["Plus Jakarta Sans"],
+          "body-lg": ["Plus Jakarta Sans"],
+          "currency-indicator": ["JetBrains Mono"],
+          "headline-lg": ["Epilogue"],
+          "label-md": ["Plus Jakarta Sans"],
+          "headline-xl": ["Epilogue"],
+          "code-timer": ["JetBrains Mono"],
+          "headline-xl-mobile": ["Epilogue"],
+          "headline-md": ["Epilogue"],
+          "label-sm": ["Plus Jakarta Sans"],
+          "headline-sm": ["Epilogue"],
+          "headline-lg-mobile": ["Epilogue"]
+        },
+        "fontSize": {
+          "body-sm": ["13px", {"lineHeight": "20px", "fontWeight": "400"}],
+          "body-md": ["15px", {"lineHeight": "24px", "fontWeight": "400"}],
+          "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+          "currency-indicator": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+          "headline-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+          "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+          "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "code-timer": ["13px", {"lineHeight": "16px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+          "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+          "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+          "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+          "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+          "headline-lg-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+        }
+      }
+    }
+  }</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 w-full max-w-[1320px] mx-auto px-gutter-mobile lg:px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md flex-shrink-0"><a class="flex items-center gap-space-sm group" data-path="explore-stays" href="#"><img alt="DAYOUTS.LK Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Xhc_PsLmC30S_GzdokMLdS4S4uhfCLBKFDSsEPzp8PdzLVXEm9x_DF6godanXEkI22vtRm-BqU4mpvdeZbdR-8dLktmcKkrIzi-hG7Bwk6sD-iN8hXs5CX5ySlrWSLmBk65kXhk663ujyufHDHEd12paJmzQV33Izn6cAZhWGIt5sTudJ1f3TCdzGFhQs6egoWFbb7C-U1udmSube-DP4PRlj8ECgP-ELGyVGQqxt1Jfj3CphiIV3nNA"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold tracking-tight text-primary leading-none">DAYOUTS<span class="text-secondary">.LK</span></span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium tracking-normal mt-1 hidden sm:inline-block">Sri Lanka's Day Out &amp; Stay Escapes</span></div></a></div><nav class="hidden xl:flex items-center gap-space-sm" data-active-classes="bg-surface-container text-primary font-semibold rounded-lg"><a class="px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="explore-stays" href="#">Explore Stays</a><a aria-current="page" class="px-3 py-2 transition-all bg-surface-container text-primary font-semibold rounded-lg" data-path="day-out-packages" href="#">Day Out Packages</a><a class="px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="deals-and-offers" href="#">Deals &amp; Offers</a><a class="px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="for-property-owners" href="#">For Property Owners</a><a class="px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all flex items-center gap-1.5" href="https://wa.me/94771234567" target="_blank"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse inline-block"></span>Concierge (+94 77 123 4567)</a></nav><div class="flex items-center gap-space-sm flex-shrink-0"><div class="hidden md:flex items-center bg-surface-container-low rounded-lg p-1"><button class="px-2 py-1 rounded font-label-sm text-label-sm font-bold bg-primary text-on-primary shadow-sm" type="button">EN</button><button class="px-2 py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface" type="button">සිං</button><button class="px-2 py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface" type="button">தமிழ்</button></div><div class="hidden lg:flex items-center bg-surface-container-low rounded-lg px-2.5 py-1.5 gap-2"><div class="flex items-center gap-1 font-currency-indicator text-currency-indicator font-semibold text-primary"><span class="bg-surface-container-highest px-1.5 py-0.5 rounded text-on-surface">LKR</span><span class="text-outline">|</span><span class="text-on-surface-variant hover:text-on-surface cursor-pointer">USD</span></div><span class="font-code-timer text-code-timer text-on-surface-variant border-l border-outline-variant/30 pl-2 text-[11px]">1$ ≈ 305 LKR</span></div><a class="hidden sm:inline-flex items-center justify-center bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container px-4 py-2 rounded-lg font-label-md text-label-md font-semibold transition-all shadow-[0_4px_16px_-2px_rgba(0,53,40,0.2)]" data-path="list-your-property" href="#">List Your Property</a><div class="relative group flex items-center"><button class="flex items-center gap-1.5 p-1 rounded-full focus:outline-none ring-2 ring-primary/20" type="button"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCghVdjRr4uY8YbamvSO8fl-ybZhrC5WmECVq4IEyQqJo15HGLZRYEIGa4t3p3xq3fjNW6rKAMMSvgq9B9tfrPsLRgw-KhOpHSqcvUrzhfgOVN1wr11DrOwvEIiJPfComay0XmGtQocV2EciqQS5OiNg1rxhpEkGlgfibjWDCFxN24tlSD395QG-HN36SQfUXX_rFb4xhUYQad-wYSczyEeW7okEek6ImRNZeDlaA7oz7bdzyP3DTSv"/><span class="material-symbols-outlined text-[18px] text-on-surface-variant hidden sm:inline-block">expand_more</span></button><div class="absolute right-0 top-full mt-2 w-56 bg-surface-container-lowest rounded-xl shadow-[0_12px_32px_-4px_rgba(30,41,42,0.12)] p-2 hidden group-hover:block transition-all"><div class="px-3 py-2 border-b border-surface-container-high mb-1"><p class="font-label-md text-label-md text-on-surface font-semibold truncate">Nalin Jayawardena</p><p class="font-label-sm text-label-sm text-on-surface-variant truncate">VIP Explorer</p></div><a class="flex items-center gap-2 px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="my-bookings" href="#"><span class="material-symbols-outlined text-[18px]">confirmation_number</span>My Bookings</a><a class="flex items-center gap-2 px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="wishlist" href="#"><span class="material-symbols-outlined text-[18px]">favorite</span>Wishlist</a><div class="my-1 border-t border-surface-container-high"></div><a class="flex items-center gap-2 px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="owner-portal" href="#"><span class="material-symbols-outlined text-[18px]">real_estate_agent</span>Switch to Owner Portal</a><a class="flex items-center gap-2 px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin-console" href="#"><span class="material-symbols-outlined text-[18px]">admin_panel_settings</span>Admin Console</a></div></div></div></div></header><main class="w-full pt-20 bg-background"><div class="flex flex-col w-full">
+<!-- Top Real-Time Inventory Urgency Strip -->
+<div class="w-full bg-tertiary-container text-on-tertiary py-2 px-gutter-mobile lg:px-gutter">
+<div class="max-w-[1320px] mx-auto flex items-center justify-between text-xs sm:text-sm font-label-md">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-on-tertiary animate-ping"></span>
+<span class="font-code-timer tracking-wide uppercase">High Demand Weekend Slot</span>
+<span class="hidden md:inline text-on-tertiary-container/80">• 4 day passes left for this coming Saturday</span>
+</div>
+<div class="flex items-center gap-3 font-code-timer text-currency-indicator">
+<span class="material-symbols-outlined text-base">timer</span>
+<span>SLOT HOLD TIMER:</span>
+<span class="bg-black/20 px-2 py-0.5 rounded text-white font-bold" id="global-timer">11:58</span>
+</div>
+</div>
+</div>
+<!-- Breadcrumbs & Quick Utility Header -->
+<div class="w-full bg-surface-container-lowest shadow-sm">
+<div class="max-w-[1320px] mx-auto px-gutter-mobile lg:px-gutter py-4">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<!-- Breadcrumbs -->
+<nav aria-label="Breadcrumb" class="flex items-center gap-2 font-label-sm text-on-surface-variant flex-wrap">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Western Province</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Bentota</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-semibold">The Palms Oceanfront Sanctuary &amp; Pool Pavilion</span>
+</nav>
+<!-- Action Pills: Share, Save, Map Pin -->
+<div class="flex items-center gap-2">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container text-on-surface font-label-sm transition-colors">
+<span class="material-symbols-outlined text-[18px]">share</span>
+<span>Share</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container text-on-surface font-label-sm transition-colors" id="wishlist-btn" onclick="toggleSave()">
+<span class="material-symbols-outlined text-[18px] text-tertiary" id="wishlist-icon">favorite_border</span>
+<span id="wishlist-text">Save</span>
+</button>
+<a class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-secondary-container text-on-secondary-container font-label-sm transition-colors" href="#location-map">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span>Bentota Beach Road</span>
+</a>
+</div>
+</div>
+<!-- Title & Verification Row -->
+<div class="mt-4 flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-2">
+<div class="space-y-2">
+<div class="flex flex-wrap items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-primary-fixed text-on-primary-fixed font-label-sm font-bold tracking-wide">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+              SLTDA VERIFIED #SLTDA/SQA/PRO/01824
+            </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-secondary/10 text-secondary font-label-sm">
+<span class="material-symbols-outlined text-[16px]">person_check</span>
+              Host: Anura Senanayake (Certified Host)
+            </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-code-timer text-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Instant Booking Enabled
+            </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight font-bold">
+            The Palms Oceanfront Sanctuary &amp; Pool Pavilion
+          </h1>
+<div class="flex flex-wrap items-center gap-4 text-on-surface-variant font-body-sm">
+<div class="flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-secondary text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary">4.92</span>
+<span class="text-on-surface-variant font-label-md">(248 authentic guest reviews)</span>
+</div>
+<span>•</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">waves</span>
+<span>Direct Indian Ocean Beachfront</span>
+</div>
+<span>•</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span>Day Access 09:30 AM – 05:30 PM</span>
+</div>
+</div>
+</div>
+<!-- Rapid Price Preview Pill -->
+<div class="bg-surface-container-low p-3.5 rounded-xl flex items-center gap-4 self-start lg:self-auto">
+<div>
+<span class="font-label-sm text-on-surface-variant block">Day Pass From</span>
+<span class="font-headline-md text-headline-md font-bold text-primary">LKR 7,500</span>
+<span class="font-currency-indicator text-currency-indicator text-on-surface-variant block">≈ $25.00 USD / person</span>
+</div>
+<a class="px-4 py-2.5 bg-primary text-on-primary rounded-lg font-label-md hover:bg-primary-container transition-all shadow-md" href="#booking-panel">
+            Check Slots
+          </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Grid Content Area -->
+<div class="max-w-[1320px] w-full mx-auto px-gutter-mobile lg:px-gutter py-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- LEFT COLUMN: Experiential Gallery, Packages, Amenities, Reviews (Span 8) -->
+<div class="lg:col-span-8 flex flex-col gap-10">
+<!-- Visual Media Showcase Bento Grid -->
+<section aria-label="Resort Media Showcase" class="relative">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-3 h-[460px] md:h-[520px]">
+<!-- Big Hero Image (Indian Ocean Infinity Pool) -->
+<div class="md:col-span-8 h-full rounded-2xl overflow-hidden relative group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern tropical luxury infinity swimming pool edge reflecting golden hour sunlight overlooking Bentota beach in Sri Lanka with tall coconut palms and Indian Ocean surf in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCvJK3J3JX9h3B863H94b6S9cVkR8ultLVuxHPYSwiWSoIKsEifFOwGuu1nqVbKX4fJBMchcXQHlgO5dE8TuNhuU_o0JMs6hNT6wOQqzMy2lrnVAOAMsYDCa3S1cO8Zpx_PGd1Ez19V5u8NM-KNKxaFivGdf9SNpVIwRzBm6OFUWHnyvanfV36h4xIjGyPnZuBOK2k_gIIweyFm1GEIx9TYq3q8s0SwERgZDrnItlYwGXAP2pkVZbA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-black/20 flex flex-col justify-between p-6">
+<span class="self-start bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1 rounded-full font-label-sm font-semibold text-primary shadow">
+                  Infinity Pool &amp; Ocean Horizon
+                </span>
+<div class="text-white space-y-1">
+<span class="font-label-sm uppercase tracking-wider text-secondary-fixed">Geoffrey Bawa Architectural Echoes</span>
+<p class="font-headline-sm font-bold text-white drop-shadow-sm">Direct panoramic Indian Ocean vista with beachfront day loungers</p>
+</div>
+</div>
+</div>
+<!-- Side Stacking Images -->
+<div class="hidden md:flex md:col-span-4 flex-col gap-3 h-full">
+<!-- Cabana -->
+<div class="h-1/2 rounded-xl overflow-hidden relative group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Private luxury open-air cabana pavilion with white daybeds, woven teak furniture and tropical garden frangipani blossoms in Bentota resort" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADEoVD0RY4y8v3FocVRlEOeFGj0sfPs0j10HlKgpN8hPDQgG1Cp0XPwtF0wzEcnBkssXMf5ap88gLC3O0W-nqzgrFptbAuI2zrkqWvWxM-lH5CIdPqQfQtOG2aV-0WoeqmLcgYEMK1Etb7zGjygx3SEat-6Em5mpWaetSQJvM2OSRURcqIv68AfCYJYdJD5uOcRd0t7xBe3HpTGKkFP-9Lbviq9NKimu3_Lf6D-3sPP53OMPrcRaOa"/>
+<span class="absolute bottom-2 left-2 bg-surface-container-lowest/90 backdrop-blur-sm px-2.5 py-1 rounded font-label-sm text-on-surface">
+                  Private Day Cabanas
+                </span>
+</div>
+<!-- Buffet / Dining -->
+<div class="h-1/2 rounded-xl overflow-hidden relative group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Sri Lankan authentic culinary buffet dining setup with terracotta clay pots featuring fragrant curries, coconut sambol, fresh seafood and Ceylon teas under wooden timber pavilion" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0Sb6_1O7Rh7-WLLMJoZl_5mG88tnN1CKJr4nf43BPYhDhd0IMJsSoldrV7M9HNciz2or8nP7L7oW55NPMkQ_B0M1j0Yle70E1deaugoBgwT9BeoQGEJCXsrraSijBsem8pM6dZra1tvSvaGp4qVnr3fKT_pcJXJ0b8-u8aqJw_cLruXfwJr_x5pWvpev9102gsg34ZHqJVHNptbXG6_TigPYdwlf-T1UG9BOU3d0wwN7aKBn6JBBi"/>
+<div class="absolute bottom-2 left-2 bg-surface-container-lowest/90 backdrop-blur-sm px-2.5 py-1 rounded font-label-sm text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">restaurant</span>
+                  Sanctuary Buffet Pavilion
+                </div>
+<button class="absolute bottom-2 right-2 bg-primary/90 text-on-primary px-3 py-1 rounded text-xs font-label-sm backdrop-blur-sm hover:bg-primary">
+                  +18 Photos
+                </button>
+</div>
+</div>
+</div>
+<!-- Mobile View Thumbnails Strip -->
+<div class="flex md:hidden gap-2 mt-3 overflow-x-auto pb-2">
+<span class="px-3 py-1.5 bg-surface-container rounded-lg text-xs font-label-md flex-shrink-0">🌴 Beach Access</span>
+<span class="px-3 py-1.5 bg-surface-container rounded-lg text-xs font-label-md flex-shrink-0">🏊 Infinity Pool</span>
+<span class="px-3 py-1.5 bg-surface-container rounded-lg text-xs font-label-md flex-shrink-0">🥥 King Coconut Bar</span>
+<span class="px-3 py-1.5 bg-surface-container rounded-lg text-xs font-label-md flex-shrink-0">💆 Ayurvedic Spa</span>
+</div>
+</section>
+<!-- Sanctuary Narrative & Overview -->
+<section class="bg-surface-container-lowest p-6 sm:p-8 rounded-2xl shadow-sm space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md font-bold text-primary">The Sanctuary Experience</h2>
+<span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary font-label-sm font-semibold">Day Passes &amp; Stays</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Perched directly on the golden sandy shores of Bentota, <strong class="text-on-surface">The Palms Oceanfront Sanctuary</strong> pairs coastal serenity with refined Sri Lankan tropical hospitality. Built around lush coconut groves and a pristine 40-meter tiered saltwater infinity pool, guests enjoy breezy open-air verandas, private shaded day cabanas, and culinary journeys ranging from live lagoon-crab grills to spiced Ceylon afternoon teas.
+          </p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
+<div class="p-3 rounded-xl bg-surface-container-low flex flex-col">
+<span class="font-label-sm text-on-surface-variant">Check-In Slot</span>
+<span class="font-headline-sm font-bold text-primary">09:30 AM</span>
+<span class="text-xs text-on-surface-variant">Instant entry verification</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low flex flex-col">
+<span class="font-label-sm text-on-surface-variant">Check-Out Slot</span>
+<span class="font-headline-sm font-bold text-primary">05:30 PM</span>
+<span class="text-xs text-on-surface-variant">Sunset tea included</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low flex flex-col">
+<span class="font-label-sm text-on-surface-variant">Pool Depth</span>
+<span class="font-headline-sm font-bold text-primary">1.2m – 2.1m</span>
+<span class="text-xs text-on-surface-variant">Dedicated kid zone (0.5m)</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low flex flex-col">
+<span class="font-label-sm text-on-surface-variant">Beach Strip</span>
+<span class="font-headline-sm font-bold text-primary">Private Gate</span>
+<span class="text-xs text-on-surface-variant">Bentota Golden Mile</span>
+</div>
+</div>
+</section>
+<!-- DUAL BOOKING ENGINE: TABS & EXPERIENCE CARDS -->
+<section class="space-y-6" id="packages-selection">
+<div class="flex items-center justify-between flex-wrap gap-4">
+<div>
+<h2 class="font-headline-md text-headline-md font-bold text-primary">Select Reservation Type</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Choose between all-day pool &amp; dining packages or overnight seaside luxury suites</p>
+</div>
+<!-- Segmented Control Switcher -->
+<div class="bg-surface-container-high p-1 rounded-xl flex items-center gap-1">
+<button class="px-4 py-2 rounded-lg font-label-md text-label-md font-semibold transition-all bg-primary text-on-primary shadow-sm flex items-center gap-2" id="tab-dayout" onclick="switchPackageTab('dayout')">
+<span class="material-symbols-outlined text-[18px]">beach_access</span>
+                Day Out Packages
+              </button>
+<button class="px-4 py-2 rounded-lg font-label-md text-label-md font-semibold transition-all text-on-surface-variant hover:text-on-surface flex items-center gap-2" id="tab-overnight" onclick="switchPackageTab('overnight')">
+<span class="material-symbols-outlined text-[18px]">hotel</span>
+                Overnight Stay Units
+              </button>
+</div>
+</div>
+<!-- TAB 1 CONTENT: DAY OUT PACKAGES -->
+<div class="space-y-4" id="content-dayout">
+<!-- Day Out Package 1: All Inclusive Tropical Pass -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-primary text-on-primary text-[10px] font-bold px-4 py-1 rounded-bl-xl tracking-widest uppercase">
+                Most Popular for Families &amp; Groups
+              </div>
+<div class="flex flex-col md:flex-row gap-6">
+<div class="w-full md:w-56 h-48 md:h-auto rounded-xl overflow-hidden flex-shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="Chilled fresh orange king coconut beverage served with bamboo straw alongside swimming pool loungers at Sri Lankan resort" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8NFiGtXvNqp389tRK9jxn8eA2CZ64joBZEDGTajrY6poPy0ioSep5WCkqA-x_TXA7fu_Xy1_b-LkA06OMdmHGWMzszk7p3_ln9qbCnQfyAoy9rEX1k91bTcx6TGpQP01gJRO-Rs9eE2uNT7U41DM4ziftJkKyowk5VqFul8nbxs6gg6SHNae21Uh_5ESOVrTIpqnyD9Zi-JiWYwdQa4N1RPeqEMrjov71zcjaT2m0t_HIzHsUAazN"/>
+<span class="absolute bottom-2 left-2 bg-black/60 text-white font-code-timer text-xs px-2 py-0.5 rounded">
+                    09:30 AM – 05:30 PM
+                  </span>
+</div>
+<div class="flex-1 flex flex-col justify-between space-y-4">
+<div>
+<div class="flex items-start justify-between gap-2">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">All-Inclusive Tropical Day Out Pass</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Signature full-day leisure access with multi-course dining and recreation.</p>
+</div>
+<div class="text-right">
+<span class="font-headline-md text-headline-md font-bold text-primary block">LKR 7,500</span>
+<span class="font-currency-indicator text-currency-indicator text-on-surface-variant">≈ $25.00 USD / person</span>
+</div>
+</div>
+<!-- Inclusions Pills Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-4">
+<div class="flex items-center gap-2 text-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary text-base">check_circle</span>
+<span>Welcome King Coconut Drink (Fresh Thambili)</span>
+</div>
+<div class="flex items-center gap-2 text-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary text-base">check_circle</span>
+<span>International &amp; Sri Lankan Buffet Lunch</span>
+</div>
+<div class="flex items-center gap-2 text-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary text-base">check_circle</span>
+<span>Infinity Pool Access &amp; Sunbeds with Fresh Towels</span>
+</div>
+<div class="flex items-center gap-2 text-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary text-base">check_circle</span>
+<span>Evening Ceylon High Tea &amp; Spiced Savory Snacks</span>
+</div>
+<div class="flex items-center gap-2 text-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary text-base">check_circle</span>
+<span>Air-Conditioned Changing Cabana Access</span>
+</div>
+<div class="flex items-center gap-2 text-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary text-base">check_circle</span>
+<span>Free Outdoor Beach Volleyball &amp; Board Games</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3">
+<span class="font-label-sm text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">warning</span>
+                      Child rate (5-12 yrs): LKR 3,800. Toddlers (0-4): Complimentary.
+                    </span>
+<button class="px-5 py-2.5 bg-primary text-on-primary hover:bg-primary-container rounded-lg font-label-md font-semibold transition-all" onclick="selectPackage('dayout_full', 7500, 'All-Inclusive Tropical Day Out Pass')">
+                      Select This Pass
+                    </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Day Out Package 2: Sunset Pool & Dinner Pass -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex flex-col md:flex-row gap-6">
+<div class="w-full md:w-56 h-48 md:h-auto rounded-xl overflow-hidden flex-shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="Sri Lankan coastal resort illuminated with evening warm lantern lighting along beach edge with tropical cocktail glasses and sunset glow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk0awlGl61xuxTh86V6V17ESsEoXvrn_gtEvN2Zg8yGCh6MTIf7RP4o51lqFDJMOymGAeuiGf6MWlqbJg0pB2F4JGMovqYdBcHZCZwVng-SnXnMTcWq1BwoK1H9HnNvpxEQ1qeMVKAy1Y9aVcNF5O6HRLWzRZB9ivQq2Qyyb3EE937TNI0-DM67SuIqfoUWKl82jP5eBJM3wpKqktQbieYA8ioIFNZos4eyBOSqb2uIwU09b1bn6QS"/>
+<span class="absolute bottom-2 left-2 bg-black/60 text-white font-code-timer text-xs px-2 py-0.5 rounded">
+                    03:00 PM – 09:30 PM
+                  </span>
+</div>
+<div class="flex-1 flex flex-col justify-between space-y-4">
+<div>
+<div class="flex items-start justify-between gap-2">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Sunset Glow &amp; Coastal Dinner Pass</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Late afternoon swim leading into a 4-course seaside seafood barbecue.</p>
+</div>
+<div class="text-right">
+<span class="font-headline-md text-headline-md font-bold text-primary block">LKR 9,200</span>
+<span class="font-currency-indicator text-currency-indicator text-on-surface-variant">≈ $30.00 USD / person</span>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-4">
+<div class="flex items-center gap-2 text-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary text-base">check_circle</span>
+<span>Sunset Mocktail / Fresh Lime Soda on Arrival</span>
+</div>
+<div class="flex items-center gap-2 text-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary text-base">check_circle</span>
+<span>Seafood BBQ Dinner Buffet at Beach Terrace</span>
+</div>
+<div class="flex items-center gap-2 text-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary text-base">check_circle</span>
+<span>Night Pool Swimming (Under illuminated palms)</span>
+</div>
+<div class="flex items-center gap-2 text-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary text-base">check_circle</span>
+<span>BYOB Free Corkage for up to 2 Wine/Spirits Bottles</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3">
+<span class="font-label-sm text-on-surface-variant">
+                      Ideal for couples, reunions, and anniversary dinners.
+                    </span>
+<button class="px-5 py-2.5 bg-surface-container-high hover:bg-primary hover:text-on-primary text-primary rounded-lg font-label-md font-semibold transition-all" onclick="selectPackage('dayout_sunset', 9200, 'Sunset Glow &amp; Coastal Dinner Pass')">
+                      Select This Pass
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- TAB 2 CONTENT: OVERNIGHT ACCOMMODATION (Initially Hidden) -->
+<div class="space-y-4 hidden" id="content-overnight">
+<!-- Suite 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex flex-col md:flex-row gap-6">
+<div class="w-full md:w-56 h-48 md:h-auto rounded-xl overflow-hidden flex-shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="Luxury oceanfront villa master suite with plush king size teak bed, polished stone floors, private plunge pool overlooking tropical ocean garden in Sri Lanka" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1yaD1jKP08nNpCh0Z-kEE6F8xdx6Iz4PehiNqN3GSAk9EPjYeHPREOoPi_d-VAWu1TW4wJFgR2LwgqgQ4MiooOSIPZboIMnWB0kjvqSyepJKgf0iVEoG3fphEJxn_6YLOlJ-_GnK9GH2GUX9eQXGtcZtnaK-DDU76APMXU-wSh9chXaqlX-udUc_jNoAg-hprK5knXICwG6bPWxTXuIlc-5WhEDQz5i_7FlI-eMpFdIZWyzy4paav"/>
+<span class="absolute bottom-2 left-2 bg-secondary text-on-secondary font-label-sm px-2 py-0.5 rounded">
+                    Direct Ocean View
+                  </span>
+</div>
+<div class="flex-1 flex flex-col justify-between space-y-4">
+<div>
+<div class="flex items-start justify-between gap-2">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Ocean Suite Cabana with Plunge Pool</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Private timber-deck terrace with plunge pool, King bed &amp; semi-outdoor rain shower.</p>
+</div>
+<div class="text-right">
+<span class="font-headline-md text-headline-md font-bold text-primary block">LKR 42,000</span>
+<span class="font-currency-indicator text-currency-indicator text-on-surface-variant">≈ $140.00 USD / night</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mt-3 font-label-sm text-on-surface-variant">
+<span class="bg-surface-container px-2.5 py-1 rounded">Max 3 Adults or 2 Adults + 2 Kids</span>
+<span class="bg-surface-container px-2.5 py-1 rounded">King Coil Luxury Bed</span>
+<span class="bg-surface-container px-2.5 py-1 rounded">Breakfast Included</span>
+<span class="bg-surface-container px-2.5 py-1 rounded">Private 8ft Plunge Pool</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-3">
+<span class="font-label-sm text-secondary font-semibold">Includes complimentary Sri Lankan gourmet breakfast</span>
+<button class="px-5 py-2.5 bg-primary text-on-primary hover:bg-primary-container rounded-lg font-label-md font-semibold transition-all" onclick="selectPackage('overnight_suite', 42000, 'Ocean Suite Cabana with Plunge Pool')">
+                      Select Suite
+                    </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Suite 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex flex-col md:flex-row gap-6">
+<div class="w-full md:w-56 h-48 md:h-auto rounded-xl overflow-hidden flex-shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="Spacious colonial veranda bedroom suite with high timber ceilings, mosquito net draped four-poster bed and garden tropical foliage view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkOxNP3MpEvE1CtPWQn2kSbMd1ZZoogJ1lSIAE1O4aiMmCxCGfwLhTycET4OXEZZ-zxVVE_wEqMvWrSEcSYFYu7nLriOIerVXSC2F1okwOUZXeMW0ohnJdsJ6mbZmmD7pwaN1sqLS6HicMROZxqM9kDoyHiF7xBG-FRMInhT2t-RSNIULB3iE3Ki4wXPEjKxNA58OFEkVczDffQxqe-yqCLPRL2bhcJN7HW1I47lNtBKnPgHrfOgIm"/>
+<span class="absolute bottom-2 left-2 bg-primary text-on-primary font-label-sm px-2 py-0.5 rounded">
+                    Garden Villa
+                  </span>
+</div>
+<div class="flex-1 flex flex-col justify-between space-y-4">
+<div>
+<div class="flex items-start justify-between gap-2">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Palm Garden Deluxe Room</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Quiet tropical botanical garden enclosure with private veranda and hammock.</p>
+</div>
+<div class="text-right">
+<span class="font-headline-md text-headline-md font-bold text-primary block">LKR 28,000</span>
+<span class="font-currency-indicator text-currency-indicator text-on-surface-variant">≈ $92.00 USD / night</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mt-3 font-label-sm text-on-surface-variant">
+<span class="bg-surface-container px-2.5 py-1 rounded">Max 2 Adults</span>
+<span class="bg-surface-container px-2.5 py-1 rounded">Queen Bed</span>
+<span class="bg-surface-container px-2.5 py-1 rounded">Breakfast Included</span>
+<span class="bg-surface-container px-2.5 py-1 rounded">Garden Balcony</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-3">
+<span class="font-label-sm text-on-surface-variant">Free cancellation up to 48 hrs prior</span>
+<button class="px-5 py-2.5 bg-surface-container-high hover:bg-primary hover:text-on-primary text-primary rounded-lg font-label-md font-semibold transition-all" onclick="selectPackage('overnight_garden', 28000, 'Palm Garden Deluxe Room')">
+                      Select Room
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Resort Amenities Matrix -->
+<section class="bg-surface-container-lowest p-6 sm:p-8 rounded-2xl shadow-sm space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md font-bold text-primary">Verified Resort Amenities</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Inspected and verified by DAYOUTS.LK Quality Assurance (December 2024)</p>
+</div>
+<span class="hidden sm:inline-flex items-center gap-1 text-primary font-label-sm font-semibold">
+<span class="material-symbols-outlined text-[18px]">verified_user</span> 100% Guaranteed Facilities
+            </span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+<div class="p-4 rounded-xl bg-surface-container-low flex items-start gap-3">
+<div class="p-2 rounded-lg bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[24px]">pool</span>
+</div>
+<div>
+<span class="font-label-md font-bold text-on-surface block">Infinity Pool</span>
+<span class="text-xs text-on-surface-variant">Saltwater, 40m view</span>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low flex items-start gap-3">
+<div class="p-2 rounded-lg bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[24px]">waves</span>
+</div>
+<div>
+<span class="font-label-md font-bold text-on-surface block">Sea View &amp; Access</span>
+<span class="text-xs text-on-surface-variant">Direct beach step</span>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low flex items-start gap-3">
+<div class="p-2 rounded-lg bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[24px]">wifi</span>
+</div>
+<div>
+<span class="font-label-md font-bold text-on-surface block">High-Speed Wi-Fi</span>
+<span class="text-xs text-on-surface-variant">100 Mbps fiber</span>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low flex items-start gap-3">
+<div class="p-2 rounded-lg bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[24px]">spa</span>
+</div>
+<div>
+<span class="font-label-md font-bold text-on-surface block">Ayurvedic Spa</span>
+<span class="text-xs text-on-surface-variant">Certified practitioners</span>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low flex items-start gap-3">
+<div class="p-2 rounded-lg bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[24px]">restaurant_menu</span>
+</div>
+<div>
+<span class="font-label-md font-bold text-on-surface block">Halal &amp; Veg Kitchen</span>
+<span class="text-xs text-on-surface-variant">Strict separation</span>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low flex items-start gap-3">
+<div class="p-2 rounded-lg bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[24px]">child_care</span>
+</div>
+<div>
+<span class="font-label-md font-bold text-on-surface block">Kids Wading Pool</span>
+<span class="text-xs text-on-surface-variant">0.5m safe depth</span>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low flex items-start gap-3">
+<div class="p-2 rounded-lg bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[24px]">local_parking</span>
+</div>
+<div>
+<span class="font-label-md font-bold text-on-surface block">Free Valet Parking</span>
+<span class="text-xs text-on-surface-variant">Car &amp; bus secure bays</span>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low flex items-start gap-3">
+<div class="p-2 rounded-lg bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[24px]">shield</span>
+</div>
+<div>
+<span class="font-label-md font-bold text-on-surface block">Security 24/7</span>
+<span class="text-xs text-on-surface-variant">Lifeguard on pool deck</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Location Map & Directions Card -->
+<section class="bg-surface-container-lowest p-6 sm:p-8 rounded-2xl shadow-sm space-y-4" id="location-map">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md font-bold text-primary">Location &amp; Coastal Surroundings</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Bentota River Estuary &amp; Beach Strip • 90 mins from Colombo via Southern Expressway (E01)</p>
+</div>
+<a class="text-secondary font-label-md hover:underline flex items-center gap-1" href="https://maps.google.com" target="_blank">
+              Open in Google Maps <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+</div>
+<div class="w-full h-72 rounded-xl bg-cover bg-center overflow-hidden shadow-inner relative flex items-end p-4" data-location="The Palms Hotel, Bentota, Sri Lanka" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDGvuWphdr9yBrt7ZM2uoi54rTj2FEvQwo8BobqGrKYo1Y6rkyXdAZFfi3V-QpmAOOyHhLoZqI4UXpGigFxzmz-CcTElRgvbaNVclQ1MLsh9qO555_i_QGX2i4szjDF1TGjE6ek7CcQ9lvi4yCEJgGWEeJuUFhRyduxBli6MC74T3L-RlhW9Hyxk5lgpFn6_gOcdXg2Ep9EP3AjlK27iOLtgSYWDaO_nS1OZD0wt_FZ3q1tBe98kI_W')">
+<div class="bg-surface-container-lowest/90 backdrop-blur-md p-3 rounded-lg shadow max-w-sm">
+<span class="font-label-sm font-bold text-primary block">The Palms Oceanfront Sanctuary</span>
+<p class="text-xs text-on-surface-variant">Beach Road, Bentota 80500, Western/Southern Border</p>
+<span class="text-[11px] font-code-timer text-secondary mt-1 inline-block">GPS: 6.4259° N, 79.9984° E</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2 text-body-sm">
+<div class="p-3 bg-surface-container-low rounded-lg">
+<span class="font-label-sm font-bold text-on-surface block">From Colombo Airport (BIA)</span>
+<span class="text-on-surface-variant">1 hr 45 min drive via E01 Highway</span>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg">
+<span class="font-label-sm font-bold text-on-surface block">From Galle Dutch Fort</span>
+<span class="text-on-surface-variant">45 min coastal scenic drive</span>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg">
+<span class="font-label-sm font-bold text-on-surface block">Bentota Railway Station</span>
+<span class="text-on-surface-variant">6 minutes by Tuk-Tuk (2.1 km)</span>
+</div>
+</div>
+</section>
+<!-- Transparent Cancellation Policy Timeline -->
+<section class="bg-surface-container-lowest p-6 sm:p-8 rounded-2xl shadow-sm space-y-6">
+<div>
+<h2 class="font-headline-md text-headline-md font-bold text-primary">Fair Cancellation Policy Timeline</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Clear, transparent protection verified under the DAYOUTS.LK Escrow Guarantee</p>
+</div>
+<!-- Timeline Component -->
+<div class="relative pl-6 sm:pl-8 space-y-6 before:absolute before:left-2.5 sm:before:left-3.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-surface-container-highest">
+<!-- Step 1 -->
+<div class="relative">
+<div class="absolute -left-6 sm:-left-8 top-1 w-5 h-5 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[12px]">check</span>
+</div>
+<div>
+<span class="font-label-md font-bold text-primary">Up to 48 Hours Before Arrival</span>
+<p class="font-body-sm text-on-surface-variant mt-0.5">
+                  100% Full Refund. Zero cancellation penalties. Any advance deposit is immediately refunded to your original payment method or stored as travel credit.
+                </p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative">
+<div class="absolute -left-6 sm:-left-8 top-1 w-5 h-5 rounded-full bg-secondary flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined text-[12px]">schedule</span>
+</div>
+<div>
+<span class="font-label-md font-bold text-secondary">24 – 48 Hours Prior</span>
+<p class="font-body-sm text-on-surface-variant mt-0.5">
+                  Free Date Reschedule permitted for any date within 90 days, or a 50% refund on the reservation deposit.
+                </p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative">
+<div class="absolute -left-6 sm:-left-8 top-1 w-5 h-5 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary">
+<span class="material-symbols-outlined text-[12px]">close</span>
+</div>
+<div>
+<span class="font-label-md font-bold text-tertiary">Under 24 Hours or No-Show</span>
+<p class="font-body-sm text-on-surface-variant mt-0.5">
+                  Deposit forfeited as resort kitchen pre-allocates fresh culinary ingredients for your party. Severe bad-weather clause allows rescheduling upon resort GM approval.
+                </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Authentic Guest Reviews Snapshot -->
+<section class="bg-surface-container-lowest p-6 sm:p-8 rounded-2xl shadow-sm space-y-6">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md font-bold text-primary">Guest Experiences</h2>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-headline-sm font-bold text-primary">4.92</span>
+<span class="text-on-surface-variant text-sm font-label-md">(248 Day &amp; Stay Reviews)</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Review 1 -->
+<div class="p-4 rounded-xl bg-surface-container-low space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary text-xs">
+                    DS
+                  </div>
+<div>
+<span class="font-label-md font-bold text-on-surface block">Dilrukshi Seneviratne</span>
+<span class="text-[11px] text-on-surface-variant">Family Day Pass • Booked on DAYOUTS.LK</span>
+</div>
+</div>
+<div class="flex text-secondary text-xs">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic">
+                “We took a group of 8 for an office getaway. The king coconut welcome was refreshing, and the infinity pool facing the ocean was immaculate. Food spread had phenomenal Jaffna crab curry! Highly recommended.”
+              </p>
+</div>
+<!-- Review 2 -->
+<div class="p-4 rounded-xl bg-surface-container-low space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center font-bold text-secondary text-xs">
+                    TH
+                  </div>
+<div>
+<span class="font-label-md font-bold text-on-surface block">Tariq Hassan</span>
+<span class="text-[11px] text-on-surface-variant">Oceanfront Cabana Stay • Verified Guest</span>
+</div>
+</div>
+<div class="flex text-secondary text-xs">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic">
+                “Host Anura was super courteous and guided us to water sports on the Bentota lagoon. Changing rooms are spotlessly clean and air-conditioned. Booking process via DAYOUTS.LK was instant.”
+              </p>
+</div>
+</div>
+</section>
+</div>
+<!-- RIGHT COLUMN: STICKY LIVE RESERVATION WIDGET (Span 4) -->
+<div class="lg:col-span-4">
+<aside class="sticky top-24 bg-surface-container-lowest p-6 rounded-2xl shadow-xl space-y-6" id="booking-panel">
+<!-- Card Header & Dual Currency Toggle -->
+<div class="space-y-2 pb-4">
+<div class="flex items-center justify-between">
+<span class="font-label-sm uppercase tracking-wider text-secondary font-bold">Instant Reservation</span>
+<!-- Currency Toggle Button -->
+<div class="flex items-center bg-surface-container p-1 rounded-md text-xs font-currency-indicator">
+<button class="px-2 py-0.5 rounded font-bold bg-primary text-on-primary shadow-sm" id="curr-lkr" onclick="setCurrency('LKR')">LKR</button>
+<button class="px-2 py-0.5 rounded text-on-surface-variant hover:text-on-surface" id="curr-usd" onclick="setCurrency('USD')">USD</button>
+</div>
+</div>
+<!-- Dynamic Price Hero -->
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-primary" id="display-price-main">LKR 15,000</span>
+<span class="font-label-sm text-on-surface-variant" id="display-price-sub">/ 2 Adults (Day Pass)</span>
+</div>
+<p class="font-currency-indicator text-currency-indicator text-on-surface-variant" id="display-usd-sub">
+              ≈ $49.18 USD total estimated
+            </p>
+</div>
+<!-- Mode Selector Tabs inside Widget -->
+<div class="bg-surface-container-low p-1 rounded-xl grid grid-cols-2 gap-1 text-center font-label-sm font-semibold">
+<button class="py-2 rounded-lg bg-surface-container-lowest text-primary shadow-sm" id="widget-btn-day" onclick="setWidgetMode('day')">
+              Day Out Pass
+            </button>
+<button class="py-2 rounded-lg text-on-surface-variant hover:text-on-surface" id="widget-btn-stay" onclick="setWidgetMode('stay')">
+              Overnight Stay
+            </button>
+</div>
+<!-- Form Fields -->
+<div class="space-y-4">
+<!-- Date Picker -->
+<div class="space-y-1.5">
+<label class="font-label-sm text-on-surface font-semibold flex items-center justify-between" for="reservation-date">
+<span>Select Date</span>
+<span class="text-[11px] text-secondary font-normal">Available Every Day</span>
+</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low p-3 rounded-lg text-on-surface font-body-sm focus:outline-none focus:bg-surface-container transition-all" id="reservation-date" type="date" value="2025-03-15"/>
+</div>
+</div>
+<!-- Slot Picker (Full Day vs Morning vs Sunset) -->
+<div class="space-y-1.5" id="slot-container">
+<label class="font-label-sm text-on-surface font-semibold" for="reservation-slot">Select Time Slot</label>
+<select class="w-full bg-surface-container-low p-3 rounded-lg text-on-surface font-body-sm focus:outline-none focus:bg-surface-container transition-all" id="reservation-slot" onchange="updateCalculations()">
+<option value="fullday">Full Day Pass (09:30 AM – 05:30 PM)</option>
+<option value="sunset">Sunset Pass &amp; BBQ (03:00 PM – 09:30 PM)</option>
+<option value="morning">Morning Pool &amp; Lunch (08:30 AM – 02:00 PM)</option>
+</select>
+</div>
+<!-- Guest Steppers -->
+<div class="grid grid-cols-2 gap-3">
+<!-- Adults -->
+<div class="bg-surface-container-low p-3 rounded-xl flex flex-col justify-between">
+<span class="font-label-sm font-semibold text-on-surface">Adults (12+ yrs)</span>
+<div class="flex items-center justify-between mt-2">
+<button class="w-7 h-7 rounded-full bg-surface-container-lowest text-primary font-bold shadow hover:bg-surface-container flex items-center justify-center" onclick="adjustGuest('adults', -1)" type="button">-</button>
+<span class="font-headline-sm font-bold text-primary" id="adult-count">2</span>
+<button class="w-7 h-7 rounded-full bg-surface-container-lowest text-primary font-bold shadow hover:bg-surface-container flex items-center justify-center" onclick="adjustGuest('adults', 1)" type="button">+</button>
+</div>
+</div>
+<!-- Children -->
+<div class="bg-surface-container-low p-3 rounded-xl flex flex-col justify-between">
+<span class="font-label-sm font-semibold text-on-surface">Children (5-12 yrs)</span>
+<div class="flex items-center justify-between mt-2">
+<button class="w-7 h-7 rounded-full bg-surface-container-lowest text-primary font-bold shadow hover:bg-surface-container flex items-center justify-center" onclick="adjustGuest('children', -1)" type="button">-</button>
+<span class="font-headline-sm font-bold text-primary" id="child-count">0</span>
+<button class="w-7 h-7 rounded-full bg-surface-container-lowest text-primary font-bold shadow hover:bg-surface-container flex items-center justify-center" onclick="adjustGuest('children', 1)" type="button">+</button>
+</div>
+</div>
+</div>
+<!-- Optional Add-ons Checkboxes -->
+<div class="space-y-2 pt-2">
+<span class="font-label-sm font-bold text-on-surface block">Enhance Your Day (Optional Add-ons)</span>
+<label class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors text-sm">
+<div class="flex items-center gap-2">
+<input class="rounded text-primary focus:ring-0" id="addon-jetski" onchange="updateCalculations()" type="checkbox"/>
+<span class="text-on-surface font-body-sm">Bentota Jet Ski 15-Min Safari</span>
+</div>
+<span class="font-code-timer text-xs text-primary font-semibold">+LKR 4,500</span>
+</label>
+<label class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors text-sm">
+<div class="flex items-center gap-2">
+<input class="rounded text-primary focus:ring-0" id="addon-transfer" onchange="updateCalculations()" type="checkbox"/>
+<span class="text-on-surface font-body-sm">Colombo / BIA AC Car Transfer</span>
+</div>
+<span class="font-code-timer text-xs text-primary font-semibold">+LKR 8,000</span>
+</label>
+<label class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors text-sm">
+<div class="flex items-center gap-2">
+<input checked="" class="rounded text-primary focus:ring-0" id="addon-byob" onchange="updateCalculations()" type="checkbox"/>
+<span class="text-on-surface font-body-sm">Free BYOB Corkage Pass</span>
+</div>
+<span class="font-code-timer text-xs text-secondary font-bold">FREE</span>
+</label>
+</div>
+<!-- Live Transparent Breakdown -->
+<div class="p-4 rounded-xl bg-surface-container-low space-y-2 font-body-sm text-sm">
+<div class="flex justify-between text-on-surface-variant">
+<span id="breakdown-label">Base Rate (2 Adults)</span>
+<span class="font-code-timer" id="breakdown-base">LKR 15,000</span>
+</div>
+<div class="hidden flex justify-between text-on-surface-variant" id="breakdown-addons-row">
+<span>Selected Add-ons</span>
+<span class="font-code-timer" id="breakdown-addons">LKR 0</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Service Charge (10%)</span>
+<span class="font-code-timer" id="breakdown-service">LKR 1,500</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Tourism Development Levy (TDL 1%)</span>
+<span class="font-code-timer" id="breakdown-tdl">LKR 150</span>
+</div>
+<div class="pt-2 flex justify-between font-bold text-base text-primary">
+<span>Total Amount</span>
+<span class="font-code-timer font-bold" id="breakdown-total">LKR 16,650</span>
+</div>
+<p class="text-[11px] text-on-surface-variant pt-1">
+                Zero hidden booking fees. Includes all government resort levies.
+              </p>
+</div>
+<!-- Flexible Payment Choice -->
+<div class="p-3 bg-secondary/5 rounded-xl space-y-2">
+<span class="font-label-sm font-bold text-primary block">Payment Method Choice:</span>
+<div class="space-y-1.5 text-xs text-on-surface font-label-sm">
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="text-primary focus:ring-0" name="payment_choice" type="radio" value="deposit"/>
+<span>Pay <strong>20% Online Deposit (LKR 3,330)</strong>, remainder at property</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="text-primary focus:ring-0" name="payment_choice" type="radio" value="full"/>
+<span>Pay <strong>100% Full Amount</strong> now (Get instant Express Pass)</span>
+</label>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="space-y-2.5 pt-2">
+<button class="w-full py-3.5 px-4 bg-primary text-on-primary rounded-xl font-label-md font-bold tracking-wide hover:bg-primary-container hover:scale-[1.01] transition-all shadow-lg flex items-center justify-center gap-2" onclick="handleReservation()">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+                Reserve Now (Instant Confirmation)
+              </button>
+<div class="flex items-center justify-center gap-1.5 font-code-timer text-[11px] text-tertiary font-semibold">
+<span class="material-symbols-outlined text-[14px]">lock_clock</span>
+<span>12-minute temporary inventory hold enabled</span>
+</div>
+<!-- Direct WhatsApp Concierge Button -->
+<a class="w-full py-2.5 px-4 bg-surface-container-high hover:bg-surface-container text-on-surface rounded-xl font-label-sm font-semibold transition-all flex items-center justify-center gap-2" href="https://wa.me/94771234567?text=Hello%20The%20Palms%20Bentota,%20I%20am%20inquiry%20from%20DAYOUTS.LK%20regarding%20Day%20Pass%20availability" target="_blank">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary inline-block"></span>
+                Chat on WhatsApp with Property Host
+              </a>
+</div>
+<!-- Trust Badges Under Widget -->
+<div class="pt-2 grid grid-cols-2 gap-2 text-[11px] text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">verified</span>
+<span>Direct Resort Lock</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">lock</span>
+<span>Escrow Secured</span>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div>
+<!-- Reservation Confirmation Modal (Pure Client JS Driven) -->
+<div class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4" id="booking-modal">
+<div class="bg-surface-container-lowest max-w-md w-full rounded-2xl p-6 shadow-2xl space-y-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto">
+<span class="material-symbols-outlined text-3xl">done_all</span>
+</div>
+<div class="text-center space-y-1">
+<h3 class="font-headline-sm font-bold text-primary">Slot Held Successfully!</h3>
+<p class="font-body-sm text-on-surface-variant">Your day escape slot at The Palms Bentota is temporarily reserved for 12 minutes.</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl space-y-2 font-code-timer text-xs">
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Booking Ref:</span>
+<span class="font-bold text-on-surface">DAY-BTT-8842</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Guests:</span>
+<span class="font-bold text-on-surface" id="modal-guests">2 Adults</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Total Payable:</span>
+<span class="font-bold text-primary" id="modal-total">LKR 16,650</span>
+</div>
+</div>
+<div class="space-y-2">
+<button class="w-full py-3 bg-primary text-on-primary font-label-md font-bold rounded-lg shadow" onclick="closeModal()">
+          Proceed to Secure Payment Gateway
+        </button>
+<button class="w-full py-2 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm rounded-lg" onclick="closeModal()">
+          Modify Details
+        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Client-side Interactive Logic -->
+<script>
+  let state = {
+    mode: 'day', // 'day' or 'stay'
+    currency: 'LKR',
+    rateUSD: 305, // 1 USD = 305 LKR
+    adults: 2,
+    children: 0,
+    basePricePerAdult: 7500,
+    childPriceRatio: 3800,
+    activePackageTitle: 'All-Inclusive Tropical Day Out Pass'
+  };
+
+  function switchPackageTab(target) {
+    const dayBtn = document.getElementById('tab-dayout');
+    const stayBtn = document.getElementById('tab-overnight');
+    const dayContent = document.getElementById('content-dayout');
+    const stayContent = document.getElementById('content-overnight');
+
+    if (target === 'dayout') {
+      dayBtn.className = "px-4 py-2 rounded-lg font-label-md text-label-md font-semibold transition-all bg-primary text-on-primary shadow-sm flex items-center gap-2";
+      stayBtn.className = "px-4 py-2 rounded-lg font-label-md text-label-md font-semibold transition-all text-on-surface-variant hover:text-on-surface flex items-center gap-2";
+      dayContent.classList.remove('hidden');
+      stayContent.classList.add('hidden');
+      setWidgetMode('day');
+    } else {
+      stayBtn.className = "px-4 py-2 rounded-lg font-label-md text-label-md font-semibold transition-all bg-primary text-on-primary shadow-sm flex items-center gap-2";
+      dayBtn.className = "px-4 py-2 rounded-lg font-label-md text-label-md font-semibold transition-all text-on-surface-variant hover:text-on-surface flex items-center gap-2";
+      stayContent.classList.remove('hidden');
+      dayContent.classList.add('hidden');
+      setWidgetMode('stay');
+    }
+  }
+
+  function setWidgetMode(mode) {
+    state.mode = mode;
+    const btnDay = document.getElementById('widget-btn-day');
+    const btnStay = document.getElementById('widget-btn-stay');
+    const slotContainer = document.getElementById('slot-container');
+
+    if (mode === 'day') {
+      btnDay.className = "py-2 rounded-lg bg-surface-container-lowest text-primary shadow-sm";
+      btnStay.className = "py-2 rounded-lg text-on-surface-variant hover:text-on-surface";
+      slotContainer.classList.remove('hidden');
+      state.basePricePerAdult = 7500;
+      state.activePackageTitle = 'All-Inclusive Tropical Day Out Pass';
+    } else {
+      btnStay.className = "py-2 rounded-lg bg-surface-container-lowest text-primary shadow-sm";
+      btnDay.className = "py-2 rounded-lg text-on-surface-variant hover:text-on-surface";
+      slotContainer.classList.add('hidden');
+      state.basePricePerAdult = 42000;
+      state.activePackageTitle = 'Ocean Suite Cabana with Plunge Pool';
+    }
+    updateCalculations();
+  }
+
+  function selectPackage(pkgId, price, title) {
+    state.basePricePerAdult = price;
+    state.activePackageTitle = title;
+    
+    // Auto scroll smoothly to booking widget on mobile
+    if (window.innerWidth < 1024) {
+      document.getElementById('booking-panel').scrollIntoView({ behavior: 'smooth' });
+    }
+    updateCalculations();
+  }
+
+  function adjustGuest(type, delta) {
+    if (type === 'adults') {
+      state.adults = Math.max(1, state.adults + delta);
+      document.getElementById('adult-count').innerText = state.adults;
+    } else if (type === 'children') {
+      state.children = Math.max(0, state.children + delta);
+      document.getElementById('child-count').innerText = state.children;
+    }
+    updateCalculations();
+  }
+
+  function setCurrency(curr) {
+    state.currency = curr;
+    const btnLkr = document.getElementById('curr-lkr');
+    const btnUsd = document.getElementById('curr-usd');
+
+    if (curr === 'LKR') {
+      btnLkr.className = "px-2 py-0.5 rounded font-bold bg-primary text-on-primary shadow-sm";
+      btnUsd.className = "px-2 py-0.5 rounded text-on-surface-variant hover:text-on-surface";
+    } else {
+      btnUsd.className = "px-2 py-0.5 rounded font-bold bg-primary text-on-primary shadow-sm";
+      btnLkr.className = "px-2 py-0.5 rounded text-on-surface-variant hover:text-on-surface";
+    }
+    updateCalculations();
+  }
+
+  function formatMoney(amountLKR) {
+    if (state.currency === 'USD') {
+      const usdVal = (amountLKR / state.rateUSD).toFixed(2);
+      return `$${usdVal} USD`;
+    }
+    return `LKR ${Number(amountLKR).toLocaleString()}`;
+  }
+
+  function updateCalculations() {
+    let base = 0;
+    if (state.mode === 'day') {
+      base = (state.adults * state.basePricePerAdult) + (state.children * state.childPriceRatio);
+      document.getElementById('display-price-sub').innerText = `/ ${state.adults} Adults${state.children > 0 ? ` + ${state.children} Kids` : ''} (Day Pass)`;
+      document.getElementById('breakdown-label').innerText = `Base Passes (${state.adults}A, ${state.children}C)`;
+    } else {
+      base = state.basePricePerAdult; // Suite flat rate per room
+      document.getElementById('display-price-sub').innerText = `/ night (${state.adults} Guests)`;
+      document.getElementById('breakdown-label').innerText = `Room Base Rate (${state.activePackageTitle})`;
+    }
+
+    let addOns = 0;
+    if (document.getElementById('addon-jetski')?.checked) addOns += 4500;
+    if (document.getElementById('addon-transfer')?.checked) addOns += 8000;
+
+    const addonsRow = document.getElementById('breakdown-addons-row');
+    if (addOns > 0) {
+      addonsRow.classList.remove('hidden');
+      document.getElementById('breakdown-addons').innerText = formatMoney(addOns);
+    } else {
+      addonsRow.classList.add('hidden');
+    }
+
+    const subTotal = base + addOns;
+    const serviceCharge = Math.round(subTotal * 0.10);
+    const tdl = Math.round(subTotal * 0.01);
+    const grandTotal = subTotal + serviceCharge + tdl;
+
+    // Update DOM
+    document.getElementById('display-price-main').innerText = formatMoney(base);
+    const usdEstimate = (grandTotal / state.rateUSD).toFixed(2);
+    document.getElementById('display-usd-sub').innerText = `≈ $${usdEstimate} USD total incl. taxes`;
+
+    document.getElementById('breakdown-base').innerText = formatMoney(base);
+    document.getElementById('breakdown-service').innerText = formatMoney(serviceCharge);
+    document.getElementById('breakdown-tdl').innerText = formatMoney(tdl);
+    document.getElementById('breakdown-total').innerText = formatMoney(grandTotal);
+  }
+
+  function handleReservation() {
+    const totalText = document.getElementById('breakdown-total').innerText;
+    document.getElementById('modal-guests').innerText = `${state.adults} Adults${state.children > 0 ? `, ${state.children} Children` : ''}`;
+    document.getElementById('modal-total').innerText = totalText;
+    document.getElementById('booking-modal').classList.remove('hidden');
+    document.getElementById('booking-modal').classList.add('flex');
+  }
+
+  function closeModal() {
+    document.getElementById('booking-modal').classList.add('hidden');
+    document.getElementById('booking-modal').classList.remove('flex');
+  }
+
+  function toggleSave() {
+    const icon = document.getElementById('wishlist-icon');
+    const text = document.getElementById('wishlist-text');
+    if (icon.innerText === 'favorite_border') {
+      icon.innerText = 'favorite';
+      icon.classList.add('text-error');
+      text.innerText = 'Saved';
+    } else {
+      icon.innerText = 'favorite_border';
+      icon.classList.remove('text-error');
+      text.innerText = 'Save';
+    }
+  }
+
+  // Ticking Countdown Simulation
+  let remainingSeconds = 718;
+  setInterval(() => {
+    if (remainingSeconds > 0) {
+      remainingSeconds--;
+      const mins = String(Math.floor(remainingSeconds / 60)).padStart(2, '0');
+      const secs = String(remainingSeconds % 60).padStart(2, '0');
+      const timerEl = document.getElementById('global-timer');
+      if (timerEl) timerEl.innerText = `${mins}:${secs}`;
+    }
+  }, 1000);
+
+  // Initial Calculation Run
+  updateCalculations();
+</script></main><footer class="w-full bg-surface-container-low text-on-surface pt-16 pb-12 mt-space-xl"><div class="w-full max-w-[1320px] mx-auto px-gutter-mobile lg:px-gutter"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl pb-12"><div class="lg:col-span-2 space-y-space-md"><div class="flex items-center gap-space-sm"><img alt="DAYOUTS.LK Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Xhc_PsLmC30S_GzdokMLdS4S4uhfCLBKFDSsEPzp8PdzLVXEm9x_DF6godanXEkI22vtRm-BqU4mpvdeZbdR-8dLktmcKkrIzi-hG7Bwk6sD-iN8hXs5CX5ySlrWSLmBk65kXhk663ujyufHDHEd12paJmzQV33Izn6cAZhWGIt5sTudJ1f3TCdzGFhQs6egoWFbb7C-U1udmSube-DP4PRlj8ECgP-ELGyVGQqxt1Jfj3CphiIV3nNA"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold text-primary">DAYOUTS<span class="text-secondary">.LK</span></span><span class="font-label-sm text-label-sm text-on-surface-variant">Verified Escapes Sri Lanka</span></div></div><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Discover, book, and verify luxury day villas, coastal retreats, pool passes, and tea-plantation sanctuaries across the island.</p><div class="inline-flex items-center gap-3 bg-surface-container px-3.5 py-2 rounded-lg"><span class="material-symbols-outlined text-primary text-[24px]">verified_user</span><div class="flex flex-col"><span class="font-label-sm text-label-sm font-bold text-primary uppercase tracking-wide">SLTDA Registered Platform</span><span class="font-code-timer text-code-timer text-on-surface-variant text-[11px]">License No: SLTDA/SQA/APP/2024/0981</span></div></div><div class="flex items-center gap-3 pt-2"><div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[20px]">support_agent</span></div><div><p class="font-label-sm text-label-sm text-on-surface-variant">24/7 Island Concierge &amp; Emergency Support</p><p class="font-headline-sm text-headline-sm text-primary font-bold">+94 11 789 0000</p></div></div></div><div><h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-md">Quick Links</h4><ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" data-path="explore-stays" href="#">Verified Day Escapes</a></li><li><a class="hover:text-primary transition-colors" data-path="day-out-packages" href="#">All-Inclusive Pool Passes</a></li><li><a class="hover:text-primary transition-colors" data-path="deals-and-offers" href="#">Last-Minute Flash Deals</a></li><li><a class="hover:text-primary transition-colors" data-path="for-property-owners" href="#">Host Onboarding &amp; Terms</a></li><li><a class="hover:text-primary transition-colors" href="#">Sri Lanka Tourism Guidelines</a></li></ul></div><div><h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-md">Island Regions</h4><ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" href="#">Western Coast &amp; Colombo</a></li><li><a class="hover:text-primary transition-colors" href="#">Galle &amp; Deep South Reviera</a></li><li><a class="hover:text-primary transition-colors" href="#">Central Tea Country (Kandy, Nuwara Eliya)</a></li><li><a class="hover:text-primary transition-colors" href="#">Ella, Badulla &amp; Mountain Passes</a></li><li><a class="hover:text-primary transition-colors" href="#">East Coast (Arugam Bay, Trincomalee)</a></li></ul></div><div><h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-md">Secure Bookings</h4><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">Instant reservation locks with verified direct-to-resort validation.</p><div class="flex flex-wrap gap-2 text-on-surface-variant"><span class="px-2.5 py-1 bg-surface-container rounded font-label-sm text-label-sm font-semibold">Visa</span><span class="px-2.5 py-1 bg-surface-container rounded font-label-sm text-label-sm font-semibold">MasterCard</span><span class="px-2.5 py-1 bg-surface-container rounded font-label-sm text-label-sm font-semibold">LankaPay</span><span class="px-2.5 py-1 bg-surface-container rounded font-label-sm text-label-sm font-semibold">FriMi</span><span class="px-2.5 py-1 bg-surface-container rounded font-label-sm text-label-sm font-semibold">LankaQR</span></div><div class="mt-space-md p-3 bg-surface-container-high rounded-lg"><p class="font-label-sm text-label-sm font-semibold text-primary flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">lock</span>100% Escrow Refund Protection</p></div></div></div><div class="pt-8 pb-8 border-t border-surface-container-highest"><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md font-semibold text-on-surface">Complete 25 Districts Islandwide Coverage:</span><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Colombo • Gampaha • Kalutara • Kandy • Matale • Nuwara Eliya • Galle • Matara • Hambantota • Jaffna • Kilinochchi • Mannar • Vavuniya • Mullaitivu • Batticaloa • Ampara • Trincomalee • Kurunegala • Puttalam • Anuradhapura • Polonnaruwa • Badulla • Monaragala • Ratnapura • Kegalle</p></div></div><div class="pt-8 border-t border-surface-container-highest flex flex-col md:flex-row items-center justify-between gap-space-md"><p class="font-body-sm text-body-sm text-on-surface-variant">© 2025 DAYOUTS.LK Pvt Ltd. Certified by Sri Lanka Tourism Development Authority. All rights reserved.</p><div class="flex items-center gap-space-md font-label-sm text-label-sm text-on-surface-variant"><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a><a class="hover:text-primary transition-colors" href="#">Guest Booking Terms</a><a class="hover:text-primary transition-colors" href="#">Cancellation Safeguard</a><a class="hover:text-primary transition-colors" href="#">Emergency SOS Protocols</a></div></div></div></footer></body></html>

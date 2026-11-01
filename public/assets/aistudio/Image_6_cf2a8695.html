@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "primary-fixed-dim": "#98d3bd",
+          "error-container": "#ffdad6",
+          "on-tertiary": "#ffffff",
+          "primary-container": "#0d4d3d",
+          "inverse-on-surface": "#e7f3f4",
+          "on-tertiary-fixed": "#321200",
+          "secondary": "#006a66",
+          "error": "#ba1a1a",
+          "tertiary-fixed-dim": "#ffb68c",
+          "surface-bright": "#effcfd",
+          "surface-container-highest": "#d9e5e6",
+          "surface-container-lowest": "#ffffff",
+          "on-tertiary-container": "#ff9756",
+          "on-error-container": "#93000a",
+          "on-surface": "#121d1e",
+          "tertiary-fixed": "#ffdbc9",
+          "surface-container": "#e4f0f1",
+          "surface": "#effcfd",
+          "secondary-container": "#9cf1ec",
+          "secondary-fixed": "#9cf1ec",
+          "on-surface-variant": "#404945",
+          "background": "#effcfd",
+          "on-secondary-fixed": "#00201f",
+          "tertiary-container": "#713200",
+          "surface-dim": "#d0dcdd",
+          "primary-fixed": "#b3efd9",
+          "inverse-surface": "#273233",
+          "secondary-fixed-dim": "#80d5d0",
+          "tertiary": "#4f2100",
+          "primary": "#003528",
+          "surface-variant": "#d9e5e6",
+          "on-primary": "#ffffff",
+          "inverse-primary": "#98d3bd",
+          "surface-tint": "#2f6857",
+          "on-primary-fixed": "#002118",
+          "surface-container-high": "#deeaeb",
+          "on-secondary-container": "#02706d",
+          "on-primary-container": "#82bda8",
+          "on-secondary": "#ffffff",
+          "on-tertiary-fixed-variant": "#753400",
+          "outline-variant": "#bfc9c3",
+          "on-primary-fixed-variant": "#125040",
+          "surface-container-low": "#eaf6f7",
+          "on-error": "#ffffff",
+          "outline": "#707975",
+          "on-background": "#121d1e",
+          "on-secondary-fixed-variant": "#00504d"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "gutter": "1.5rem",
+          "margin-mobile": "1.25rem",
+          "space-xs": "0.25rem",
+          "space-lg": "1.5rem",
+          "gutter-mobile": "1rem",
+          "margin": "3rem",
+          "space-xl": "2.5rem",
+          "space-sm": "0.5rem",
+          "space-md": "1rem"
+        },
+        "fontFamily": {
+          "body-sm": ["Plus Jakarta Sans"],
+          "body-md": ["Plus Jakarta Sans"],
+          "body-lg": ["Plus Jakarta Sans"],
+          "currency-indicator": ["JetBrains Mono"],
+          "headline-lg": ["Epilogue"],
+          "label-md": ["Plus Jakarta Sans"],
+          "headline-xl": ["Epilogue"],
+          "code-timer": ["JetBrains Mono"],
+          "headline-xl-mobile": ["Epilogue"],
+          "headline-md": ["Epilogue"],
+          "label-sm": ["Plus Jakarta Sans"],
+          "headline-sm": ["Epilogue"],
+          "headline-lg-mobile": ["Epilogue"]
+        },
+        "fontSize": {
+          "body-sm": ["13px", {"lineHeight": "20px", "fontWeight": "400"}],
+          "body-md": ["15px", {"lineHeight": "24px", "fontWeight": "400"}],
+          "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+          "currency-indicator": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+          "headline-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+          "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+          "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "code-timer": ["13px", {"lineHeight": "16px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+          "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+          "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+          "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+          "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+          "headline-lg-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+        }
+      }
+    }
+  }</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col pt-5 pb-6 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="px-6 mb-8 flex items-center gap-3"><img alt="DAYOUTS.LK Brand Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Xhc_PsLmC30S_GzdokMLdS4S4uhfCLBKFDSsEPzp8PdzLVXEm9x_DF6godanXEkI22vtRm-BqU4mpvdeZbdR-8dLktmcKkrIzi-hG7Bwk6sD-iN8hXs5CX5ySlrWSLmBk65kXhk663ujyufHDHEd12paJmzQV33Izn6cAZhWGIt5sTudJ1f3TCdzGFhQs6egoWFbb7C-U1udmSube-DP4PRlj8ECgP-ELGyVGQqxt1Jfj3CphiIV3nNA"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold text-primary leading-tight">DAYOUTS<span class="text-secondary">.LK</span></span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Management Portal</span></div></div><nav class="flex-1 px-4 space-y-1.5 overflow-y-auto" data-active-classes="bg-primary-container text-on-primary font-bold"><div class="px-3 pb-2 text-[10px] uppercase tracking-wider font-bold text-on-surface-variant/80">Operations &amp; Hosting</div><a aria-current="page" class="flex items-center px-3.5 py-2.5 rounded-lg transition-all bg-primary-container text-on-primary font-bold" data-path="owner-portal" href="#"><span class="material-symbols-outlined mr-3 text-[20px]">dashboard</span>Property Dashboard</a><a class="flex items-center px-3.5 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="admin-console" href="#"><span class="material-symbols-outlined mr-3 text-[20px]">admin_panel_settings</span>Admin Console</a><a class="flex items-center px-3.5 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="my-bookings" href="#"><span class="material-symbols-outlined mr-3 text-[20px]">receipt_long</span>Booking Ledger</a><a class="flex items-center px-3.5 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="explore-stays" href="#"><span class="material-symbols-outlined mr-3 text-[20px]">travel_explore</span>Public Marketplace</a></nav><div class="px-4 pt-4 border-t border-surface-container-high"><div class="p-3 bg-surface-container rounded-lg flex items-center gap-3"><img alt="Profile" class="w-9 h-9 rounded-full object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCghVdjRr4uY8YbamvSO8fl-ybZhrC5WmECVq4IEyQqJo15HGLZRYEIGa4t3p3xq3fjNW6rKAMMSvgq9B9tfrPsLRgw-KhOpHSqcvUrzhfgOVN1wr11DrOwvEIiJPfComay0XmGtQocV2EciqQS5OiNg1rxhpEkGlgfibjWDCFxN24tlSD395QG-HN36SQfUXX_rFb4xhUYQad-wYSczyEeW7okEek6ImRNZeDlaA7oz7bdzyP3DTSv"/><div class="overflow-hidden flex-1"><p class="font-label-md text-label-md text-on-surface font-semibold truncate">Nalin Jayawardena</p><p class="font-label-sm text-label-sm text-on-surface-variant truncate">Verified Partner</p></div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-20 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter"><div class="flex items-center gap-space-sm"><div class="inline-flex items-center gap-2 bg-surface-container px-3 py-1.5 rounded-lg"><span class="w-2.5 h-2.5 rounded-full bg-secondary"></span><span class="font-label-sm text-label-sm font-semibold text-primary">SLTDA Verification Active</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center bg-surface-container-low rounded-lg px-2.5 py-1.5 gap-2"><span class="font-currency-indicator text-currency-indicator font-semibold text-primary">LKR / USD Real-Time</span><span class="font-code-timer text-code-timer text-on-surface-variant text-[11px]">305.20</span></div><a class="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-on-surface font-label-md text-label-md" data-path="explore-stays" href="#"><span class="material-symbols-outlined text-[18px]">open_in_new</span>View Escapes</a><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCghVdjRr4uY8YbamvSO8fl-ybZhrC5WmECVq4IEyQqJo15HGLZRYEIGa4t3p3xq3fjNW6rKAMMSvgq9B9tfrPsLRgw-KhOpHSqcvUrzhfgOVN1wr11DrOwvEIiJPfComay0XmGtQocV2EciqQS5OiNg1rxhpEkGlgfibjWDCFxN24tlSD395QG-HN36SQfUXX_rFb4xhUYQad-wYSczyEeW7okEek6ImRNZeDlaA7oz7bdzyP3DTSv"/></div></header><main class="w-full pt-20 px-gutter py-8 bg-background"><div class="flex flex-col w-full">
+<!-- Top Property Bar: Identity, Compliance & Multi-Currency Switcher -->
+<section class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-md mb-8">
+<div class="flex items-center gap-4">
+<div class="relative w-14 h-14 rounded-xl overflow-hidden shadow-sm flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Modern Geoffrey Bawa style luxury beachfront villa pavilion in Bentota Sri Lanka with lush palm trees, shallow infinity pool, polished teak timber and warm ambient tropical dusk lighting, editorial architectural photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmjnc6I0-_I7zAIjnxrHAW3Na0RpjZliGv6awmULgMZKBlGUm1mSv6-nqrjIh3ANNbywD750kLSuVPtz93RGEJTZJCoGkzUvznGvZAByv9if951BZPqXg1kKMre1wUqoHSsRn2UEEOrX2-cMtcR2zQ09CvwQoTOObcPH08kTo0JfG2V-GwV91fogRCDaxHE2Ebc8Btv-9k0Rsb7BXRJISLhnQgxSNGIXtbOEYVAtEJBdxP4hKskooD"/>
+</div>
+<div>
+<div class="flex items-center gap-2.5">
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Ceylon Palms Luxury Retreat</h1>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+            SLTDA Level 1
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-2 mt-0.5">
+<span>Bentota Golden Coastal Strip, Southern Province</span>
+<span class="text-outline-variant">•</span>
+<span class="font-currency-indicator text-currency-indicator text-secondary font-semibold">ID: CPN-7740-BTT</span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface-variant font-medium">Host: Anura Senanayake</span>
+</p>
+</div>
+</div>
+<!-- Quick Action Bar & Live Rate Reference -->
+<div class="flex flex-wrap items-center gap-3 w-full lg:w-auto">
+<div class="bg-surface-container-low px-3.5 py-2 rounded-lg flex items-center gap-3">
+<div class="flex flex-col text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Live Peg Parity</span>
+<span class="font-currency-indicator text-currency-indicator text-primary font-bold">1 USD = 300.00 LKR</span>
+</div>
+<div class="w-2 h-2 rounded-full bg-secondary animate-pulse"></div>
+</div>
+<div class="flex items-center bg-surface-container-low p-1 rounded-lg">
+<button class="px-3 py-1.5 rounded bg-surface-container-lowest font-currency-indicator text-currency-indicator font-bold text-primary shadow-sm" id="viewLkrBtn">LKR</button>
+<button class="px-3 py-1.5 rounded font-currency-indicator text-currency-indicator font-medium text-on-surface-variant hover:text-on-surface" id="viewUsdBtn">USD</button>
+</div>
+<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-tertiary-container text-on-tertiary font-label-md text-label-md font-semibold hover:opacity-95 shadow-sm transition-all" id="triggerQuickBlock">
+<span class="material-symbols-outlined text-[18px]">block</span>
+<span>Quick Block Dates</span>
+</button>
+</div>
+</section>
+<!-- 1. Top KPI Summary Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md mb-8">
+<!-- KPI 1: Check-ins -->
+<div class="relative overflow-hidden bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Today's Total Check-ins</span>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="font-headline-lg text-headline-lg font-bold text-primary">14</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Guests Expected</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">luggage</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm bg-surface-container-low px-3 py-2 rounded-lg">
+<span class="flex items-center gap-1.5 font-medium">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> 8 Day Out Passes
+        </span>
+<span class="flex items-center gap-1.5 font-medium">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span> 6 Overnight Stays
+        </span>
+</div>
+</div>
+<!-- KPI 2: Gross Booking Volume -->
+<div class="relative overflow-hidden bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Nov Gross Booking Volume</span>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="font-headline-md text-headline-md font-bold text-primary font-currency-indicator">LKR 1,845,000</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary font-medium mt-0.5 block">≈ $6,150.00 USD</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-primary-fixed text-on-primary-fixed-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">trending_up</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<span class="text-secondary font-semibold font-label-sm text-label-sm flex items-center">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span> +18.4%
+        </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">vs. previous 30-day period</span>
+</div>
+</div>
+<!-- KPI 3: Commission & Net Earnings -->
+<div class="relative overflow-hidden bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Platform Commission (12%)</span>
+<div class="mt-2">
+<span class="font-headline-md text-headline-md font-bold text-on-surface-variant font-currency-indicator">LKR 221,400</span>
+</div>
+<div class="mt-1 flex items-center gap-1 text-primary font-semibold font-label-md text-label-md">
+<span>Net Available:</span>
+<span class="font-currency-indicator">LKR 1,623,600</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">receipt</span>
+</div>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 mt-4 overflow-hidden">
+<div class="bg-primary h-1.5 rounded-full" style="width: 88%;"></div>
+</div>
+</div>
+<!-- KPI 4: Next Payout Batch -->
+<div class="relative overflow-hidden bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Next Direct Payout Batch</span>
+<p class="font-headline-sm text-headline-sm font-bold text-primary mt-2">Friday, Nov 22</p>
+<span class="font-code-timer text-code-timer text-on-surface-variant block mt-0.5">Bank of Ceylon • Acc *4892</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">account_balance</span>
+</div>
+</div>
+<div class="mt-4 pt-2">
+<button class="w-full py-2 px-3 rounded-lg bg-secondary text-on-secondary font-label-md text-label-md font-semibold hover:bg-secondary/90 transition-colors flex items-center justify-center gap-1.5 shadow-sm" id="payoutModalBtn">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+<span>Request Early Payout</span>
+</button>
+</div>
+</div>
+</section>
+<!-- 2-Column Split: Booking Request Queue (Left) & Real-time Capacity / Localization (Right) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg mb-8">
+<!-- Left Column: Real-Time Booking Request & Approval Queue (7 cols) -->
+<section class="lg:col-span-7 flex flex-col space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-primary">Live Booking &amp; Access Ledger</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Real-time arrival manifest and pending host confirmations</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-primary font-bold">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Auto-Sync: 30s
+          </span>
+</div>
+</div>
+<!-- Ledger Card Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col divide-y-0">
+<!-- Queue Item 1: Awaiting Approval (Actionable) -->
+<div class="p-5 bg-surface-container-lowest hover:bg-surface-container-low/50 transition-colors" id="booking-DO-9841">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+<div class="flex items-center gap-3">
+<span class="w-9 h-9 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-headline-sm text-[14px] flex items-center justify-center font-bold">DP</span>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-label-md text-label-md font-bold text-on-surface">Dilshan Perera</h3>
+<span class="font-code-timer text-[11px] text-on-surface-variant">#DO-9841</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">4 Adults • Sunday Full Day Pass (All-Inclusive Lunch + Pool)</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-currency-indicator text-currency-indicator font-bold text-primary">LKR 30,000</span>
+<span class="font-code-timer text-code-timer text-on-surface-variant">≈ $100.00 USD</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-3 pt-3 bg-surface-container-low px-4 py-3 rounded-lg">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-tertiary-container text-on-tertiary font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px]">hourglass_top</span>
+                AWAITING OWNER APPROVAL
+              </span>
+<span class="font-code-timer text-[11px] text-tertiary font-semibold">Hold expires in 14m 20s</span>
+</div>
+<div class="flex items-center gap-2" id="actionGroup-9841">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-error font-label-md text-label-md font-semibold hover:bg-error-container/40 transition-colors" onclick="rejectBooking('DO-9841')">
+                Reject &amp; Release
+              </button>
+<button class="px-3.5 py-1.5 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-semibold hover:bg-primary transition-all flex items-center gap-1 shadow-sm" onclick="approveBooking('DO-9841')">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+                Approve (1-Click)
+              </button>
+</div>
+</div>
+</div>
+<!-- Queue Item 2: Confirmed - Pay at Property -->
+<div class="p-5 bg-surface-container-lowest hover:bg-surface-container-low/50 transition-colors">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
+<div class="flex items-center gap-3">
+<span class="w-9 h-9 rounded-full bg-secondary-fixed text-on-secondary-fixed font-headline-sm text-[14px] flex items-center justify-center font-bold">SJ</span>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-label-md text-label-md font-bold text-on-surface">Sarah Jenkins</h3>
+<span class="font-label-sm text-[10px] uppercase font-bold text-secondary bg-secondary-fixed/40 px-1.5 py-0.5 rounded">United Kingdom</span>
+<span class="font-code-timer text-[11px] text-on-surface-variant">#DO-9838</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Deluxe Ocean Chalet #1 • 2 Nights (Nov 23 - Nov 25)</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-currency-indicator text-currency-indicator font-bold text-primary">LKR 84,000</span>
+<span class="font-code-timer text-code-timer text-on-surface-variant">≈ $280.00 USD</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm pt-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px] text-secondary">credit_card</span>
+              CONFIRMED — PAY AT PROPERTY
+            </span>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+<span class="font-label-sm text-label-sm">Passport Pre-checked via SLTDA</span>
+</div>
+</div>
+</div>
+<!-- Queue Item 3: Checked In -->
+<div class="p-5 bg-surface-container-lowest hover:bg-surface-container-low/50 transition-colors">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
+<div class="flex items-center gap-3">
+<span class="w-9 h-9 rounded-full bg-primary-fixed-dim text-on-primary-fixed font-headline-sm text-[14px] flex items-center justify-center font-bold">KM</span>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-label-md text-label-md font-bold text-on-surface">Kusal Mendis</h3>
+<span class="font-code-timer text-[11px] text-on-surface-variant">#DO-9829</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Family Day Out Package (Cabana 4 + Private Lagoon Access)</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-currency-indicator text-currency-indicator font-bold text-primary">LKR 45,000</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Settled via Dialog Genie</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm pt-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px]">done_all</span>
+              CHECKED-IN • ACTIVE ON PREMISES
+            </span>
+<span class="font-code-timer text-[12px] text-on-surface-variant">Arrival scanned at 09:18 AM</span>
+</div>
+</div>
+</div>
+<!-- Live Booking Stream Micro-Ticker -->
+<div class="bg-surface-container-low p-4 rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-[20px]">sync_alt</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Next day-pass inventory window locks automatically at <strong class="text-on-surface font-semibold">18:00 SLST</strong> today.
+          </p>
+</div>
+<a class="font-label-md text-label-md font-semibold text-secondary hover:underline" href="#">Download Day Pass Manifest</a>
+</div>
+</section>
+<!-- Right Column: Unit & Package Inventory Controller & Compliance (5 cols) -->
+<section class="lg:col-span-5 flex flex-col space-y-4">
+<div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-primary">Live Inventory Allocator</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Physical chalets and experience capacity throttles</p>
+</div>
+<!-- Package Controller 1: All-Inclusive Day Pass -->
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm">
+<div class="flex items-start justify-between mb-3">
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-[16px] font-bold text-on-surface">All-Inclusive Day Out Pass</h3>
+<span class="font-label-sm text-[11px] font-bold px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed-variant">Peak Season</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Pool, lunch buffet, high-tea, beach locker access</p>
+</div>
+<!-- Instant Booking Toggle -->
+<div class="flex flex-col items-end">
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-1 font-semibold">Instant Book</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" id="instantBookToggle" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+</div>
+<div class="space-y-2 mt-4 bg-surface-container-low p-3.5 rounded-lg">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface-variant">Today's Daily Capacity:</span>
+<span class="font-bold text-primary font-currency-indicator">18 / 25 Booked (7 Available)</span>
+</div>
+<!-- Capacity Gauge Bar -->
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden flex">
+<div class="bg-secondary h-2" style="width: 72%;"></div>
+<div class="bg-primary-fixed-dim h-2" style="width: 28%;"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] font-code-timer text-on-surface-variant pt-1">
+<span>Utilization: 72%</span>
+<span class="text-secondary font-semibold">Dynamic Rate: LKR 7,500 / Adult</span>
+</div>
+</div>
+</div>
+<!-- Unit Controller 2: Deluxe Ocean Chalets -->
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm">
+<div class="flex items-center justify-between mb-3">
+<div>
+<h3 class="font-headline-sm text-[16px] font-bold text-on-surface">Deluxe Ocean Chalets</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">4 Physical Keys on Property</p>
+</div>
+<span class="font-currency-indicator text-currency-indicator font-bold text-primary">LKR 42,000 / Night</span>
+</div>
+<!-- 4 Unit Micro-Cards -->
+<div class="grid grid-cols-2 gap-2.5 mt-3">
+<!-- Unit 1 -->
+<div class="bg-surface-container-low p-3 rounded-lg flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-primary">Chalet #1</span>
+<span class="w-2 h-2 rounded-full bg-primary-container" title="Occupied"></span>
+</div>
+<div class="mt-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-primary-container text-on-primary font-semibold block text-center">Occupied (S. Jenkins)</span>
+</div>
+</div>
+<!-- Unit 2 -->
+<div class="bg-surface-container-low p-3 rounded-lg flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-primary">Chalet #2</span>
+<span class="w-2 h-2 rounded-full bg-secondary" title="Available"></span>
+</div>
+<div class="mt-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-semibold block text-center">Available</span>
+</div>
+</div>
+<!-- Unit 3 -->
+<div class="bg-surface-container-low p-3 rounded-lg flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-error">Chalet #3</span>
+<span class="w-2 h-2 rounded-full bg-error" title="Blocked"></span>
+</div>
+<div class="mt-2">
+<span class="font-label-sm text-[11px] px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-semibold block text-center truncate">Blocked: AC Repair</span>
+</div>
+</div>
+<!-- Unit 4 -->
+<div class="bg-surface-container-low p-3 rounded-lg flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-primary">Chalet #4</span>
+<span class="w-2 h-2 rounded-full bg-primary-container" title="Occupied"></span>
+</div>
+<div class="mt-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-primary-container text-on-primary font-semibold block text-center">Occupied (R. Fonseka)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Multilingual Content Status & Compliance Pill -->
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm">
+<h3 class="font-label-md text-label-md font-bold text-primary mb-3 uppercase tracking-wide">Listing Translations &amp; SLTDA Verification</h3>
+<div class="space-y-3">
+<!-- English -->
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-2">
+<span class="font-code-timer text-xs font-bold text-secondary">EN</span> English Master Copy
+            </span>
+<span class="font-label-sm text-label-sm font-semibold text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check</span> 100% Complete
+            </span>
+</div>
+<!-- Sinhala -->
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-2">
+<span class="font-code-timer text-xs font-bold text-secondary">සිං</span> සිංහල පරිවර්තනය (Sinhala)
+            </span>
+<span class="font-label-sm text-label-sm font-semibold text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check</span> 100% Translated
+            </span>
+</div>
+<!-- Tamil -->
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-2">
+<span class="font-code-timer text-xs font-bold text-tertiary">தம</span> தமிழ் மொழிபெயர்ப்பு (Tamil)
+            </span>
+<span class="font-label-sm text-label-sm font-semibold text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">pending</span> Pending Review
+            </span>
+</div>
+</div>
+<div class="mt-4 pt-4 bg-surface-container-low p-3 rounded-lg flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+<div class="text-left">
+<p class="font-label-sm text-label-sm font-bold text-primary">SLTDA Level 1 Certified</p>
+<p class="font-body-sm text-[12px] text-on-surface-variant">Registration: SLTDA/SQA/RES/2024/098 • Valid until Dec 2025</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- 3. Interactive Availability Calendar & Inventory Block Manager -->
+<section class="bg-surface-container-lowest p-6 rounded-xl shadow-sm mb-10">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+<div>
+<div class="flex items-center gap-3">
+<h2 class="font-headline-sm text-headline-sm font-bold text-primary">Live Inventory &amp; Maintenance Calendar</h2>
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-medium">November 2024</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Tap any single date to toggle emergency maintenance blocks or adjust single-day pricing thresholds.</p>
+</div>
+<!-- Calendar Legend -->
+<div class="flex flex-wrap items-center gap-4 text-label-sm font-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="text-on-surface-variant">Available Slots (&gt;5)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-full bg-tertiary-fixed-dim"></span>
+<span class="text-on-surface-variant">Low Inventory (≤2 left)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<span class="text-on-surface-variant">Fully Booked</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-full bg-error"></span>
+<span class="text-on-surface-variant">Owner Maintenance Block</span>
+</div>
+</div>
+</div>
+<!-- Calendar Table Grid -->
+<div class="overflow-x-auto">
+<div class="min-w-[700px]">
+<!-- Days Header -->
+<div class="grid grid-cols-7 gap-2 mb-2 text-center font-label-md text-label-md font-bold text-on-surface-variant">
+<div class="py-2">SUN</div>
+<div class="py-2">MON</div>
+<div class="py-2">TUE</div>
+<div class="py-2">WED</div>
+<div class="py-2">THU</div>
+<div class="py-2">FRI</div>
+<div class="py-2">SAT</div>
+</div>
+<!-- Date Cells (November 2024 sample representation) -->
+<div class="grid grid-cols-7 gap-2">
+<!-- Empty offset for Nov 1 being Friday -->
+<div class="h-24 p-2 rounded-lg bg-surface-container-low/40 opacity-40">
+<span class="font-code-timer text-xs text-outline">Oct 27</span>
+</div>
+<div class="h-24 p-2 rounded-lg bg-surface-container-low/40 opacity-40">
+<span class="font-code-timer text-xs text-outline">Oct 28</span>
+</div>
+<div class="h-24 p-2 rounded-lg bg-surface-container-low/40 opacity-40">
+<span class="font-code-timer text-xs text-outline">Oct 29</span>
+</div>
+<div class="h-24 p-2 rounded-lg bg-surface-container-low/40 opacity-40">
+<span class="font-code-timer text-xs text-outline">Oct 30</span>
+</div>
+<div class="h-24 p-2 rounded-lg bg-surface-container-low/40 opacity-40">
+<span class="font-code-timer text-xs text-outline">Oct 31</span>
+</div>
+<!-- Nov 1 (Past) -->
+<div class="h-24 p-2.5 rounded-lg bg-surface-container-low flex flex-col justify-between">
+<span class="font-code-timer text-xs font-semibold text-on-surface-variant">1</span>
+<div class="text-[10px] font-label-sm text-on-surface-variant">Passed (Completed)</div>
+</div>
+<!-- Nov 2 (Past) -->
+<div class="h-24 p-2.5 rounded-lg bg-surface-container-low flex flex-col justify-between">
+<span class="font-code-timer text-xs font-semibold text-on-surface-variant">2</span>
+<div class="text-[10px] font-label-sm text-on-surface-variant">Passed (Completed)</div>
+</div>
+<!-- Nov 3 - 9 -->
+<div class="h-24 p-2.5 rounded-lg bg-surface-container-low flex flex-col justify-between">
+<span class="font-code-timer text-xs font-semibold text-on-surface-variant">3</span>
+<div class="text-[10px] font-label-sm text-on-surface-variant">Completed</div>
+</div>
+<div class="h-24 p-2.5 rounded-lg bg-surface-container-low flex flex-col justify-between">
+<span class="font-code-timer text-xs font-semibold text-on-surface-variant">4</span>
+<div class="text-[10px] font-label-sm text-on-surface-variant">Completed</div>
+</div>
+<div class="h-24 p-2.5 rounded-lg bg-surface-container-low flex flex-col justify-between">
+<span class="font-code-timer text-xs font-semibold text-on-surface-variant">5</span>
+<div class="text-[10px] font-label-sm text-on-surface-variant">Completed</div>
+</div>
+<div class="h-24 p-2.5 rounded-lg bg-surface-container-low flex flex-col justify-between">
+<span class="font-code-timer text-xs font-semibold text-on-surface-variant">6</span>
+<div class="text-[10px] font-label-sm text-on-surface-variant">Completed</div>
+</div>
+<div class="h-24 p-2.5 rounded-lg bg-surface-container-low flex flex-col justify-between">
+<span class="font-code-timer text-xs font-semibold text-on-surface-variant">7</span>
+<div class="text-[10px] font-label-sm text-on-surface-variant">Completed</div>
+</div>
+<div class="h-24 p-2.5 rounded-lg bg-surface-container-low flex flex-col justify-between">
+<span class="font-code-timer text-xs font-semibold text-on-surface-variant">8</span>
+<div class="text-[10px] font-label-sm text-on-surface-variant">Completed</div>
+</div>
+<div class="h-24 p-2.5 rounded-lg bg-surface-container-low flex flex-col justify-between">
+<span class="font-code-timer text-xs font-semibold text-on-surface-variant">9</span>
+<div class="text-[10px] font-label-sm text-on-surface-variant">Completed</div>
+</div>
+<!-- Nov 10 - 16 -->
+<div class="h-24 p-2.5 rounded-lg bg-surface-container-low flex flex-col justify-between">
+<span class="font-code-timer text-xs font-semibold text-on-surface-variant">10</span>
+<div class="text-[10px] font-label-sm text-on-surface-variant">Completed</div>
+</div>
+<div class="h-24 p-2.5 rounded-lg bg-surface-container-low flex flex-col justify-between">
+<span class="font-code-timer text-xs font-semibold text-on-surface-variant">11</span>
+<div class="text-[10px] font-label-sm text-on-surface-variant">Completed</div>
+</div>
+<div class="h-24 p-2.5 rounded-lg bg-surface-container-low flex flex-col justify-between">
+<span class="font-code-timer text-xs font-semibold text-on-surface-variant">12</span>
+<div class="text-[10px] font-label-sm text-on-surface-variant">Completed</div>
+</div>
+<div class="h-24 p-2.5 rounded-lg bg-surface-container-low flex flex-col justify-between">
+<span class="font-code-timer text-xs font-semibold text-on-surface-variant">13</span>
+<div class="text-[10px] font-label-sm text-on-surface-variant">Completed</div>
+</div>
+<div class="h-24 p-2.5 rounded-lg bg-surface-container-low flex flex-col justify-between">
+<span class="font-code-timer text-xs font-semibold text-on-surface-variant">14</span>
+<div class="text-[10px] font-label-sm text-on-surface-variant">Completed</div>
+</div>
+<div class="h-24 p-2.5 rounded-lg bg-surface-container-low flex flex-col justify-between">
+<span class="font-code-timer text-xs font-semibold text-on-surface-variant">15</span>
+<div class="text-[10px] font-label-sm text-on-surface-variant">Completed</div>
+</div>
+<div class="h-24 p-2.5 rounded-lg bg-surface-container-low flex flex-col justify-between">
+<span class="font-code-timer text-xs font-semibold text-on-surface-variant">16</span>
+<div class="text-[10px] font-label-sm text-on-surface-variant">Completed</div>
+</div>
+<!-- Nov 17 (Available) -->
+<div class="h-24 p-2.5 rounded-lg bg-surface-container flex flex-col justify-between hover:scale-[1.02] cursor-pointer transition-transform">
+<div class="flex justify-between items-center">
+<span class="font-code-timer text-xs font-bold text-primary">17</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<div>
+<span class="font-label-sm text-[11px] font-semibold text-secondary block">12 Passes Free</span>
+<span class="font-currency-indicator text-[10px] text-on-surface-variant">LKR 7,500</span>
+</div>
+</div>
+<!-- Nov 18 (Today - Highlighted) -->
+<div class="h-24 p-2.5 rounded-lg bg-secondary-container/40 flex flex-col justify-between shadow-sm relative">
+<div class="flex justify-between items-center">
+<span class="font-code-timer text-xs font-bold text-secondary">18 (TODAY)</span>
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+</div>
+<div>
+<span class="font-label-sm text-[11px] font-bold text-primary block">7 Passes Free</span>
+<span class="font-currency-indicator text-[10px] text-secondary font-bold">14 Checked In</span>
+</div>
+</div>
+<!-- Nov 19 (Low Inventory) -->
+<div class="h-24 p-2.5 rounded-lg bg-tertiary-fixed/30 flex flex-col justify-between hover:scale-[1.02] cursor-pointer transition-transform">
+<div class="flex justify-between items-center">
+<span class="font-code-timer text-xs font-bold text-primary">19</span>
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
+</div>
+<div>
+<span class="font-label-sm text-[11px] font-bold text-tertiary block">2 Passes Left</span>
+<span class="font-currency-indicator text-[10px] text-on-surface-variant">LKR 8,200</span>
+</div>
+</div>
+<!-- Nov 20 (Fully Booked) -->
+<div class="h-24 p-2.5 rounded-lg bg-primary-container text-on-primary flex flex-col justify-between hover:scale-[1.02] cursor-pointer transition-transform">
+<div class="flex justify-between items-center">
+<span class="font-code-timer text-xs font-bold text-on-primary">20</span>
+<span class="material-symbols-outlined text-[14px]">lock</span>
+</div>
+<div>
+<span class="font-label-sm text-[11px] font-bold text-on-primary-container block">Fully Booked</span>
+<span class="font-currency-indicator text-[10px] text-on-primary/80">Corporate Retreat</span>
+</div>
+</div>
+<!-- Nov 21 (Available) -->
+<div class="h-24 p-2.5 rounded-lg bg-surface-container flex flex-col justify-between hover:scale-[1.02] cursor-pointer transition-transform">
+<div class="flex justify-between items-center">
+<span class="font-code-timer text-xs font-bold text-primary">21</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<div>
+<span class="font-label-sm text-[11px] font-semibold text-secondary block">19 Passes Free</span>
+<span class="font-currency-indicator text-[10px] text-on-surface-variant">LKR 7,500</span>
+</div>
+</div>
+<!-- Nov 22 (Owner Maintenance Block) -->
+<div class="h-24 p-2.5 rounded-lg bg-error-container/50 flex flex-col justify-between hover:scale-[1.02] cursor-pointer transition-transform">
+<div class="flex justify-between items-center">
+<span class="font-code-timer text-xs font-bold text-error">22</span>
+<span class="material-symbols-outlined text-[14px] text-error">handyman</span>
+</div>
+<div>
+<span class="font-label-sm text-[11px] font-bold text-on-error-container block">Blocked</span>
+<span class="font-code-timer text-[10px] text-error truncate block">Pool Chlorination</span>
+</div>
+</div>
+<!-- Nov 23 (Weekend - Low Inventory) -->
+<div class="h-24 p-2.5 rounded-lg bg-tertiary-fixed/30 flex flex-col justify-between hover:scale-[1.02] cursor-pointer transition-transform">
+<div class="flex justify-between items-center">
+<span class="font-code-timer text-xs font-bold text-primary">23</span>
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
+</div>
+<div>
+<span class="font-label-sm text-[11px] font-bold text-tertiary block">1 Pass Left</span>
+<span class="font-currency-indicator text-[10px] text-on-surface-variant">LKR 9,500</span>
+</div>
+</div>
+<!-- Nov 24 - Nov 30 -->
+<div class="h-24 p-2.5 rounded-lg bg-surface-container flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="font-code-timer text-xs font-bold text-primary">24</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<span class="font-label-sm text-[11px] font-semibold text-secondary">Available</span>
+</div>
+<div class="h-24 p-2.5 rounded-lg bg-surface-container flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="font-code-timer text-xs font-bold text-primary">25</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<span class="font-label-sm text-[11px] font-semibold text-secondary">Available</span>
+</div>
+<div class="h-24 p-2.5 rounded-lg bg-surface-container flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="font-code-timer text-xs font-bold text-primary">26</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<span class="font-label-sm text-[11px] font-semibold text-secondary">Available</span>
+</div>
+<div class="h-24 p-2.5 rounded-lg bg-surface-container flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="font-code-timer text-xs font-bold text-primary">27</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<span class="font-label-sm text-[11px] font-semibold text-secondary">Available</span>
+</div>
+<div class="h-24 p-2.5 rounded-lg bg-surface-container flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="font-code-timer text-xs font-bold text-primary">28</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<span class="font-label-sm text-[11px] font-semibold text-secondary">Available</span>
+</div>
+<div class="h-24 p-2.5 rounded-lg bg-surface-container flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="font-code-timer text-xs font-bold text-primary">29</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<span class="font-label-sm text-[11px] font-semibold text-secondary">Available</span>
+</div>
+<div class="h-24 p-2.5 rounded-lg bg-primary-container text-on-primary flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="font-code-timer text-xs font-bold text-on-primary">30</span>
+<span class="material-symbols-outlined text-[14px]">lock</span>
+</div>
+<span class="font-label-sm text-[11px] font-bold text-on-primary-container">Fully Booked</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Block Dates Modal Overlay (Hidden by Default) -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/60 backdrop-blur-sm flex items-center justify-center p-4 hidden" id="quickBlockModal">
+<div class="bg-surface-container-lowest rounded-xl max-w-lg w-full p-6 shadow-xl relative animate-in fade-in zoom-in-95">
+<div class="flex items-center justify-between pb-4 border-b-0">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-error-container text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">block</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Quick Block Inventory</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Prevent guest bookings for scheduled maintenance</p>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full hover:bg-surface-container flex items-center justify-center text-on-surface-variant" id="closeQuickBlock">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="space-y-4 my-5">
+<div>
+<label class="block font-label-md text-label-md font-bold text-on-surface mb-1.5">Select Date or Date Range</label>
+<div class="grid grid-cols-2 gap-3">
+<input class="w-full px-3 py-2 rounded-lg bg-surface-container-low font-code-timer text-code-timer text-primary focus:outline-none" type="date" value="2024-11-22"/>
+<input class="w-full px-3 py-2 rounded-lg bg-surface-container-low font-code-timer text-code-timer text-primary focus:outline-none" type="date" value="2024-11-22"/>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md font-bold text-on-surface mb-1.5">Select Targeted Inventory / Units</label>
+<select class="w-full px-3 py-2.5 rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none">
+<option>All Inventory (Complete Property Shut)</option>
+<option>All-Inclusive Day Out Passes Only (25 Cap)</option>
+<option>Deluxe Ocean Chalet #1</option>
+<option>Deluxe Ocean Chalet #2</option>
+<option>Deluxe Ocean Chalet #3 (Currently Blocked)</option>
+<option>Deluxe Ocean Chalet #4</option>
+</select>
+</div>
+<div>
+<label class="block font-label-md text-label-md font-bold text-on-surface mb-1.5">Reason for Closure (SLTDA Host Audit Trail)</label>
+<input class="w-full px-3 py-2.5 rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none" placeholder="e.g. Infinity pool chemical servicing, private family event" type="text"/>
+</div>
+</div>
+<div class="flex items-center justify-end gap-3 pt-4">
+<button class="px-4 py-2 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md font-semibold hover:bg-surface-container-high transition-colors" id="cancelQuickBlock">
+          Cancel
+        </button>
+<button class="px-5 py-2 rounded-lg bg-error text-on-error font-label-md text-label-md font-semibold hover:bg-error/90 transition-colors shadow-sm" id="confirmQuickBlock">
+          Confirm Block
+        </button>
+</div>
+</div>
+</div>
+<!-- Early Payout Modal Overlay -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/60 backdrop-blur-sm flex items-center justify-center p-4 hidden" id="earlyPayoutModal">
+<div class="bg-surface-container-lowest rounded-xl max-w-md w-full p-6 shadow-xl relative animate-in fade-in zoom-in-95">
+<div class="flex items-center justify-between pb-3">
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Request Instant Payout</h3>
+<button class="w-8 h-8 rounded-full hover:bg-surface-container flex items-center justify-center text-on-surface-variant" id="closePayoutModal">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Accelerate fund release from the standard Friday batch to instant CEFT transfer.</p>
+<div class="my-5 p-4 rounded-lg bg-surface-container-low space-y-2">
+<div class="flex justify-between text-body-sm">
+<span class="text-on-surface-variant">Eligible Net Balance:</span>
+<span class="font-bold font-currency-indicator text-primary">LKR 1,623,600</span>
+</div>
+<div class="flex justify-between text-body-sm">
+<span class="text-on-surface-variant">Instant CEFT Routing Fee (0.5%):</span>
+<span class="font-currency-indicator text-error font-semibold">- LKR 8,118</span>
+</div>
+<div class="pt-2 flex justify-between font-label-md text-label-md border-t-0 font-bold text-on-surface">
+<span>Net Disbursed to BOC:</span>
+<span class="font-currency-indicator text-secondary">LKR 1,615,482</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-1/2 py-2.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md font-semibold" id="cancelPayout">Cancel</button>
+<button class="w-1/2 py-2.5 rounded-lg bg-secondary text-on-secondary font-label-md text-label-md font-semibold shadow-sm hover:bg-secondary/90" id="submitPayout">Transfer Now</button>
+</div>
+</div>
+</div>
+<script>
+    // 1-Click Approval Queue Handler
+    function approveBooking(bookingId) {
+      const container = document.getElementById('actionGroup-9841');
+      if (container) {
+        container.innerHTML = `
+          <div class="flex items-center gap-1.5 text-secondary font-label-md text-label-md font-bold">
+            <span class="material-symbols-outlined text-[18px]">verified</span>
+            Confirmed & Access Voucher Dispatched
+          </div>
+        `;
+      }
+    }
+
+    function rejectBooking(bookingId) {
+      const card = document.getElementById('booking-' + bookingId);
+      if (card) {
+        card.style.opacity = '0.4';
+        const actions = document.getElementById('actionGroup-9841');
+        if (actions) {
+          actions.innerHTML = `<span class="font-label-md text-label-md font-semibold text-error">Booking Released to Pool</span>`;
+        }
+      }
+    }
+
+    // Modal Control: Quick Block
+    const blockModal = document.getElementById('quickBlockModal');
+    const triggerQuickBlock = document.getElementById('triggerQuickBlock');
+    const closeQuickBlock = document.getElementById('closeQuickBlock');
+    const cancelQuickBlock = document.getElementById('cancelQuickBlock');
+    const confirmQuickBlock = document.getElementById('confirmQuickBlock');
+
+    if (triggerQuickBlock && blockModal) {
+      triggerQuickBlock.addEventListener('click', () => blockModal.classList.remove('hidden'));
+      closeQuickBlock.addEventListener('click', () => blockModal.classList.add('hidden'));
+      cancelQuickBlock.addEventListener('click', () => blockModal.classList.add('hidden'));
+      confirmQuickBlock.addEventListener('click', () => {
+        alert('Inventory block successfully scheduled and verified across OTA feeds.');
+        blockModal.classList.add('hidden');
+      });
+    }
+
+    // Modal Control: Early Payout
+    const payoutModal = document.getElementById('earlyPayoutModal');
+    const payoutModalBtn = document.getElementById('payoutModalBtn');
+    const closePayoutModal = document.getElementById('closePayoutModal');
+    const cancelPayout = document.getElementById('cancelPayout');
+    const submitPayout = document.getElementById('submitPayout');
+
+    if (payoutModalBtn && payoutModal) {
+      payoutModalBtn.addEventListener('click', () => payoutModal.classList.remove('hidden'));
+      closePayoutModal.addEventListener('click', () => payoutModal.classList.add('hidden'));
+      cancelPayout.addEventListener('click', () => payoutModal.classList.add('hidden'));
+      submitPayout.addEventListener('click', () => {
+        alert('Instant CEFT transfer of LKR 1,615,482 has been triggered to Bank of Ceylon *4892.');
+        payoutModal.classList.add('hidden');
+      });
+    }
+
+    // Simple Currency Toggle UI State
+    const viewLkrBtn = document.getElementById('viewLkrBtn');
+    const viewUsdBtn = document.getElementById('viewUsdBtn');
+    if (viewLkrBtn && viewUsdBtn) {
+      viewUsdBtn.addEventListener('click', () => {
+        viewUsdBtn.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm', 'font-bold');
+        viewUsdBtn.classList.remove('text-on-surface-variant');
+        viewLkrBtn.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm', 'font-bold');
+        viewLkrBtn.classList.add('text-on-surface-variant');
+      });
+      viewLkrBtn.addEventListener('click', () => {
+        viewLkrBtn.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm', 'font-bold');
+        viewLkrBtn.classList.remove('text-on-surface-variant');
+        viewUsdBtn.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm', 'font-bold');
+        viewUsdBtn.classList.add('text-on-surface-variant');
+      });
+    }
+  </script>
+</div></main></div></body></html>

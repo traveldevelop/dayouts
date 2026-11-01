@@ -1,0 +1,106 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with role-based access control (customer, owner, admin)",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Firebase Auth UID" },
+        "email": { "type": "string", "format": "email", "description": "Email address" },
+        "displayName": { "type": "string", "maxLength": 100, "description": "Display name" },
+        "role": { "type": "string", "enum": ["customer", "owner", "admin"], "description": "System role" },
+        "phone": { "type": "string", "maxLength": 20, "description": "WhatsApp or mobile contact number" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp" }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "Property": {
+      "title": "Property",
+      "description": "Hospitality accommodation, day-pass retreat, or luxury sanctuary in Sri Lanka",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique property slug/identifier" },
+        "name": { "type": "string", "maxLength": 150, "description": "Sanctuary title" },
+        "tagline": { "type": "string", "maxLength": 200, "description": "Curated subtitle" },
+        "location": { "type": "string", "maxLength": 150, "description": "Address and town" },
+        "district": { "type": "string", "maxLength": 50, "description": "Sri Lankan district" },
+        "province": { "type": "string", "maxLength": 50, "description": "Sri Lankan province" },
+        "passType": { "type": "string", "enum": ["dayout", "stay", "dual", "adventure"], "description": "Pass category" },
+        "passTypeLabel": { "type": "string", "maxLength": 50, "description": "Human label for pass" },
+        "priceLkr": { "type": "number", "description": "Base day pass rate in Sri Lankan Rupees" },
+        "pricePerStayLkr": { "type": "number", "description": "Overnight suite rate in Sri Lankan Rupees" },
+        "rating": { "type": "number", "description": "Verified guest rating" },
+        "reviewCount": { "type": "number", "description": "Count of authenticated reviews" },
+        "imageUrl": { "type": "string", "description": "Main showcase image" },
+        "verificationBadge": { "type": "string", "description": "SLTDA validation badge" },
+        "sltdaLicense": { "type": "string", "description": "Government tourism registry license number" },
+        "timeSlot": { "type": "string", "description": "Operating hours or time slot" },
+        "slotsLeft": { "type": "number", "description": "Remaining slots today" },
+        "ownerId": { "type": "string", "description": "Owner user UID" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Record creation timestamp" }
+      },
+      "required": ["id", "name", "location", "priceLkr", "passType"]
+    },
+    "Booking": {
+      "title": "Booking",
+      "description": "Day pass or villa reservation request with SLTDA pass tracking",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique booking reference (e.g. DO-9841)" },
+        "propertyId": { "type": "string", "description": "Target sanctuary ID" },
+        "propertyName": { "type": "string", "description": "Sanctuary display name" },
+        "propertyLocation": { "type": "string", "description": "Sanctuary location" },
+        "propertyImage": { "type": "string", "description": "Sanctuary image thumbnail" },
+        "selectedDate": { "type": "string", "description": "Booking date YYYY-MM-DD" },
+        "selectedSlot": { "type": "string", "description": "Time slot or stay duration" },
+        "packageName": { "type": "string", "description": "Selected pass package" },
+        "adults": { "type": "number", "description": "Adult guest count" },
+        "children": { "type": "number", "description": "Child guest count" },
+        "totalLkr": { "type": "number", "description": "Total price in Sri Lankan Rupees" },
+        "totalUsd": { "type": "number", "description": "Total price converted to USD" },
+        "status": {
+          "type": "string",
+          "enum": ["AWAITING_OWNER_APPROVAL", "CONFIRMED", "CHECKED_IN", "COMPLETED", "REJECTED"],
+          "description": "Lifecycle status"
+        },
+        "customerId": { "type": "string", "description": "UID of the booking guest if authenticated" },
+        "ownerId": { "type": "string", "description": "UID of the sanctuary owner" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Submission timestamp" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Status update timestamp" }
+      },
+      "required": ["id", "propertyId", "selectedDate", "totalLkr", "status"]
+    },
+    "AuditLog": {
+      "title": "AuditLog",
+      "description": "Immutable statutory compliance record for SLTDA governance",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Log entry UUID" },
+        "event": { "type": "string", "description": "Event name" },
+        "actorId": { "type": "string", "description": "User UID who performed action" },
+        "actorEmail": { "type": "string", "description": "Email of actor" },
+        "details": { "type": "string", "description": "JSON details or description" },
+        "timestamp": { "type": "string", "format": "date-time", "description": "Timestamp" }
+      },
+      "required": ["id", "event", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "User" },
+      "description": "User profiles and RBAC role assignments"
+    },
+    "/properties/{propertyId}": {
+      "schema": { "$ref": "Property" },
+      "description": "Sri Lankan sanctuaries and day-out retreats"
+    },
+    "/bookings/{bookingId}": {
+      "schema": { "$ref": "Booking" },
+      "description": "Reservation orders, digital pass tracking, and escrow status"
+    },
+    "/audit_logs/{logId}": {
+      "schema": { "$ref": "AuditLog" },
+      "description": "Statutory audit logs for SLTDA regulators"
+    }
+  }
+}

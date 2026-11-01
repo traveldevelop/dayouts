@@ -1,0 +1,8 @@
+{
+  "name": "DAYOUTS.LK - Verified Escapes Sri Lanka",
+  "description": "Discover, reserve, and manage luxury day passes, coastal pool cabanas, and private villas across Sri Lanka with real-time inventory locking and SLTDA verification.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

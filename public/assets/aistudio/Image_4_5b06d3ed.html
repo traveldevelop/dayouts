@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "primary-fixed-dim": "#98d3bd",
+          "error-container": "#ffdad6",
+          "on-tertiary": "#ffffff",
+          "primary-container": "#0d4d3d",
+          "inverse-on-surface": "#e7f3f4",
+          "on-tertiary-fixed": "#321200",
+          "secondary": "#006a66",
+          "error": "#ba1a1a",
+          "tertiary-fixed-dim": "#ffb68c",
+          "surface-bright": "#effcfd",
+          "surface-container-highest": "#d9e5e6",
+          "surface-container-lowest": "#ffffff",
+          "on-tertiary-container": "#ff9756",
+          "on-error-container": "#93000a",
+          "on-surface": "#121d1e",
+          "tertiary-fixed": "#ffdbc9",
+          "surface-container": "#e4f0f1",
+          "surface": "#effcfd",
+          "secondary-container": "#9cf1ec",
+          "secondary-fixed": "#9cf1ec",
+          "on-surface-variant": "#404945",
+          "background": "#effcfd",
+          "on-secondary-fixed": "#00201f",
+          "tertiary-container": "#713200",
+          "surface-dim": "#d0dcdd",
+          "primary-fixed": "#b3efd9",
+          "inverse-surface": "#273233",
+          "secondary-fixed-dim": "#80d5d0",
+          "tertiary": "#4f2100",
+          "primary": "#003528",
+          "surface-variant": "#d9e5e6",
+          "on-primary": "#ffffff",
+          "inverse-primary": "#98d3bd",
+          "surface-tint": "#2f6857",
+          "on-primary-fixed": "#002118",
+          "surface-container-high": "#deeaeb",
+          "on-secondary-container": "#02706d",
+          "on-primary-container": "#82bda8",
+          "on-secondary": "#ffffff",
+          "on-tertiary-fixed-variant": "#753400",
+          "outline-variant": "#bfc9c3",
+          "on-primary-fixed-variant": "#125040",
+          "surface-container-low": "#eaf6f7",
+          "on-error": "#ffffff",
+          "outline": "#707975",
+          "on-background": "#121d1e",
+          "on-secondary-fixed-variant": "#00504d"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "gutter": "1.5rem",
+          "margin-mobile": "1.25rem",
+          "space-xs": "0.25rem",
+          "space-lg": "1.5rem",
+          "gutter-mobile": "1rem",
+          "margin": "3rem",
+          "space-xl": "2.5rem",
+          "space-sm": "0.5rem",
+          "space-md": "1rem"
+        },
+        "fontFamily": {
+          "body-sm": ["Plus Jakarta Sans"],
+          "body-md": ["Plus Jakarta Sans"],
+          "body-lg": ["Plus Jakarta Sans"],
+          "currency-indicator": ["JetBrains Mono"],
+          "headline-lg": ["Epilogue"],
+          "label-md": ["Plus Jakarta Sans"],
+          "headline-xl": ["Epilogue"],
+          "code-timer": ["JetBrains Mono"],
+          "headline-xl-mobile": ["Epilogue"],
+          "headline-md": ["Epilogue"],
+          "label-sm": ["Plus Jakarta Sans"],
+          "headline-sm": ["Epilogue"],
+          "headline-lg-mobile": ["Epilogue"]
+        },
+        "fontSize": {
+          "body-sm": ["13px", {"lineHeight": "20px", "fontWeight": "400"}],
+          "body-md": ["15px", {"lineHeight": "24px", "fontWeight": "400"}],
+          "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+          "currency-indicator": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+          "headline-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+          "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+          "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "code-timer": ["13px", {"lineHeight": "16px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+          "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+          "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+          "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+          "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+          "headline-lg-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+        }
+      }
+    }
+  }</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 w-full max-w-[1320px] mx-auto px-gutter-mobile lg:px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md flex-shrink-0"><a class="flex items-center gap-space-sm group" data-path="explore-stays" href="#"><img alt="DAYOUTS.LK Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Xhc_PsLmC30S_GzdokMLdS4S4uhfCLBKFDSsEPzp8PdzLVXEm9x_DF6godanXEkI22vtRm-BqU4mpvdeZbdR-8dLktmcKkrIzi-hG7Bwk6sD-iN8hXs5CX5ySlrWSLmBk65kXhk663ujyufHDHEd12paJmzQV33Izn6cAZhWGIt5sTudJ1f3TCdzGFhQs6egoWFbb7C-U1udmSube-DP4PRlj8ECgP-ELGyVGQqxt1Jfj3CphiIV3nNA"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold tracking-tight text-primary leading-none">DAYOUTS<span class="text-secondary">.LK</span></span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium tracking-normal mt-1 hidden sm:inline-block">Sri Lanka's Day Out &amp; Stay Escapes</span></div></a></div><nav class="hidden xl:flex items-center gap-space-sm" data-active-classes="bg-surface-container text-primary font-semibold rounded-lg"><a aria-current="page" class="px-3 py-2 transition-all bg-surface-container text-primary font-semibold rounded-lg" data-path="explore-stays" href="#">Explore Stays</a><a class="px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="day-out-packages" href="#">Day Out Packages</a><a class="px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="deals-and-offers" href="#">Deals &amp; Offers</a><a class="px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="for-property-owners" href="#">For Property Owners</a><a class="px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all flex items-center gap-1.5" href="https://wa.me/94771234567" target="_blank"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse inline-block"></span>Concierge (+94 77 123 4567)</a></nav><div class="flex items-center gap-space-sm flex-shrink-0"><div class="hidden md:flex items-center bg-surface-container-low rounded-lg p-1"><button class="px-2 py-1 rounded font-label-sm text-label-sm font-bold bg-primary text-on-primary shadow-sm" type="button">EN</button><button class="px-2 py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface" type="button">සිං</button><button class="px-2 py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface" type="button">தமிழ்</button></div><div class="hidden lg:flex items-center bg-surface-container-low rounded-lg px-2.5 py-1.5 gap-2"><div class="flex items-center gap-1 font-currency-indicator text-currency-indicator font-semibold text-primary"><span class="bg-surface-container-highest px-1.5 py-0.5 rounded text-on-surface">LKR</span><span class="text-outline">|</span><span class="text-on-surface-variant hover:text-on-surface cursor-pointer">USD</span></div><span class="font-code-timer text-code-timer text-on-surface-variant border-l border-outline-variant/30 pl-2 text-[11px]">1$ ≈ 305 LKR</span></div><a class="hidden sm:inline-flex items-center justify-center bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container px-4 py-2 rounded-lg font-label-md text-label-md font-semibold transition-all shadow-[0_4px_16px_-2px_rgba(0,53,40,0.2)]" data-path="list-your-property" href="#">List Your Property</a><div class="relative group flex items-center"><button class="flex items-center gap-1.5 p-1 rounded-full focus:outline-none ring-2 ring-primary/20" type="button"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCghVdjRr4uY8YbamvSO8fl-ybZhrC5WmECVq4IEyQqJo15HGLZRYEIGa4t3p3xq3fjNW6rKAMMSvgq9B9tfrPsLRgw-KhOpHSqcvUrzhfgOVN1wr11DrOwvEIiJPfComay0XmGtQocV2EciqQS5OiNg1rxhpEkGlgfibjWDCFxN24tlSD395QG-HN36SQfUXX_rFb4xhUYQad-wYSczyEeW7okEek6ImRNZeDlaA7oz7bdzyP3DTSv"/><span class="material-symbols-outlined text-[18px] text-on-surface-variant hidden sm:inline-block">expand_more</span></button><div class="absolute right-0 top-full mt-2 w-56 bg-surface-container-lowest rounded-xl shadow-[0_12px_32px_-4px_rgba(30,41,42,0.12)] p-2 hidden group-hover:block transition-all"><div class="px-3 py-2 border-b border-surface-container-high mb-1"><p class="font-label-md text-label-md text-on-surface font-semibold truncate">Nalin Jayawardena</p><p class="font-label-sm text-label-sm text-on-surface-variant truncate">VIP Explorer</p></div><a class="flex items-center gap-2 px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="my-bookings" href="#"><span class="material-symbols-outlined text-[18px]">confirmation_number</span>My Bookings</a><a class="flex items-center gap-2 px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="wishlist" href="#"><span class="material-symbols-outlined text-[18px]">favorite</span>Wishlist</a><div class="my-1 border-t border-surface-container-high"></div><a class="flex items-center gap-2 px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="owner-portal" href="#"><span class="material-symbols-outlined text-[18px]">real_estate_agent</span>Switch to Owner Portal</a><a class="flex items-center gap-2 px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin-console" href="#"><span class="material-symbols-outlined text-[18px]">admin_panel_settings</span>Admin Console</a></div></div></div></div></header><main class="w-full pt-20 bg-background"><div class="flex flex-col w-full">
+<!-- Top Real-Time Inventory & Trust Announcement Strip -->
+<div class="w-full bg-primary text-on-primary py-2.5 px-gutter-mobile lg:px-gutter">
+<div class="max-w-[1320px] mx-auto flex flex-wrap items-center justify-between gap-space-sm font-label-sm text-label-sm">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container-lowest/15 text-primary-fixed font-code-timer text-code-timer">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed animate-ping"></span>
+          LIVE SLTDA ESCROW ACTIVE
+        </span>
+<span class="text-on-primary-container">Sri Lanka's Official Day Pass &amp; Private Villa Reservation Network</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1.5 text-primary-fixed-dim font-code-timer text-code-timer">
+<span class="material-symbols-outlined text-[15px]">sync</span>
+<span>Updated 3 mins ago • Real-time PostgreSQL availability</span>
+</div>
+<span class="hidden md:inline-block text-on-primary-container/40">|</span>
+<div class="hidden md:flex items-center gap-1 text-on-primary">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">local_fire_department</span>
+<span>342 Day Passes Claimed Today</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Hero Header & Architectural Search Console -->
+<section class="w-full bg-surface-container-low pt-8 pb-12 px-gutter-mobile lg:px-gutter relative overflow-hidden">
+<div class="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-secondary-container/20 blur-3xl pointer-events-none"></div>
+<div class="absolute -left-20 bottom-0 w-80 h-80 rounded-full bg-primary-container/10 blur-2xl pointer-events-none"></div>
+<div class="max-w-[1320px] mx-auto relative z-10 flex flex-col gap-6">
+<!-- Title & Live Value Props -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="px-2.5 py-0.5 rounded bg-surface-container-highest text-secondary font-label-sm text-label-sm font-bold uppercase tracking-wider">
+              Geoffrey Bawa Architecture to Ocean Cabanas
+            </span>
+<span class="text-outline-variant text-xs">•</span>
+<span class="font-currency-indicator text-currency-indicator text-on-surface-variant">25 Districts Islandwide</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+            Reserve Curated Day Passes &amp; Private Villas
+          </h1>
+</div>
+<!-- Micro Badges -->
+<div class="flex items-center gap-2 flex-wrap">
+<div class="flex items-center gap-1 px-3 py-1.5 bg-surface-container-lowest rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">SLTDA Certified</span>
+</div>
+<div class="flex items-center gap-1 px-3 py-1.5 bg-surface-container-lowest rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">bolt</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Instant Confirmation</span>
+</div>
+<div class="flex items-center gap-1 px-3 py-1.5 bg-surface-container-lowest rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">payments</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Pay at Property</span>
+</div>
+</div>
+</div>
+<!-- Master Search Hub Shell -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden p-3 md:p-4">
+<!-- Dual Tab Switcher -->
+<div class="flex items-center justify-between pb-3 mb-3">
+<div class="inline-flex p-1 bg-surface-container rounded-lg gap-1" id="searchTabs">
+<button class="px-4 py-2 rounded-md font-label-md text-label-md font-semibold transition-all flex items-center gap-2 bg-primary text-on-primary shadow-sm" id="tabDayout" onclick="switchSearchTab('dayout')" type="button">
+<span class="material-symbols-outlined text-[18px]">wb_sunny</span>
+<span>Day Out Escapes <span class="font-code-timer text-code-timer text-primary-fixed opacity-90 text-[11px] font-normal">(8AM – 6PM)</span></span>
+</button>
+<button class="px-4 py-2 rounded-md font-label-md text-label-md font-semibold transition-all flex items-center gap-2 text-on-surface-variant hover:text-on-surface" id="tabOvernight" onclick="switchSearchTab('overnight')" type="button">
+<span class="material-symbols-outlined text-[18px]">bedtime</span>
+<span>Overnight Stays <span class="font-code-timer text-code-timer text-on-surface-variant opacity-75 text-[11px] font-normal">(24h+ Stays)</span></span>
+</button>
+</div>
+<div class="hidden lg:flex items-center gap-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+              Live Escrow Rate: 1 USD = 305.20 LKR
+            </span>
+</div>
+</div>
+<!-- Dynamic Filter Controls Strip -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3">
+<!-- District & Destination Dropdown -->
+<div class="lg:col-span-3 bg-surface-container-low rounded-lg p-2.5 flex flex-col justify-between">
+<label class="font-label-sm text-label-sm font-semibold text-on-surface-variant uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">location_on</span>
+              Destination / District
+            </label>
+<select class="w-full bg-transparent font-headline-sm text-headline-sm text-on-surface font-semibold focus:outline-none cursor-pointer mt-1 py-1">
+<option value="all">Islandwide — All 25 Districts</option>
+<option selected="" value="bentota">Bentota, Galle Coast</option>
+<option value="galle">Galle Fort &amp; Southern Riviera</option>
+<option value="colombo">Colombo &amp; Mount Lavinia</option>
+<option value="ella">Ella &amp; Badulla Highlands</option>
+<option value="kandy">Kandy &amp; Knuckles Range</option>
+<option value="nuwara-eliya">Nuwara Eliya Tea Valleys</option>
+<option value="kitulgala">Kitulgala &amp; Kelani River</option>
+<option value="negombo">Negombo Lagoon &amp; Beach</option>
+<option value="kalutara">Kalutara &amp; Wadduwa</option>
+</select>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Bentota River, Induruwa, Aluthgama</span>
+</div>
+<!-- Date Picker -->
+<div class="lg:col-span-3 bg-surface-container-low rounded-lg p-2.5 flex flex-col justify-between">
+<label class="font-label-sm text-label-sm font-semibold text-on-surface-variant uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">calendar_today</span>
+              Escapes Date
+            </label>
+<div class="flex items-center justify-between mt-1">
+<input class="bg-transparent font-headline-sm text-headline-sm text-on-surface font-semibold focus:outline-none cursor-pointer w-full py-1" type="date" value="2025-04-18"/>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Available slots verified this weekend</span>
+</div>
+<!-- Time Slot Selector (Dynamic based on Tab) -->
+<div class="lg:col-span-2 bg-surface-container-low rounded-lg p-2.5 flex flex-col justify-between" id="slotSelectorContainer">
+<label class="font-label-sm text-label-sm font-semibold text-on-surface-variant uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">schedule</span>
+              Time Slot
+            </label>
+<select class="w-full bg-transparent font-label-md text-label-md text-on-surface font-bold focus:outline-none cursor-pointer mt-1 py-1">
+<option selected="" value="fullday">Full Day (9AM – 5PM)</option>
+<option value="morning">Morning Pass (8AM – 1PM)</option>
+<option value="sunset">Sunset Pass (2PM – 7PM)</option>
+<option value="nightpool">Dinner &amp; Night Pool (5PM – 10PM)</option>
+</select>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Includes Pool &amp; Changing Access</span>
+</div>
+<!-- Guest Count Popover Button -->
+<div class="lg:col-span-2 bg-surface-container-low rounded-lg p-2.5 flex flex-col justify-between relative group cursor-pointer">
+<label class="font-label-sm text-label-sm font-semibold text-on-surface-variant uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">group</span>
+              Guests
+            </label>
+<div class="flex items-center justify-between mt-1 py-1">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface" id="guestCountDisplay">2 Adults, 1 Kid</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Pool pass charges per guest</span>
+</div>
+<!-- Primary Search Trigger Button -->
+<div class="lg:col-span-2 flex items-center">
+<button class="w-full h-full min-h-[58px] bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-bold rounded-lg transition-all flex items-center justify-center gap-2 shadow-md" type="button">
+<span class="material-symbols-outlined text-[20px]">search</span>
+<span>Search 142 Stays</span>
+</button>
+</div>
+</div>
+<!-- Quick Filters Under Search -->
+<div class="mt-3 pt-3 flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold mr-1">Trending Features:</span>
+<button class="px-2.5 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface hover:bg-surface-container-high transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">pool</span> Private Pool Cabana
+            </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface hover:bg-surface-container-high transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">restaurant</span> Lunch Buffet Included
+            </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface hover:bg-surface-container-high transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">liquor</span> BYOB Friendly (No Corkage)
+            </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface hover:bg-surface-container-high transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">meeting_room</span> AC Changing Room Included
+            </button>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Instant Confirmation Only</span>
+<button aria-checked="true" class="w-10 h-5 bg-primary rounded-full relative p-0.5 transition-colors" role="switch" type="button">
+<span class="w-4 h-4 bg-surface-container-lowest rounded-full block translate-x-5 transition-transform"></span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Categories Carousel / Horizontal Pill Bar -->
+<section class="w-full bg-surface-bright py-6 px-gutter-mobile lg:px-gutter">
+<div class="max-w-[1320px] mx-auto">
+<div class="flex items-center justify-between mb-4">
+<div>
+<span class="font-label-sm text-label-sm font-bold text-secondary uppercase tracking-wider">Curated Collections</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Explore by Escape Typology</h2>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors" title="Scroll left">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors" title="Scroll right">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Categories Scroll Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3">
+<a class="p-3 bg-surface-container-lowest rounded-xl flex flex-col items-center text-center gap-2 transition-transform hover:-translate-y-1 shadow-sm" href="#">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">villa</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Luxury Villas</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">42 Stays</span>
+</div>
+</a>
+<a class="p-3 bg-primary text-on-primary rounded-xl flex flex-col items-center text-center gap-2 transition-transform hover:-translate-y-1 shadow-sm" href="#">
+<div class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-[24px]">pool</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-primary font-semibold leading-tight">Pool Cabanas</p>
+<span class="font-label-sm text-label-sm text-primary-fixed-dim">38 Day Passes</span>
+</div>
+</a>
+<a class="p-3 bg-surface-container-lowest rounded-xl flex flex-col items-center text-center gap-2 transition-transform hover:-translate-y-1 shadow-sm" href="#">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">beach_access</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Beachfront Resorts</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">29 Properties</span>
+</div>
+</a>
+<a class="p-3 bg-surface-container-lowest rounded-xl flex flex-col items-center text-center gap-2 transition-transform hover:-translate-y-1 shadow-sm" href="#">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">kayaking</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Riverfront Escapes</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">19 Retreats</span>
+</div>
+</a>
+<a class="p-3 bg-surface-container-lowest rounded-xl flex flex-col items-center text-center gap-2 transition-transform hover:-translate-y-1 shadow-sm" href="#">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">camping</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Eco Glamping</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">14 Escapes</span>
+</div>
+</a>
+<a class="p-3 bg-surface-container-lowest rounded-xl flex flex-col items-center text-center gap-2 transition-transform hover:-translate-y-1 shadow-sm" href="#">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">cottage</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Tea Bungalows</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">22 Colonial Homes</span>
+</div>
+</a>
+<a class="p-3 bg-surface-container-lowest rounded-xl flex flex-col items-center text-center gap-2 transition-transform hover:-translate-y-1 shadow-sm" href="#">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">landscape</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Hill Cottages</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">16 Sanctuaries</span>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- Main Marketplace Layout: Filter Sidebar & Results Grid -->
+<section class="w-full max-w-[1320px] mx-auto px-gutter-mobile lg:px-gutter py-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Filter Sidebar Column (Desktop 3.5 cols, Mobile full) -->
+<aside class="lg:col-span-4 bg-surface-container-lowest rounded-xl p-5 shadow-sm space-y-6">
+<div class="flex items-center justify-between pb-3 bg-surface-container-low -mx-5 -mt-5 p-4 rounded-t-xl">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">tune</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Filter Sanctuary</span>
+</div>
+<button class="font-label-sm text-label-sm text-secondary hover:underline font-bold">Reset All</button>
+</div>
+<!-- Verified Badges Quick Toggles -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm uppercase font-bold text-on-surface-variant tracking-wider">Verification Tier</label>
+<div class="space-y-1.5">
+<label class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer">
+<div class="flex items-center gap-2">
+<input checked="" class="rounded text-primary focus:ring-0" type="checkbox"/>
+<span class="font-label-md text-label-md text-on-surface font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-[16px]">verified</span>
+                  SLTDA Approved
+                </span>
+</div>
+<span class="font-code-timer text-code-timer text-on-surface-variant text-[11px]">86 Stays</span>
+</label>
+<label class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer">
+<div class="flex items-center gap-2">
+<input checked="" class="rounded text-primary focus:ring-0" type="checkbox"/>
+<span class="font-label-md text-label-md text-on-surface font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[16px]">security</span>
+                  Owner Verified Escapes
+                </span>
+</div>
+<span class="font-code-timer text-code-timer text-on-surface-variant text-[11px]">112 Stays</span>
+</label>
+<label class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer">
+<div class="flex items-center gap-2">
+<input class="rounded text-primary focus:ring-0" type="checkbox"/>
+<span class="font-label-md text-label-md text-on-surface font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-[16px]">payments</span>
+                  Pay at Property (Zero Deposit)
+                </span>
+</div>
+<span class="font-code-timer text-code-timer text-on-surface-variant text-[11px]">34 Stays</span>
+</label>
+</div>
+</div>
+<!-- Price Range Slider -->
+<div class="space-y-3 pt-2">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm uppercase font-bold text-on-surface-variant tracking-wider">Budget Per Guest / Stay</label>
+<span class="font-currency-indicator text-currency-indicator text-primary font-bold">LKR 2,500 – 65,000+</span>
+</div>
+<div class="relative w-full">
+<input class="w-full accent-primary h-2 bg-surface-container rounded-lg cursor-pointer" max="80000" min="2500" step="500" type="range" value="48000"/>
+<div class="flex justify-between text-on-surface-variant font-code-timer text-code-timer text-[11px] mt-1">
+<span>LKR 2.5k</span>
+<span>LKR 25k</span>
+<span>LKR 50k</span>
+<span>LKR 80k+</span>
+</div>
+</div>
+</div>
+<!-- Inclusions & Amenity Filters -->
+<div class="space-y-2 pt-2">
+<label class="font-label-sm text-label-sm uppercase font-bold text-on-surface-variant tracking-wider">Package Inclusions</label>
+<div class="space-y-1.5">
+<label class="flex items-center gap-2 p-1.5 hover:bg-surface-container-low rounded cursor-pointer">
+<input checked="" class="rounded text-primary focus:ring-0" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[16px]">pool</span>
+                Access to Private / Resort Pool
+              </span>
+</label>
+<label class="flex items-center gap-2 p-1.5 hover:bg-surface-container-low rounded cursor-pointer">
+<input checked="" class="rounded text-primary focus:ring-0" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[16px]">restaurant</span>
+                Buffet Lunch or 3-Course Set Menu
+              </span>
+</label>
+<label class="flex items-center gap-2 p-1.5 hover:bg-surface-container-low rounded cursor-pointer">
+<input checked="" class="rounded text-primary focus:ring-0" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[16px]">liquor</span>
+                BYOB Permitted (Zero Corkage)
+              </span>
+</label>
+<label class="flex items-center gap-2 p-1.5 hover:bg-surface-container-low rounded cursor-pointer">
+<input class="rounded text-primary focus:ring-0" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[16px]">shower</span>
+                AC Changing Rooms with Towels
+              </span>
+</label>
+<label class="flex items-center gap-2 p-1.5 hover:bg-surface-container-low rounded cursor-pointer">
+<input class="rounded text-primary focus:ring-0" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[16px]">child_care</span>
+                Kids Play Zone &amp; Toddler Pool
+              </span>
+</label>
+<label class="flex items-center gap-2 p-1.5 hover:bg-surface-container-low rounded cursor-pointer">
+<input class="rounded text-primary focus:ring-0" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[16px]">room_service</span>
+                Private Butler &amp; Dedicated Chef
+              </span>
+</label>
+</div>
+</div>
+<!-- District Quick Filter -->
+<div class="space-y-2 pt-2">
+<label class="font-label-sm text-label-sm uppercase font-bold text-on-surface-variant tracking-wider">Province &amp; District</label>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2.5 py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm cursor-pointer">Galle (24)</span>
+<span class="px-2.5 py-1 rounded bg-surface-container font-label-sm text-label-sm text-on-surface hover:bg-surface-container-high cursor-pointer">Colombo (18)</span>
+<span class="px-2.5 py-1 rounded bg-surface-container font-label-sm text-label-sm text-on-surface hover:bg-surface-container-high cursor-pointer">Badulla / Ella (15)</span>
+<span class="px-2.5 py-1 rounded bg-surface-container font-label-sm text-label-sm text-on-surface hover:bg-surface-container-high cursor-pointer">Kegalle / Kitulgala (11)</span>
+<span class="px-2.5 py-1 rounded bg-surface-container font-label-sm text-label-sm text-on-surface hover:bg-surface-container-high cursor-pointer">Kandy (14)</span>
+<span class="px-2.5 py-1 rounded bg-surface-container font-label-sm text-label-sm text-on-surface hover:bg-surface-container-high cursor-pointer">Kalutara (9)</span>
+</div>
+</div>
+<!-- Direct Host Protection Escrow Callout -->
+<div class="bg-surface-container rounded-lg p-3.5 space-y-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">shield</span>
+<span class="font-label-md text-label-md font-bold text-primary">DayOuts 100% Escrow Safeguard</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Funds held securely until your arrival is verified at the property reception. Free cancellation up to 48h prior.
+          </p>
+</div>
+</aside>
+<!-- Results Grid Column (Desktop 8 cols) -->
+<main class="lg:col-span-8 flex flex-col gap-6">
+<!-- Results Bar: Count & Sorting -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-surface-container-lowest p-3.5 rounded-xl shadow-sm">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">142 Sanctuaries</span>
+<span class="text-on-surface-variant">•</span>
+<span class="font-label-md text-label-md text-secondary font-medium">4 Verified Flash Deals</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap">Sort by:</span>
+<select class="bg-surface-container-low font-label-md text-label-md font-semibold text-on-surface px-2.5 py-1.5 rounded-lg focus:outline-none cursor-pointer">
+<option>Recommended &amp; SLTDA Premier</option>
+<option>Price: Low to High (LKR)</option>
+<option>Guest Rating: High to Low</option>
+<option>Distance from Colombo (Fast Access)</option>
+</select>
+</div>
+</div>
+<!-- PROPERTY CARD 1: Cinnamon Wild & Lake Cabana — Bentota -->
+<article class="bg-surface-container-lowest rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all group flex flex-col md:flex-row">
+<!-- Image aspect container with badges -->
+<div class="relative md:w-5/12 min-h-[260px] md:min-h-auto">
+<div class="w-full h-full bg-cover bg-center absolute inset-0 group-hover:scale-105 transition-transform duration-500" data-alt="Panoramic photograph of Cinnamon Wild Bentota resort featuring a turquoise lagoon pool surrounded by tropical palm trees, contemporary teak daybeds, and river kayaks docked under morning golden sunlight in Sri Lanka." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCddDOk1PEzEryL44aq-FeAF1GwDH1Mdj447UT2KYeso9sIJJzRGP3CeUy48-et7qicLY352KRXGVvoPwcKyZriSwvqQ2ot3YKdMAdgvHnvcTwqG5m2bs33NkQjYfxculm5eOKsZKXQ1k0DVF46lcKA0thMgHf2cPtuCMLUVMohhy3nNxH2NPoNAxnau5GyUwELdva-52_QfyZQCBDWg3YWwRSgWd3d-uK19gepOZR24mMNTBD_kd5A')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-primary/20"></div>
+<div class="absolute top-3 left-3 flex flex-col gap-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-bold shadow-sm">
+<span class="material-symbols-outlined text-[13px]">wb_sunny</span> DAY PASS
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-secondary text-[14px]">verified</span> SLTDA Approved
+              </span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-on-primary font-label-sm text-label-sm">
+<span class="flex items-center gap-1 bg-surface-container-highest/20 backdrop-blur-md px-2 py-0.5 rounded text-white font-code-timer text-code-timer">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 09:00 AM – 05:00 PM
+              </span>
+<span class="px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary-container font-bold font-code-timer text-code-timer">
+                8 SLOTS LEFT
+              </span>
+</div>
+</div>
+<!-- Card Content Body -->
+<div class="p-5 md:w-7/12 flex flex-col justify-between space-y-4">
+<div>
+<div class="flex items-start justify-between gap-2">
+<div>
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">Bentota River Sanctuary</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface hover:text-primary cursor-pointer transition-colors">
+                    Cinnamon Wild &amp; Lake Cabana — Bentota
+                  </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[15px] text-outline">distance</span>
+                    1h 20m from Colombo via Southern Expressway
+                  </p>
+</div>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded-lg flex-shrink-0">
+<span class="material-symbols-outlined text-tertiary-fixed-variant text-[16px]">star</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">4.9</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(184)</span>
+</div>
+</div>
+<!-- Inclusions Tags -->
+<div class="grid grid-cols-2 gap-2 mt-3 pt-3 bg-surface-container-low p-2.5 rounded-lg">
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">local_bar</span>
+<span>Welcome Drink + King Coconut</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">lunch_dining</span>
+<span>Grand Seafood Buffet</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">kayaking</span>
+<span>Lagoon Kayaking &amp; Pool</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">checkroom</span>
+<span>AC Changing Rooms</span>
+</div>
+</div>
+</div>
+<!-- Pricing Footer & CTA -->
+<div class="flex items-end justify-between pt-2">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">All-Inclusive Per Guest:</span>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-md text-headline-md font-bold text-primary">LKR 6,500</span>
+<span class="font-currency-indicator text-currency-indicator text-on-surface-variant">≈ $21.30 USD</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Instant confirmation • No credit card req.</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" title="Save to Wishlist">
+<span class="material-symbols-outlined text-[20px]">favorite_border</span>
+</button>
+<button class="px-5 py-2.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-bold transition-all shadow-md flex items-center gap-1.5">
+<span>Hold Day Pass</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- PROPERTY CARD 2: The Dutch Fort Heritage Villa — Galle -->
+<article class="bg-surface-container-lowest rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all group flex flex-col md:flex-row">
+<div class="relative md:w-5/12 min-h-[260px] md:min-h-auto">
+<div class="w-full h-full bg-cover bg-center absolute inset-0 group-hover:scale-105 transition-transform duration-500" data-alt="Architectural photo of an exclusive restored 18th-century Dutch Fort colonial courtyard villa in Galle, Sri Lanka. Features a serene courtyard plunge pool, terracotta tiles, private chef table setting under ambient lanterns at twilight." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDi40qXJRFZwB3abf_wUSEGP6InmvJLG7uxoxx6BAzzZ8M7pflu0FJTjgfBBRW535bzukTarLStCx-zUiTqWp9Bk4bjvYjsIVq3n8USikhoAbDa_nEoyo1S-dzSId1E5qkV-4rlE2bs7_nHUia4aui6D_VSa6pOTB9rmJtObDVsWQTQReXPNL2xb74D4te7aJsRnx7GpOmQhWggTLJpsnTgg8cNmINnr0mASYDGJvvI19Ch635JToq0')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-primary/20"></div>
+<div class="absolute top-3 left-3 flex flex-col gap-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm font-bold shadow-sm">
+<span class="material-symbols-outlined text-[13px]">villa</span> EXCLUSIVE VILLA STAY
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-secondary text-[14px]">verified_user</span> Owner Verified
+              </span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-on-primary font-label-sm text-label-sm">
+<span class="flex items-center gap-1 bg-surface-container-highest/20 backdrop-blur-md px-2 py-0.5 rounded text-white font-code-timer text-code-timer">
+<span class="material-symbols-outlined text-[14px]">hotel</span> 4 Suites (Sleeps 10)
+              </span>
+<span class="px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary-container font-bold font-code-timer text-code-timer">
+                ONLY 2 UNITS LEFT
+              </span>
+</div>
+</div>
+<div class="p-5 md:w-7/12 flex flex-col justify-between space-y-4">
+<div>
+<div class="flex items-start justify-between gap-2">
+<div>
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">UNESCO Historic Ramparts • Galle Fort</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface hover:text-primary cursor-pointer transition-colors">
+                    The Dutch Fort Heritage Villa — Galle
+                  </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[15px] text-outline">location_on</span>
+                    Light House Street, Galle Fort Historic Enclave
+                  </p>
+</div>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded-lg flex-shrink-0">
+<span class="material-symbols-outlined text-tertiary-fixed-variant text-[16px]">star</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">4.95</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(92)</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-3 pt-3 bg-surface-container-low p-2.5 rounded-lg">
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">skillet</span>
+<span>Dedicated Private Chef</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">pool</span>
+<span>Private Courtyard Pool</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">liquor</span>
+<span>BYOB Free • Cocktail Bar</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">security</span>
+<span>24h Dedicated Butler</span>
+</div>
+</div>
+</div>
+<div class="flex items-end justify-between pt-2">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Entire Private Villa Per Night:</span>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-md text-headline-md font-bold text-primary">LKR 48,000</span>
+<span class="font-currency-indicator text-currency-indicator text-on-surface-variant">≈ $157.25 USD</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Flexible check-in • Full privacy</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" title="Save to Wishlist">
+<span class="material-symbols-outlined text-[20px]">favorite_border</span>
+</button>
+<button class="px-5 py-2.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-bold transition-all shadow-md flex items-center gap-1.5">
+<span>Book Villa</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- PROPERTY CARD 3: Ella Mist Cloud Chalet & Infinity Pool -->
+<article class="bg-surface-container-lowest rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all group flex flex-col md:flex-row">
+<div class="relative md:w-5/12 min-h-[260px] md:min-h-auto">
+<div class="w-full h-full bg-cover bg-center absolute inset-0 group-hover:scale-105 transition-transform duration-500" data-alt="Stunning architectural cantilevered infinity pool perched on a misty cliff edge in Ella Sri Lanka, overlooking Ella Rock and lush tea hills during morning sunbeam break, modern eco-luxury design." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBl3RB5e6TO1T2XxntOqa9Gc7ed8jCEZbAqD4Y1MhPfS66Yby_FpeYw_RoIdJwTIr_UEGCC7kSDkHG7PVO0xxEIWw1CVhQK2F9yiT-x0EpKK8V1DWx0M-y1HngXEry_b63d96qhYOut-lBuFRMl0DUAEf8-zcAk2qmkxxluTzm1fUH5dxMN5IuK6ZkG_u-8CZNuPU-JEibOzIZXCgCQCc5fh95uvOLOrI80ahtLA4pg5aFCTlVnXq-5')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-primary/20"></div>
+<div class="absolute top-3 left-3 flex flex-col gap-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary text-on-tertiary font-label-sm text-label-sm font-bold shadow-sm">
+<span class="material-symbols-outlined text-[13px]">wb_twilight</span> DUAL PASS • DAY OR STAY
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-secondary text-[14px]">verified</span> SLTDA Approved
+              </span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-on-primary font-label-sm text-label-sm">
+<span class="flex items-center gap-1 bg-surface-container-highest/20 backdrop-blur-md px-2 py-0.5 rounded text-white font-code-timer text-code-timer">
+<span class="material-symbols-outlined text-[14px]">filter_drama</span> Unobstructed Ella Rock Panorama
+              </span>
+</div>
+</div>
+<div class="p-5 md:w-7/12 flex flex-col justify-between space-y-4">
+<div>
+<div class="flex items-start justify-between gap-2">
+<div>
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">Central Mountain Ridge • Ella</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface hover:text-primary cursor-pointer transition-colors">
+                    Ella Mist Cloud Chalet &amp; Infinity Pool
+                  </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[15px] text-outline">landscape</span>
+                    Waterfall Road, High Ella Valley
+                  </p>
+</div>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded-lg flex-shrink-0">
+<span class="material-symbols-outlined text-tertiary-fixed-variant text-[16px]">star</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">4.88</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(142)</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-3 pt-3 bg-surface-container-low p-2.5 rounded-lg">
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">coffee</span>
+<span>Artisanal High Tea &amp; Scones</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">pool</span>
+<span>Heated Ridge Infinity Pool</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">wifi</span>
+<span>Fiber Starlink WiFi</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">hiking</span>
+<span>Ella Rock Trail Escort</span>
+</div>
+</div>
+</div>
+<div class="flex items-end justify-between pt-2">
+<div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Day Out &amp; High Tea: <strong class="text-on-surface font-currency-indicator">LKR 4,800/guest</strong></span>
+<div class="flex items-baseline gap-1.5 mt-0.5">
+<span class="font-headline-md text-headline-md font-bold text-primary">LKR 28,000</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/night stay</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Pay 20% now • Settle remainder on site</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" title="Save to Wishlist">
+<span class="material-symbols-outlined text-[20px]">favorite_border</span>
+</button>
+<button class="px-5 py-2.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-bold transition-all shadow-md flex items-center gap-1.5">
+<span>Select Dates</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- PROPERTY CARD 4: Riverbend Eco Glamping & Waterfall Retreat — Kitulgala -->
+<article class="bg-surface-container-lowest rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all group flex flex-col md:flex-row">
+<div class="relative md:w-5/12 min-h-[260px] md:min-h-auto">
+<div class="w-full h-full bg-cover bg-center absolute inset-0 group-hover:scale-105 transition-transform duration-500" data-alt="High quality photograph of a luxury eco glamping wooden dome nestled along the emerald Kelani river in Kitulgala Sri Lanka, with natural rock pools, bamboo verandas, and adventure travelers enjoying an open-air barbecue lunch." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCIlvB6FTYRBZkxeej24eUIwkPJRhO54J9pYhL9xmlf9lUWuoWRBUow2opy3uSDD-Aq2h07yJjrIjInoD4ft9hyOJ286-sfnI1HOwJFe-7LOJZG9Fn1-bEfqcjxNyRsZxYCig9JyRy0q2tmgJ6RkP7owE-jRnOP4pUVKA88M-uypSlYs111vF7GxDTEkuBFKsKFlbe0yKf_CMDXfxaMzqGIcCvV6bkxCm2hQVzE3-nqJmy4YqHTKuXE')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-primary/20"></div>
+<div class="absolute top-3 left-3 flex flex-col gap-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm font-bold shadow-sm">
+<span class="material-symbols-outlined text-[13px]">kayaking</span> ADVENTURE DAY OUT
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-secondary text-[14px]">military_tech</span> Top Rated Adventure 2024
+              </span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-on-primary font-label-sm text-label-sm">
+<span class="flex items-center gap-1 bg-surface-container-highest/20 backdrop-blur-md px-2 py-0.5 rounded text-white font-code-timer text-code-timer">
+<span class="material-symbols-outlined text-[14px]">water</span> Kelani Natural Rapids Access
+              </span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-primary font-bold font-code-timer text-code-timer">
+                12 PASSES TODAY
+              </span>
+</div>
+</div>
+<div class="p-5 md:w-7/12 flex flex-col justify-between space-y-4">
+<div>
+<div class="flex items-start justify-between gap-2">
+<div>
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">Kelani Rainforest Valley • Kitulgala</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface hover:text-primary cursor-pointer transition-colors">
+                    Riverbend Eco Glamping &amp; Waterfall Retreat
+                  </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[15px] text-outline">rowing</span>
+                    Rafting Basecamp, Kitulgala Reserve
+                  </p>
+</div>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded-lg flex-shrink-0">
+<span class="material-symbols-outlined text-tertiary-fixed-variant text-[16px]">star</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">4.92</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(210)</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-3 pt-3 bg-surface-container-low p-2.5 rounded-lg">
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">surfing</span>
+<span>White Water Rafting (Grade 3)</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">outdoor_grill</span>
+<span>Full Live BBQ Lunch Buffet</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">pool</span>
+<span>Natural River Rock Pools</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">safety_divider</span>
+<span>Life Vests &amp; Certified Guide</span>
+</div>
+</div>
+</div>
+<div class="flex items-end justify-between pt-2">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Adventure Day Pass:</span>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-md text-headline-md font-bold text-primary">LKR 5,200</span>
+<span class="font-currency-indicator text-currency-indicator text-on-surface-variant">≈ $17.00 USD</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Includes gear &amp; safety briefing</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" title="Save to Wishlist">
+<span class="material-symbols-outlined text-[20px]">favorite_border</span>
+</button>
+<button class="px-5 py-2.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-bold transition-all shadow-md flex items-center gap-1.5">
+<span>Book Adventure</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- Pagination & Realtime Status Indicator -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-surface-container-highest">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Showing <strong class="text-on-surface">1 – 4</strong> of <strong class="text-on-surface">142</strong> curated properties
+          </p>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:bg-surface-container-high font-label-md text-label-md disabled:opacity-40" disabled="">Previous</button>
+<button class="w-8 h-8 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-bold">1</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-label-md text-label-md">2</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-label-md text-label-md">3</button>
+<span class="text-on-surface-variant">...</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-label-md text-label-md">12</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-label-md text-label-md font-semibold">Next</button>
+</div>
+</div>
+</main>
+</div>
+</section>
+<!-- Interactive Map Discovery Teaser Banner -->
+<section class="w-full max-w-[1320px] mx-auto px-gutter-mobile lg:px-gutter pb-12">
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm overflow-hidden relative">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+<div class="lg:col-span-5 space-y-3">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[16px]">map</span>
+            INTERACTIVE SRI LANKA MAP
+          </div>
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">
+            Locate Villas &amp; Pools Along Your Exact Route
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Driving down the Southern Expressway or climbing through the Kandy-Nuwara Eliya pass? Filter day passes and pool cabanas along your travel corridor with live navigation points.
+          </p>
+<div class="pt-2 flex flex-wrap gap-3">
+<button class="px-4 py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-primary-container transition-all flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">explore</span>
+<span>Open Geographic Explorer</span>
+</button>
+<button class="px-4 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high font-label-md text-label-md text-on-surface font-semibold transition-all">
+              Filter by Highway Exit
+            </button>
+</div>
+</div>
+<div class="lg:col-span-7 h-64 sm:h-72 w-full rounded-xl overflow-hidden relative shadow-inner">
+<div class="w-full h-full bg-cover bg-center rounded-xl" data-location="Sri Lanka" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCxvMzldqjYEbpKCXzFjQDAfXAxOIQzIzybCE1KOyPfWdYrkWvQHiakpRbxrNHpLUy5xUfBR9JiM8lmXgvSJx_2jm79KcZ75hzCnhtjXbtxlH5iHNb5SdQcIdAmh9loSt7WFz-DnnNoLrlIdteDu0l660ZQJf4ItASgefuPYStmpweiQWfckVCtARoO2UO5t2MAJY7_WSldnIOrizaWFk2eYi8UL0WOH87vC3dZ4Lc8gqMEXVeiUk8x')"></div>
+<div class="absolute inset-0 bg-primary/10 pointer-events-none"></div>
+<!-- Sample Interactive Pin Overlays -->
+<div class="absolute top-1/4 left-1/3 bg-surface-container-lowest text-on-surface p-2 rounded-lg shadow-lg flex items-center gap-2 transform -translate-x-1/2 cursor-pointer hover:scale-105 transition-transform">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-bold leading-tight">Bentota Cluster</span>
+<span class="font-code-timer text-code-timer text-secondary text-[10px]">14 Day Passes</span>
+</div>
+</div>
+<div class="absolute bottom-1/4 left-1/2 bg-surface-container-lowest text-on-surface p-2 rounded-lg shadow-lg flex items-center gap-2 transform -translate-x-1/2 cursor-pointer hover:scale-105 transition-transform">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-bold leading-tight">Galle Fort Riviera</span>
+<span class="font-code-timer text-code-timer text-secondary text-[10px]">26 Heritage Stays</span>
+</div>
+</div>
+<div class="absolute top-1/3 right-1/4 bg-surface-container-lowest text-on-surface p-2 rounded-lg shadow-lg flex items-center gap-2 transform -translate-x-1/2 cursor-pointer hover:scale-105 transition-transform">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary"></span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-bold leading-tight">Ella &amp; High Peaks</span>
+<span class="font-code-timer text-code-timer text-secondary text-[10px]">9 Cloud Chalets</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sticky Bottom Quick Assist for Mobile & Floating WhatsApp Concierge -->
+<div class="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3 pointer-events-auto">
+<!-- Live Reservation Assistant Bubble -->
+<div class="hidden sm:flex items-center gap-3 bg-surface-container-lowest rounded-2xl p-2.5 shadow-2xl border-none pl-3.5 group max-w-sm">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-primary font-bold">
+<span class="material-symbols-outlined text-[22px]">support_agent</span>
+</div>
+<span class="w-3 h-3 rounded-full bg-secondary absolute bottom-0 right-0 border-2 border-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col pr-1">
+<p class="font-label-md text-label-md font-bold text-on-surface leading-tight">Need a custom group day out?</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Our Island Concierge arranges corporate retreats &amp; private pools in 10 mins.</p>
+</div>
+</div>
+<!-- WhatsApp Floating Action Pill -->
+<a class="flex items-center gap-2 px-4 py-3 bg-[#25D366] text-white hover:bg-[#20ba5a] rounded-full shadow-2xl transition-all hover:scale-105" href="https://wa.me/94771234567" target="_blank">
+<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24">
+<path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"></path>
+</svg>
+<span class="font-label-md text-label-md font-bold text-white pr-1">Instant WhatsApp Concierge</span>
+</a>
+</div>
+<!-- Inline Tab Switching & State Scripts -->
+<script>
+    function switchSearchTab(type) {
+      const tabDayout = document.getElementById('tabDayout');
+      const tabOvernight = document.getElementById('tabOvernight');
+      const slotContainer = document.getElementById('slotSelectorContainer');
+
+      if (type === 'dayout') {
+        tabDayout.className = "px-4 py-2 rounded-md font-label-md text-label-md font-semibold transition-all flex items-center gap-2 bg-primary text-on-primary shadow-sm";
+        tabOvernight.className = "px-4 py-2 rounded-md font-label-md text-label-md font-semibold transition-all flex items-center gap-2 text-on-surface-variant hover:text-on-surface";
+        if(slotContainer) {
+          slotContainer.style.display = "flex";
+        }
+      } else {
+        tabOvernight.className = "px-4 py-2 rounded-md font-label-md text-label-md font-semibold transition-all flex items-center gap-2 bg-primary text-on-primary shadow-sm";
+        tabDayout.className = "px-4 py-2 rounded-md font-label-md text-label-md font-semibold transition-all flex items-center gap-2 text-on-surface-variant hover:text-on-surface";
+        if(slotContainer) {
+          slotContainer.style.display = "flex";
+        }
+      }
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-low text-on-surface pt-16 pb-12 mt-space-xl"><div class="w-full max-w-[1320px] mx-auto px-gutter-mobile lg:px-gutter"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl pb-12"><div class="lg:col-span-2 space-y-space-md"><div class="flex items-center gap-space-sm"><img alt="DAYOUTS.LK Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Xhc_PsLmC30S_GzdokMLdS4S4uhfCLBKFDSsEPzp8PdzLVXEm9x_DF6godanXEkI22vtRm-BqU4mpvdeZbdR-8dLktmcKkrIzi-hG7Bwk6sD-iN8hXs5CX5ySlrWSLmBk65kXhk663ujyufHDHEd12paJmzQV33Izn6cAZhWGIt5sTudJ1f3TCdzGFhQs6egoWFbb7C-U1udmSube-DP4PRlj8ECgP-ELGyVGQqxt1Jfj3CphiIV3nNA"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold text-primary">DAYOUTS<span class="text-secondary">.LK</span></span><span class="font-label-sm text-label-sm text-on-surface-variant">Verified Escapes Sri Lanka</span></div></div><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Discover, book, and verify luxury day villas, coastal retreats, pool passes, and tea-plantation sanctuaries across the island.</p><div class="inline-flex items-center gap-3 bg-surface-container px-3.5 py-2 rounded-lg"><span class="material-symbols-outlined text-primary text-[24px]">verified_user</span><div class="flex flex-col"><span class="font-label-sm text-label-sm font-bold text-primary uppercase tracking-wide">SLTDA Registered Platform</span><span class="font-code-timer text-code-timer text-on-surface-variant text-[11px]">License No: SLTDA/SQA/APP/2024/0981</span></div></div><div class="flex items-center gap-3 pt-2"><div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[20px]">support_agent</span></div><div><p class="font-label-sm text-label-sm text-on-surface-variant">24/7 Island Concierge &amp; Emergency Support</p><p class="font-headline-sm text-headline-sm text-primary font-bold">+94 11 789 0000</p></div></div></div><div><h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-md">Quick Links</h4><ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" data-path="explore-stays" href="#">Verified Day Escapes</a></li><li><a class="hover:text-primary transition-colors" data-path="day-out-packages" href="#">All-Inclusive Pool Passes</a></li><li><a class="hover:text-primary transition-colors" data-path="deals-and-offers" href="#">Last-Minute Flash Deals</a></li><li><a class="hover:text-primary transition-colors" data-path="for-property-owners" href="#">Host Onboarding &amp; Terms</a></li><li><a class="hover:text-primary transition-colors" href="#">Sri Lanka Tourism Guidelines</a></li></ul></div><div><h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-md">Island Regions</h4><ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" href="#">Western Coast &amp; Colombo</a></li><li><a class="hover:text-primary transition-colors" href="#">Galle &amp; Deep South Reviera</a></li><li><a class="hover:text-primary transition-colors" href="#">Central Tea Country (Kandy, Nuwara Eliya)</a></li><li><a class="hover:text-primary transition-colors" href="#">Ella, Badulla &amp; Mountain Passes</a></li><li><a class="hover:text-primary transition-colors" href="#">East Coast (Arugam Bay, Trincomalee)</a></li></ul></div><div><h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-md">Secure Bookings</h4><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">Instant reservation locks with verified direct-to-resort validation.</p><div class="flex flex-wrap gap-2 text-on-surface-variant"><span class="px-2.5 py-1 bg-surface-container rounded font-label-sm text-label-sm font-semibold">Visa</span><span class="px-2.5 py-1 bg-surface-container rounded font-label-sm text-label-sm font-semibold">MasterCard</span><span class="px-2.5 py-1 bg-surface-container rounded font-label-sm text-label-sm font-semibold">LankaPay</span><span class="px-2.5 py-1 bg-surface-container rounded font-label-sm text-label-sm font-semibold">FriMi</span><span class="px-2.5 py-1 bg-surface-container rounded font-label-sm text-label-sm font-semibold">LankaQR</span></div><div class="mt-space-md p-3 bg-surface-container-high rounded-lg"><p class="font-label-sm text-label-sm font-semibold text-primary flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">lock</span>100% Escrow Refund Protection</p></div></div></div><div class="pt-8 pb-8 border-t border-surface-container-highest"><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md font-semibold text-on-surface">Complete 25 Districts Islandwide Coverage:</span><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Colombo • Gampaha • Kalutara • Kandy • Matale • Nuwara Eliya • Galle • Matara • Hambantota • Jaffna • Kilinochchi • Mannar • Vavuniya • Mullaitivu • Batticaloa • Ampara • Trincomalee • Kurunegala • Puttalam • Anuradhapura • Polonnaruwa • Badulla • Monaragala • Ratnapura • Kegalle</p></div></div><div class="pt-8 border-t border-surface-container-highest flex flex-col md:flex-row items-center justify-between gap-space-md"><p class="font-body-sm text-body-sm text-on-surface-variant">© 2025 DAYOUTS.LK Pvt Ltd. Certified by Sri Lanka Tourism Development Authority. All rights reserved.</p><div class="flex items-center gap-space-md font-label-sm text-label-sm text-on-surface-variant"><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a><a class="hover:text-primary transition-colors" href="#">Guest Booking Terms</a><a class="hover:text-primary transition-colors" href="#">Cancellation Safeguard</a><a class="hover:text-primary transition-colors" href="#">Emergency SOS Protocols</a></div></div></div></footer></body></html>

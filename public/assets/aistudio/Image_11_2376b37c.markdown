@@ -1,0 +1,225 @@
+---
+name: Tropical Sanctuary
+colors:
+  surface: '#effcfd'
+  surface-dim: '#d0dcdd'
+  surface-bright: '#effcfd'
+  surface-container-lowest: '#ffffff'
+  surface-container-low: '#eaf6f7'
+  surface-container: '#e4f0f1'
+  surface-container-high: '#deeaeb'
+  surface-container-highest: '#d9e5e6'
+  on-surface: '#121d1e'
+  on-surface-variant: '#404945'
+  inverse-surface: '#273233'
+  inverse-on-surface: '#e7f3f4'
+  outline: '#707975'
+  outline-variant: '#bfc9c3'
+  surface-tint: '#2f6857'
+  primary: '#003528'
+  on-primary: '#ffffff'
+  primary-container: '#0d4d3d'
+  on-primary-container: '#82bda8'
+  inverse-primary: '#98d3bd'
+  secondary: '#006a66'
+  on-secondary: '#ffffff'
+  secondary-container: '#9cf1ec'
+  on-secondary-container: '#02706d'
+  tertiary: '#4f2100'
+  on-tertiary: '#ffffff'
+  tertiary-container: '#713200'
+  on-tertiary-container: '#ff9756'
+  error: '#ba1a1a'
+  on-error: '#ffffff'
+  error-container: '#ffdad6'
+  on-error-container: '#93000a'
+  primary-fixed: '#b3efd9'
+  primary-fixed-dim: '#98d3bd'
+  on-primary-fixed: '#002118'
+  on-primary-fixed-variant: '#125040'
+  secondary-fixed: '#9cf1ec'
+  secondary-fixed-dim: '#80d5d0'
+  on-secondary-fixed: '#00201f'
+  on-secondary-fixed-variant: '#00504d'
+  tertiary-fixed: '#ffdbc9'
+  tertiary-fixed-dim: '#ffb68c'
+  on-tertiary-fixed: '#321200'
+  on-tertiary-fixed-variant: '#753400'
+  background: '#effcfd'
+  on-background: '#121d1e'
+  surface-variant: '#d9e5e6'
+typography:
+  headline-xl:
+    fontFamily: Epilogue
+    fontSize: 48px
+    fontWeight: '700'
+    lineHeight: 56px
+    letterSpacing: -0.02em
+  headline-xl-mobile:
+    fontFamily: Epilogue
+    fontSize: 32px
+    fontWeight: '700'
+    lineHeight: 40px
+    letterSpacing: -0.01em
+  headline-lg:
+    fontFamily: Epilogue
+    fontSize: 36px
+    fontWeight: '600'
+    lineHeight: 44px
+    letterSpacing: -0.015em
+  headline-lg-mobile:
+    fontFamily: Epilogue
+    fontSize: 26px
+    fontWeight: '600'
+    lineHeight: 34px
+    letterSpacing: -0.01em
+  headline-md:
+    fontFamily: Epilogue
+    fontSize: 24px
+    fontWeight: '600'
+    lineHeight: 32px
+  headline-sm:
+    fontFamily: Epilogue
+    fontSize: 20px
+    fontWeight: '600'
+    lineHeight: 28px
+  body-lg:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 18px
+    fontWeight: '400'
+    lineHeight: 28px
+  body-md:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 15px
+    fontWeight: '400'
+    lineHeight: 24px
+  body-sm:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 13px
+    fontWeight: '400'
+    lineHeight: 20px
+  label-md:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 13px
+    fontWeight: '600'
+    lineHeight: 18px
+    letterSpacing: 0.01em
+  label-sm:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 11px
+    fontWeight: '600'
+    lineHeight: 16px
+    letterSpacing: 0.02em
+  code-timer:
+    fontFamily: JetBrains Mono
+    fontSize: 13px
+    fontWeight: '500'
+    lineHeight: 16px
+    letterSpacing: -0.02em
+  currency-indicator:
+    fontFamily: JetBrains Mono
+    fontSize: 12px
+    fontWeight: '600'
+    lineHeight: 16px
+rounded:
+  sm: 0.25rem
+  DEFAULT: 0.5rem
+  md: 0.75rem
+  lg: 1rem
+  xl: 1.5rem
+  full: 9999px
+spacing:
+  gutter: 1.5rem
+  gutter-mobile: 1rem
+  margin: 3rem
+  margin-mobile: 1.25rem
+  space-xs: 0.25rem
+  space-sm: 0.5rem
+  space-md: 1rem
+  space-lg: 1.5rem
+  space-xl: 2.5rem
+---
+
+## Brand & Style
+
+This design system establishes an elevated tropical hospitality ethos tailored for the high-end Sri Lankan leisure and day-pass resort sector. The target audience encompasses affluent domestic vacationers, regional South Asian short-stay travelers, and discerning international tourists seeking verified luxury day villas, coastal cabanas, tea-estate retreats, and private nature sanctuaries.
+
+The aesthetic philosophy fuses **Modern Tropical Luxury** with architectural clarity. It avoids clichéd colonial nostalgia, opting instead for contemporary Geoffrey Bawa-inspired tropical modernism: expansive breathable white planes, grounded slate typography, deeply saturated biological greens, and luminous golden-hour terracotta highlights.
+
+Key emotional anchors:
+- **Sanctuary and Respite:** Effortless, calm whitespace reminiscent of open-air verandas and ocean breezes.
+- **Absolute Assurance:** Crisp, deliberate data visualization, unambiguous real-time reservation timers, verified property badges, and frictionless dual-currency/trilingual clarity.
+- **Sensory Indulgence:** Editorial composition paired with tactile micro-interactions that feel warm, curated, and exclusive.
+
+## Colors
+
+The palette balances lush botanical density with sun-baked architectural minerals and cool oceanic tides:
+
+- **Primary (`#0D4D3D` - Ceylon Emerald):** Evokes the deep canopy of Sinharaja and high-grown tea estates. Anchor for primary conversion flows, top-level navigation, and master brand markers.
+- **Secondary (`#197A76` - Indian Ocean Teal):** Represents coastal reefs and clear lagoon waters. Governs active tabs, search filtration states, verified host iconography, and interactive card indicators.
+- **Tertiary (`#D97736` - Terracotta Sun):** Warm, luminous, and directional. Reserved for high-urgency inventory holds, flash booking perks, verified partner star distinctions, and critical reservation countdowns.
+- **Neutral (`#1E292A` - Polished Slate):** A charcoal-slate with balanced blue-green undertones that prevents harsh contrasts while delivering crisp, accessible readability against bright, sunlit white surfaces.
+- **Surface & Backgrounds:** The base canvas lives on pristine warm-milk tint (`#FAFAF7`), while cards and elevation planes rest on sharp pure white (`#FFFFFF`) with whisper-thin jade-slate borders (`rgba(13, 77, 61, 0.08)`).
+
+## Typography
+
+The typographic hierarchy delivers architectural discipline balanced by welcoming warmth:
+
+- **Display & Headlines (`Epilogue`):** Delivers a sculptural, editorial character. Its geometric yet organic contours echo tropical modernist signage and high-end boutique hospitality branding.
+- **Body & Controls (`Plus Jakarta Sans`):** Ensures effortless legibility across dense booking specifications, meal inclusion lists, and reservation terms. Generous counters maintain readability even under high glare and mobile outdoor use.
+- **Utility, Currencies & Countdowns (`JetBrains Mono`):** Dedicated to technical data nodes: reservation hold timers, LKR/USD exchange tickers, check-in time windows, and booking reference IDs. This deliberate contrast prevents visual ambiguity in critical transactions.
+- **Multilingual Support (EN / SI / TA):** Sinhala and Tamil renderings inherit vertical line-height multipliers of `1.2x` on top of standard base tokens to accommodate ascenders, descenders, and complex conjuncts without clipping.
+
+## Layout & Spacing
+
+This design system employs a disciplined 12-column fluid grid system across desktop viewports, shifting to a 6-column grid on tablet and a 4-column grid on mobile devices.
+
+- **Breakpoints:**
+  - Mobile: `< 640px` (4 columns, `margin-mobile: 1.25rem`, `gutter-mobile: 1rem`)
+  - Tablet: `640px – 1024px` (6 columns, `margin: 2rem`, `gutter: 1.25rem`)
+  - Desktop: `> 1024px` (12 columns, max-content container: `1320px`, `margin: 3rem`, `gutter: 1.5rem`)
+
+- **Rhythm & Safe Margins:**
+  Layouts prioritize vertical breathing room between discovery modules. Booking flows employ sticky checkout rails on desktop (`col-span-4`) locked next to experiential media galleries (`col-span-8`). On mobile screens, critical booking progress, dynamic currency switches, and inventory hold timers lock to an accessible sticky bottom bar with safe-area padding (`env(safe-area-inset-bottom)`).
+
+## Elevation & Depth
+
+Visual hierarchy abandons heavy artificial drop shadows in favor of **Tonal Layers** and **Tinted Ambient Illumination**:
+
+- **Ground Level (Base Canvas):** `#FAFAF7` provides an organic, glare-free backdrop.
+- **Layer 1 (Cards, Property Grids, Search Bars):** Solid `#FFFFFF` elevated via a crisp, hairline low-contrast outline (`1px solid rgba(13, 77, 61, 0.08)`), paired with an ultra-diffuse ambient shadow: `0 4px 20px -2px rgba(13, 77, 61, 0.04)`.
+- **Layer 2 (Floating Booking Drawers, Filter Overlays, Popovers):** Solid `#FFFFFF` lifted with `0 12px 32px -4px rgba(30, 41, 42, 0.08)`, rimmed with a slightly firmer boundary (`1px solid rgba(13, 77, 61, 0.12)`).
+- **Layer 3 (Modals, Gallery Lightboxes, Fullscreen Checkout Locks):** Backdrop curtain composed of high-density ocean slate tint (`rgba(14, 26, 25, 0.65)`) with a `8px` progressive backdrop blur, focusing absolute attention onto the interaction center.
+
+## Shapes
+
+The shape system adopts a curated architectural curvature (`roundedness: 2`). This avoids clinical sharp edges while remaining firmly grounded, avoiding overly playful or child-like pill forms for structural surfaces:
+
+- **Base Components (Inputs, Primary Buttons, Dropdowns):** `0.5rem` (`8px`) corner radius.
+- **Containers & Feature Cards (`rounded-lg`):** `1rem` (`16px`) corner radius.
+- **Large Modals, Hero Image Frames, Experience Hubs (`rounded-xl`):** `1.5rem` (`24px`) corner radius.
+- **Exceptions (Badges, Currency Toggles, Pill Indicators):** Fully circular or pill-shaped (`9999px`) purely for micro-status tokens (e.g., "Verified Sanctuary", "Hold: 09:42", "EN | SI | TA").
+
+## Components
+
+### Buttons & Booking Actions
+- **Primary Action (Book Now / Hold Experience):** Solid Emerald (`#0D4D3D`) base, white text, `0.5rem` radius, subtle hover scale (`scale-[1.01]`) accompanied by an increase in deep green ambient radiance (`box-shadow: 0 8px 24px -4px rgba(13, 77, 61, 0.3)`).
+- **Secondary Action (Explore Packages / View Menu):** Crisp white surface with a `1.5px` border in `#197A76`, typography set in `#197A76`, shifting to faint teal mist on hover (`rgba(25, 122, 118, 0.06)`).
+- **Urgent Inventory Action:** Highlighted with `#D97736` background and embedded monospace countdown timer.
+
+### Badges & Status Tokens
+- **Verification Seal:** Emerald tint background (`rgba(13, 77, 61, 0.08)`), Emerald text (`#0D4D3D`), accompanied by a verified check icon.
+- **Multilingual Switcher:** Compact segmented chip toggling between `EN`, `සිං`, and `தம`, displaying active state with a solid slate pill and white glyph.
+- **Currency Switcher & Real-Time Converter:** Inline floating badge displaying `LKR` and `USD` side-by-side with instantaneous exchange rate parity hints (`1 USD ≈ 305 LKR`) in `JetBrains Mono`.
+
+### Real-Time Inventory Hold Countdown
+- An amber-terracotta status strip (`#D97736` background with high-contrast white text) that locks to the top of checkout interfaces. Utilizes `JetBrains Mono` for a live ticking countdown (`09:59 MINS REMAINING`), conveying urgency without jarring visual noise.
+
+### Cards & Property Teasers
+- Pure white container, `rounded-lg` (`16px`), zero border shadow replaced with a micro-stroke (`rgba(13, 77, 61, 0.08)`).
+- Visual gallery capped with a 16:10 aspect ratio, overlaying a gradient curtain at the top for multilingual tag pills and day-pass hours (`09:00 AM – 06:00 PM`).
+- Price footer split cleanly: bold headline price in `LKR`, paired with a secondary `USD` equivalent in neutral slate.
+
+### Inputs & Date-Guest Controls
+- Custom split selector for: (1) Date Selection, (2) Pass Duration (Full Day / Morning / Sunset Pool Pass), and (3) Guest Counter (Adults, Children).
+- Input field boundaries default to `1px solid rgba(30, 41, 42, 0.15)`. Active/focused states transition smoothly to `2px solid #0D4D3D` with zero outline rings.

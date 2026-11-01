@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "primary-fixed-dim": "#98d3bd",
+          "error-container": "#ffdad6",
+          "on-tertiary": "#ffffff",
+          "primary-container": "#0d4d3d",
+          "inverse-on-surface": "#e7f3f4",
+          "on-tertiary-fixed": "#321200",
+          "secondary": "#006a66",
+          "error": "#ba1a1a",
+          "tertiary-fixed-dim": "#ffb68c",
+          "surface-bright": "#effcfd",
+          "surface-container-highest": "#d9e5e6",
+          "surface-container-lowest": "#ffffff",
+          "on-tertiary-container": "#ff9756",
+          "on-error-container": "#93000a",
+          "on-surface": "#121d1e",
+          "tertiary-fixed": "#ffdbc9",
+          "surface-container": "#e4f0f1",
+          "surface": "#effcfd",
+          "secondary-container": "#9cf1ec",
+          "secondary-fixed": "#9cf1ec",
+          "on-surface-variant": "#404945",
+          "background": "#effcfd",
+          "on-secondary-fixed": "#00201f",
+          "tertiary-container": "#713200",
+          "surface-dim": "#d0dcdd",
+          "primary-fixed": "#b3efd9",
+          "inverse-surface": "#273233",
+          "secondary-fixed-dim": "#80d5d0",
+          "tertiary": "#4f2100",
+          "primary": "#003528",
+          "surface-variant": "#d9e5e6",
+          "on-primary": "#ffffff",
+          "inverse-primary": "#98d3bd",
+          "surface-tint": "#2f6857",
+          "on-primary-fixed": "#002118",
+          "surface-container-high": "#deeaeb",
+          "on-secondary-container": "#02706d",
+          "on-primary-container": "#82bda8",
+          "on-secondary": "#ffffff",
+          "on-tertiary-fixed-variant": "#753400",
+          "outline-variant": "#bfc9c3",
+          "on-primary-fixed-variant": "#125040",
+          "surface-container-low": "#eaf6f7",
+          "on-error": "#ffffff",
+          "outline": "#707975",
+          "on-background": "#121d1e",
+          "on-secondary-fixed-variant": "#00504d"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "gutter": "1.5rem",
+          "margin-mobile": "1.25rem",
+          "space-xs": "0.25rem",
+          "space-lg": "1.5rem",
+          "gutter-mobile": "1rem",
+          "margin": "3rem",
+          "space-xl": "2.5rem",
+          "space-sm": "0.5rem",
+          "space-md": "1rem"
+        },
+        "fontFamily": {
+          "body-sm": ["Plus Jakarta Sans"],
+          "body-md": ["Plus Jakarta Sans"],
+          "body-lg": ["Plus Jakarta Sans"],
+          "currency-indicator": ["JetBrains Mono"],
+          "headline-lg": ["Epilogue"],
+          "label-md": ["Plus Jakarta Sans"],
+          "headline-xl": ["Epilogue"],
+          "code-timer": ["JetBrains Mono"],
+          "headline-xl-mobile": ["Epilogue"],
+          "headline-md": ["Epilogue"],
+          "label-sm": ["Plus Jakarta Sans"],
+          "headline-sm": ["Epilogue"],
+          "headline-lg-mobile": ["Epilogue"]
+        },
+        "fontSize": {
+          "body-sm": ["13px", {"lineHeight": "20px", "fontWeight": "400"}],
+          "body-md": ["15px", {"lineHeight": "24px", "fontWeight": "400"}],
+          "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+          "currency-indicator": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+          "headline-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+          "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+          "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "code-timer": ["13px", {"lineHeight": "16px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+          "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+          "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+          "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+          "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+          "headline-lg-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+        }
+      }
+    }
+  }</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 w-full max-w-[1320px] mx-auto px-gutter-mobile lg:px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md flex-shrink-0"><a class="flex items-center gap-space-sm group" data-path="explore-stays" href="#"><img alt="DAYOUTS.LK Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Xhc_PsLmC30S_GzdokMLdS4S4uhfCLBKFDSsEPzp8PdzLVXEm9x_DF6godanXEkI22vtRm-BqU4mpvdeZbdR-8dLktmcKkrIzi-hG7Bwk6sD-iN8hXs5CX5ySlrWSLmBk65kXhk663ujyufHDHEd12paJmzQV33Izn6cAZhWGIt5sTudJ1f3TCdzGFhQs6egoWFbb7C-U1udmSube-DP4PRlj8ECgP-ELGyVGQqxt1Jfj3CphiIV3nNA"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold tracking-tight text-primary leading-none">DAYOUTS<span class="text-secondary">.LK</span></span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium tracking-normal mt-1 hidden sm:inline-block">Sri Lanka's Day Out &amp; Stay Escapes</span></div></a></div><nav class="hidden xl:flex items-center gap-space-sm" data-active-classes="bg-surface-container text-primary font-semibold rounded-lg"><a class="px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="explore-stays" href="#">Explore Stays</a><a class="px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="day-out-packages" href="#">Day Out Packages</a><a class="px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="deals-and-offers" href="#">Deals &amp; Offers</a><a class="px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="for-property-owners" href="#">For Property Owners</a><a class="px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all flex items-center gap-1.5" href="https://wa.me/94771234567" target="_blank"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse inline-block"></span>Concierge (+94 77 123 4567)</a></nav><div class="flex items-center gap-space-sm flex-shrink-0"><div class="hidden md:flex items-center bg-surface-container-low rounded-lg p-1"><button class="px-2 py-1 rounded font-label-sm text-label-sm font-bold bg-primary text-on-primary shadow-sm" type="button">EN</button><button class="px-2 py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface" type="button">සිං</button><button class="px-2 py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface" type="button">தமிழ்</button></div><div class="hidden lg:flex items-center bg-surface-container-low rounded-lg px-2.5 py-1.5 gap-2"><div class="flex items-center gap-1 font-currency-indicator text-currency-indicator font-semibold text-primary"><span class="bg-surface-container-highest px-1.5 py-0.5 rounded text-on-surface">LKR</span><span class="text-outline">|</span><span class="text-on-surface-variant hover:text-on-surface cursor-pointer">USD</span></div><span class="font-code-timer text-code-timer text-on-surface-variant border-l border-outline-variant/30 pl-2 text-[11px]">1$ ≈ 305 LKR</span></div><a class="hidden sm:inline-flex items-center justify-center bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container px-4 py-2 rounded-lg font-label-md text-label-md font-semibold transition-all shadow-[0_4px_16px_-2px_rgba(0,53,40,0.2)]" data-path="list-your-property" href="#">List Your Property</a><div class="relative group flex items-center"><button class="flex items-center gap-1.5 p-1 rounded-full focus:outline-none ring-2 ring-primary/20" type="button"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCghVdjRr4uY8YbamvSO8fl-ybZhrC5WmECVq4IEyQqJo15HGLZRYEIGa4t3p3xq3fjNW6rKAMMSvgq9B9tfrPsLRgw-KhOpHSqcvUrzhfgOVN1wr11DrOwvEIiJPfComay0XmGtQocV2EciqQS5OiNg1rxhpEkGlgfibjWDCFxN24tlSD395QG-HN36SQfUXX_rFb4xhUYQad-wYSczyEeW7okEek6ImRNZeDlaA7oz7bdzyP3DTSv"/><span class="material-symbols-outlined text-[18px] text-on-surface-variant hidden sm:inline-block">expand_more</span></button><div class="absolute right-0 top-full mt-2 w-56 bg-surface-container-lowest rounded-xl shadow-[0_12px_32px_-4px_rgba(30,41,42,0.12)] p-2 hidden group-hover:block transition-all"><div class="px-3 py-2 border-b border-surface-container-high mb-1"><p class="font-label-md text-label-md text-on-surface font-semibold truncate">Nalin Jayawardena</p><p class="font-label-sm text-label-sm text-on-surface-variant truncate">VIP Explorer</p></div><a class="flex items-center gap-2 px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="my-bookings" href="#"><span class="material-symbols-outlined text-[18px]">confirmation_number</span>My Bookings</a><a class="flex items-center gap-2 px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="wishlist" href="#"><span class="material-symbols-outlined text-[18px]">favorite</span>Wishlist</a><div class="my-1 border-t border-surface-container-high"></div><a class="flex items-center gap-2 px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="owner-portal" href="#"><span class="material-symbols-outlined text-[18px]">real_estate_agent</span>Switch to Owner Portal</a><a class="flex items-center gap-2 px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin-console" href="#"><span class="material-symbols-outlined text-[18px]">admin_panel_settings</span>Admin Console</a></div></div></div></div></header><main class="w-full pt-20 bg-background"><div class="flex flex-col w-full">
+<!-- Top Real-Time Inventory Lock Bar -->
+<aside aria-label="Inventory Hold Bar" class="w-full bg-tertiary text-on-tertiary px-gutter-mobile lg:px-gutter py-2.5 shadow-md">
+<div class="max-w-[1320px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
+<div class="flex items-center gap-2.5">
+<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-on-tertiary-container/30 text-on-tertiary">
+<span class="material-symbols-outlined text-[16px] animate-pulse">lock_clock</span>
+</span>
+<div class="flex flex-wrap items-center gap-x-2 gap-y-0.5">
+<span class="font-label-md text-label-md font-bold uppercase tracking-wider text-tertiary-fixed">Inventory Locked:</span>
+<span class="font-body-sm text-body-sm text-on-tertiary">2 Cabanas held for</span>
+<span class="font-code-timer text-code-timer font-bold px-2 py-0.5 rounded bg-tertiary-container text-tertiary-fixed border-0" id="countdown-timer">11:42</span>
+<span class="font-body-sm text-body-sm text-on-tertiary/90 hidden sm:inline">minutes.</span>
+</div>
+</div>
+<div class="flex items-center gap-3 self-end md:self-auto font-code-timer text-code-timer text-[11px] text-tertiary-fixed/80">
+<span class="bg-tertiary-container/60 px-2 py-0.5 rounded">IDEMP: #IDEMP-LK-908234-AX7</span>
+<span class="hidden lg:inline text-on-tertiary/60">•</span>
+<span class="hidden lg:inline text-on-tertiary/80">Server-enforced PostgreSQL row locks active</span>
+</div>
+</div>
+</aside>
+<!-- Main Booking Context Wrapper -->
+<section class="w-full max-w-[1320px] mx-auto px-gutter-mobile lg:px-gutter py-8 lg:py-12">
+<!-- Breadcrumb & Booking Stepper Status -->
+<header class="mb-8">
+<div class="flex flex-wrap items-center gap-2 font-label-sm text-label-sm text-on-surface-variant mb-4">
+<span>Bentota Riviera</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span>The Palms Oceanfront Sanctuary</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-bold">Secure Reservation Hold</span>
+</div>
+<!-- State Engine Stepper: Specification Lifecycle -->
+<div class="w-full bg-surface-container-lowest p-4 lg:p-6 rounded-xl shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">sync_saved_locally</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">State Engine Lifecycle</h2>
+</div>
+<span class="font-code-timer text-code-timer text-[12px] bg-secondary-container text-on-secondary-container px-2.5 py-1 rounded-full font-semibold">
+            STATUS: [AWAITING_OWNER_APPROVAL]
+          </span>
+</div>
+<!-- Interactive Visual Stepper -->
+<ol class="grid grid-cols-2 sm:grid-cols-5 gap-2 lg:gap-4 relative pt-2">
+<!-- Step 1 -->
+<li class="flex flex-col items-center text-center p-2 rounded-lg bg-surface-container-high/60">
+<div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-code-timer text-[12px] font-bold mb-1.5">
+              ✓
+            </div>
+<span class="font-label-sm text-label-sm font-semibold text-primary">PENDING</span>
+<span class="font-code-timer text-[10px] text-on-surface-variant">Auth Handshake</span>
+</li>
+<!-- Step 2 (Active Hold) -->
+<li class="flex flex-col items-center text-center p-2 rounded-lg bg-primary-container text-on-primary">
+<div class="w-7 h-7 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-code-timer text-[12px] font-bold mb-1.5 animate-pulse">
+              2
+            </div>
+<span class="font-label-sm text-label-sm font-bold text-on-primary">AWAITING OWNER APPROVAL</span>
+<span class="font-code-timer text-[10px] text-on-primary-container">Row Locked (15m)</span>
+</li>
+<!-- Step 3 -->
+<li class="flex flex-col items-center text-center p-2 rounded-lg bg-surface-container-low">
+<div class="w-7 h-7 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-code-timer text-[12px] font-semibold mb-1.5">
+              3
+            </div>
+<span class="font-label-sm text-label-sm font-medium text-on-surface-variant">CONFIRMED</span>
+<span class="font-code-timer text-[10px] text-outline">Voucher Issued</span>
+</li>
+<!-- Step 4 -->
+<li class="flex flex-col items-center text-center p-2 rounded-lg bg-surface-container-low">
+<div class="w-7 h-7 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-code-timer text-[12px] font-semibold mb-1.5">
+              4
+            </div>
+<span class="font-label-sm text-label-sm font-medium text-on-surface-variant">CHECKED_IN</span>
+<span class="font-code-timer text-[10px] text-outline">QR Verification</span>
+</li>
+<!-- Step 5 -->
+<li class="flex flex-col items-center text-center p-2 rounded-lg bg-surface-container-low col-span-2 sm:col-span-1">
+<div class="w-7 h-7 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-code-timer text-[12px] font-semibold mb-1.5">
+              5
+            </div>
+<span class="font-label-sm text-label-sm font-medium text-on-surface-variant">COMPLETED</span>
+<span class="font-code-timer text-[10px] text-outline">Escrow Settled</span>
+</li>
+</ol>
+</div>
+</header>
+<!-- 2-Column Responsive Form & Ledger Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- LEFT COLUMN: 4-Step Guest Checkout Sequence (Col-8) -->
+<form class="lg:col-span-7 xl:col-span-8 flex flex-col gap-6" id="checkout-form" onsubmit="event.preventDefault();">
+<!-- Step 1: Guest Information (Sri Lankan Tourism Compliance) -->
+<fieldset class="bg-surface-container-lowest p-6 lg:p-8 rounded-xl shadow-sm">
+<legend class="sr-only">Step 1: Guest Information</legend>
+<div class="flex items-center justify-between pb-4 mb-6 bg-surface-container-low -mx-6 -mt-6 p-6 rounded-t-xl">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md font-bold">1</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Guest Information</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">SLTDA-compliant check-in identity records</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary">badge</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- First Name -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="first_name">First Name *</label>
+<input class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:ring-0 focus:border-0 transition-all outline-none" id="first_name" required="" type="text" value="Anuka"/>
+</div>
+<!-- Last Name -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="last_name">Last Name *</label>
+<input class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:ring-0 focus:border-0 transition-all outline-none" id="last_name" required="" type="text" value="Perera"/>
+</div>
+<!-- Email with Instant Verification Check -->
+<div class="flex flex-col gap-1.5 md:col-span-2">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface" for="guest_email">Email Address *</label>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary font-bold">
+<span class="material-symbols-outlined text-[16px]">verified</span> Real-time Verified
+                </span>
+</div>
+<div class="relative">
+<input class="w-full px-3.5 py-2.5 pr-10 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:ring-0 focus:border-0 transition-all outline-none" id="guest_email" required="" type="email" value="anuka.perera@colombo.lk"/>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-secondary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Sri Lankan Mobile / WhatsApp -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="guest_phone">Contact Phone (Mobile / WhatsApp) *</label>
+<div class="flex gap-2">
+<span class="inline-flex items-center px-3 rounded-lg bg-surface-container-high font-code-timer text-code-timer text-on-surface font-semibold">+94</span>
+<input class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:ring-0 focus:border-0 transition-all outline-none" id="guest_phone" placeholder="7X XXX XXXX" required="" type="tel" value="77 419 8820"/>
+</div>
+</div>
+<!-- NIC / Passport for Sri Lankan Check-in Compliance -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface" for="guest_nic">Sri Lankan NIC or Passport # *</label>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">SLTDA Mandatory</span>
+</div>
+<input class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container-low text-on-surface font-code-timer text-code-timer focus:bg-surface-container-lowest focus:ring-0 focus:border-0 transition-all outline-none" id="guest_nic" placeholder="e.g. 199XXXXXXXXX or N1234567" required="" type="text" value="199214502391"/>
+</div>
+</div>
+</fieldset>
+<!-- Step 2: Guest Mode Selection (Quick vs Loyalty) -->
+<fieldset class="bg-surface-container-lowest p-6 lg:p-8 rounded-xl shadow-sm">
+<legend class="sr-only">Step 2: Guest Mode Selection</legend>
+<div class="flex items-center justify-between pb-4 mb-6 bg-surface-container-low -mx-6 -mt-6 p-6 rounded-t-xl">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md font-bold">2</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Booking Mode</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Select checkout speed or earn domestic resort points</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary">loyalty</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Mode Option 1: Quick Guest -->
+<label class="cursor-pointer relative p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<input checked="" class="w-4 h-4 text-primary focus:ring-0" name="checkout_mode" type="radio" value="guest"/>
+<span class="font-label-md text-label-md font-bold text-on-surface">Instant Guest Hold</span>
+</div>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold font-code-timer bg-surface-container-highest text-on-surface-variant">FASTEST</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-3">
+                No password required today. Reservation confirmation and QR pass generated directly to WhatsApp &amp; SMS.
+              </p>
+</label>
+<!-- Mode Option 2: Sign-in / Loyalty -->
+<label class="cursor-pointer relative p-4 rounded-xl bg-secondary-container/20 hover:bg-secondary-container/30 transition-all flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<input class="w-4 h-4 text-secondary focus:ring-0" name="checkout_mode" type="radio" value="loyalty"/>
+<span class="font-label-md text-label-md font-bold text-secondary">Escapes Club Member</span>
+</div>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold font-code-timer bg-secondary text-on-secondary">+5% BACK</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-3">
+                Sign in to earn <span class="font-bold text-secondary">LKR 946.88</span> credits toward your next Southern coastal pool day out.
+              </p>
+</label>
+</div>
+</fieldset>
+<!-- Step 3: Special Requests & Arrival Details -->
+<fieldset class="bg-surface-container-lowest p-6 lg:p-8 rounded-xl shadow-sm">
+<legend class="sr-only">Step 3: Special Requests &amp; Arrival Details</legend>
+<div class="flex items-center justify-between pb-4 mb-6 bg-surface-container-low -mx-6 -mt-6 p-6 rounded-t-xl">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md font-bold">3</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Arrival &amp; Special Arrangements</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Let the resort manager prepare for your arrival</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary">room_service</span>
+</div>
+<div class="space-y-4">
+<!-- Estimated Arrival Selector -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="arrival_time">Estimated Arrival Time</label>
+<div class="relative">
+<select class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:ring-0 outline-none appearance-none" id="arrival_time">
+<option value="09:30">09:30 AM (Check-in start)</option>
+<option selected="" value="10:00">10:00 AM (Recommended)</option>
+<option value="11:00">11:00 AM</option>
+<option value="12:00">12:00 PM (Midday)</option>
+<option value="14:00">02:00 PM (Afternoon tea)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant pointer-events-none text-[20px]">schedule</span>
+</div>
+</div>
+<!-- Towel & Cabana Preferences -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="cabana_pref">Cabana Poolside Location</label>
+<div class="relative">
+<select class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:ring-0 outline-none appearance-none" id="cabana_pref">
+<option value="lawn">Ocean Lawn (Shaded Coconut Palms)</option>
+<option selected="" value="pool">Infinity Pool Edge (Sun Loungers)</option>
+<option value="veranda">Open-air Veranda (Quiet Zone)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant pointer-events-none text-[20px]">beach_access</span>
+</div>
+</div>
+</div>
+<!-- Dietary Requirements & Special Requests -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="special_requests">Dietary Restrictions &amp; Additional Requests</label>
+<textarea class="w-full p-3.5 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:ring-0 outline-none resize-none" id="special_requests" placeholder="e.g. 1 vegetarian lunch plate, extra beach towels for toddler, requesting quiet corner near the frangipani trees." rows="3">Fresh King Coconuts on arrival for 2 adults and 1 toddler. Vegetarian preference for 1 adult platter.</textarea>
+</div>
+</div>
+</fieldset>
+<!-- Step 4: Payment Method (Pre-selected Pay at Property) -->
+<fieldset class="bg-surface-container-lowest p-6 lg:p-8 rounded-xl shadow-sm">
+<legend class="sr-only">Step 4: Payment Method</legend>
+<div class="flex items-center justify-between pb-4 mb-6 bg-surface-container-low -mx-6 -mt-6 p-6 rounded-t-xl">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md font-bold">4</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Payment Settlement</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Zero prepayment required to lock today's rate</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary">payments</span>
+</div>
+<div class="space-y-4">
+<!-- Payment Option 1: Pay at Property (ACTIVE / SELECTED) -->
+<label class="cursor-pointer block p-5 rounded-xl bg-primary-container text-on-primary shadow-md transition-all">
+<div class="flex items-start justify-between mb-2">
+<div class="flex items-center gap-3">
+<input checked="" class="w-4 h-4 text-secondary-fixed focus:ring-0" name="payment_choice" type="radio" value="pay_at_property"/>
+<span class="font-headline-sm text-headline-sm font-bold text-on-primary">Pay at Property on Check-in</span>
+</div>
+<span class="bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm px-2.5 py-1 rounded font-bold uppercase tracking-wider">
+                  Recommended
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-primary-container pl-7">
+                Settle directly at the resort reception desk in Bentota. Cash (LKR / USD), Visa, MasterCard, and LankaQR accepted on arrival.
+              </p>
+</label>
+<!-- Payment Option 2: Card / Bank Transfer (Coming Soon Sandbox) -->
+<label class="cursor-not-allowed block p-5 rounded-xl bg-surface-container-low opacity-60 transition-all">
+<div class="flex items-start justify-between mb-2">
+<div class="flex items-center gap-3">
+<input class="w-4 h-4 text-outline" disabled="" name="payment_choice" type="radio" value="online"/>
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md font-bold text-on-surface">Card / Bank Transfer (Instant Pay)</span>
+<span class="material-symbols-outlined text-outline text-[16px]">lock</span>
+</div>
+</div>
+<span class="bg-surface-container-highest text-on-surface-variant font-code-timer text-[11px] px-2 py-0.5 rounded font-bold uppercase">
+                  Sandbox Active
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pl-7">
+                Integrated online gateway undergoing final LankaPay central switch certification.
+              </p>
+</label>
+<!-- Transparent Assurance Callout -->
+<div class="flex items-start gap-3 p-4 rounded-xl bg-secondary-container/30 text-on-secondary-container mt-4">
+<span class="material-symbols-outlined text-[20px] text-secondary flex-shrink-0 mt-0.5">verified_user</span>
+<p class="font-body-sm text-body-sm leading-relaxed">
+<span class="font-bold">Transparent Guarantee:</span> Pay at property confirmed upon arrival. No credit card required today. Free cancellation until 48 hours prior (Nov 21, 9:30 AM).
+              </p>
+</div>
+</div>
+</fieldset>
+<!-- Final Action Module for Mobile/Tablet Screens -->
+<div class="lg:hidden flex flex-col gap-4 bg-surface-container-lowest p-6 rounded-xl shadow-sm">
+<label class="flex items-center gap-3 cursor-pointer">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-0" id="mobile_whatsapp_toggle" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Send real-time confirmation &amp; QR voucher to WhatsApp (+94 77 419 8820)</span>
+</label>
+<button class="w-full py-4 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-headline-sm text-headline-sm font-bold shadow-lg transition-all flex items-center justify-center gap-2" type="button">
+<span>Confirm Booking Request &amp; Lock Inventory</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</form>
+<!-- RIGHT COLUMN: Immutable Ledger & Policy Breakdown (Col-4) -->
+<aside aria-label="Order Summary" class="lg:col-span-5 xl:col-span-4 sticky top-28 flex flex-col gap-6">
+<!-- Summary Card Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md overflow-hidden">
+<!-- Property Hero Teaser Header -->
+<div class="relative h-44 w-full">
+<div class="w-full h-full bg-cover bg-center" data-alt="Panoramic tropical oceanfront resort pool in Bentota Sri Lanka with tall swaying coconut palms, pristine turquoise infinity pool overlooking the Indian Ocean at sunny golden hour, luxury wooden daybeds and minimalist open-air cabanas." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAkUN0CHs42Mn70o7kdCjoREMNn4I7hKKiIyuLEYi-0hKloMxdPj_1_p4WzLCmVrJVnFSxjDVxZEIuPGUgle4jpSrkFaZPWBQCGdJw9YY3zn0VsJPfQ86I1dPvQ9FlQAzr1UDy8_jUZzEXNW9-UuALsQkZgKbnTkofbs60yvkpN60V--4sCZzXWGo-yHLyTEu2Z7es9mkgh20vP8Zxl22nAWAqD43r3REQzRhKscDcJkVpnhpCSlfKw')">
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface via-inverse-surface/40 to-transparent"></div>
+<div class="absolute bottom-3 left-4 right-4 text-inverse-on-surface">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary-fixed font-bold bg-primary/80 backdrop-blur-sm px-2 py-0.5 rounded">SLTDA Verified #7712</span>
+<h4 class="font-headline-sm text-headline-sm font-bold text-inverse-on-surface mt-1 truncate">The Palms Oceanfront Sanctuary</h4>
+<p class="font-body-sm text-body-sm text-inverse-on-surface/80">Moragalla Beach, Bentota Riviera</p>
+</div>
+</div>
+</div>
+<!-- Reservation Metadata Specs -->
+<div class="p-5 bg-surface-container-low border-b-0">
+<div class="grid grid-cols-2 gap-3 text-on-surface">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Experience</span>
+<span class="font-label-md text-label-md font-bold text-primary block">Day Out Tropical Escape</span>
+<span class="font-code-timer text-[11px] text-on-surface-variant">09:30 AM - 05:30 PM</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Selected Date</span>
+<span class="font-label-md text-label-md font-bold text-on-surface block">Sat, Nov 23, 2024</span>
+<span class="font-code-timer text-[11px] text-secondary font-bold">1 Day Reserved</span>
+</div>
+</div>
+<div class="mt-3 pt-3 flex items-center justify-between text-on-surface">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Party Size</span>
+<span class="font-label-md text-label-md font-semibold text-primary">2 Adults + 1 Child (Age 6)</span>
+</div>
+</div>
+<!-- Agreed Price Ledger Snapshot -->
+<div class="p-6 space-y-4">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">Agreed Price Snapshot</span>
+<span class="font-code-timer text-[11px] px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">IMMUTABLE RATE</span>
+</div>
+<!-- Line Items -->
+<div class="space-y-2.5 font-body-sm text-body-sm text-on-surface">
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant">2 Adults @ LKR 7,500</span>
+<span class="font-currency-indicator text-currency-indicator font-semibold text-on-surface">LKR 15,000.00</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-1.5">
+<span class="text-on-surface-variant">1 Child (Age 6)</span>
+<span class="font-label-sm text-[10px] text-secondary bg-secondary-container/40 px-1.5 py-0.2 rounded font-bold">50% OFF</span>
+</div>
+<span class="font-currency-indicator text-currency-indicator font-semibold text-on-surface">LKR 3,750.00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant">King Coconut Welcome Basket</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">Included Free</span>
+</div>
+<!-- Subtotal -->
+<div class="pt-2 flex justify-between items-center text-on-surface-variant">
+<span>Subtotal</span>
+<span class="font-currency-indicator text-currency-indicator">LKR 18,750.00</span>
+</div>
+<!-- Tourism Levy 1% -->
+<div class="flex justify-between items-center text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span>Sri Lanka Tourism Levy (1%)</span>
+<span class="material-symbols-outlined text-[14px] text-outline" title="Statutory hospitality tax for SLTDA">info</span>
+</div>
+<span class="font-currency-indicator text-currency-indicator">LKR 187.50</span>
+</div>
+</div>
+<!-- Total Amount Payable -->
+<div class="pt-4 p-4 rounded-xl bg-surface-container flex flex-col gap-1">
+<div class="flex justify-between items-baseline">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">Total Agreed</span>
+<div class="text-right">
+<span class="font-headline-lg text-headline-lg font-bold text-primary block leading-none">LKR 18,937.50</span>
+</div>
+</div>
+<div class="flex justify-between items-center pt-1 font-currency-indicator text-[11px] text-on-surface-variant">
+<span>Locked Rate Parity</span>
+<span class="font-bold text-secondary">~$63.12 USD (Fixed at 300 LKR/USD)</span>
+</div>
+</div>
+<!-- Server-Side Integrity Callout (Internal Snapshot) -->
+<div class="p-3 rounded-lg bg-surface-container-high/70 space-y-1.5 text-[11px] font-code-timer text-on-surface-variant">
+<div class="flex items-center justify-between text-on-surface">
+<span class="font-bold">Backend Settlement Snapshot:</span>
+<span class="text-secondary font-semibold">Row Lock #81940</span>
+</div>
+<div class="flex justify-between">
+<span>Platform Commission (12%):</span>
+<span>LKR 2,250.00 <em class="not-italic text-outline">(Host fees)</em></span>
+</div>
+<div class="flex justify-between">
+<span>Net Owner Payout:</span>
+<span class="font-bold text-primary">LKR 16,687.50</span>
+</div>
+<p class="text-[10px] text-outline pt-1 italic">
+                *Guest never pays platform commission fees directly. Stored server-side under database audit logs.
+              </p>
+</div>
+<!-- Desktop CTA & WhatsApp Toggle -->
+<div class="hidden lg:flex flex-col gap-4 pt-2">
+<label class="flex items-center gap-2.5 cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-0" id="desktop_whatsapp_toggle" type="checkbox"/>
+<span class="font-label-sm text-label-sm text-on-surface">Send reservation pass to WhatsApp (+94 77 419 8820)</span>
+</label>
+<button class="w-full py-4 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-headline-sm text-headline-sm font-bold shadow-lg transition-all flex items-center justify-center gap-2 group" id="confirm-booking-btn" type="button">
+<span>Confirm Booking Request</span>
+<span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<div class="flex items-center justify-center gap-4 text-on-surface-variant font-label-sm text-label-sm pt-1">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">lock</span> TLS 256-bit</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">verified</span> Guaranteed Cabana</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Direct Host Contact Badge -->
+<div class="p-4 rounded-xl bg-surface-container-low flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">support_agent</span>
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold text-primary">Have Questions About This Pass?</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">DAYOUTS concierge is live on WhatsApp: <a class="text-secondary font-semibold hover:underline" href="https://wa.me/94771234567">+94 77 123 4567</a></p>
+</div>
+</div>
+</aside>
+</div>
+</section>
+<!-- Script for Countdown Timer & Interaction Validation -->
+<script>
+    (function() {
+      // 11 Minutes 42 Seconds Live Countdown Timer
+      let totalSeconds = 11 * 60 + 42;
+      const timerElement = document.getElementById('countdown-timer');
+
+      function updateCountdown() {
+        if (!timerElement) return;
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
+        
+        timerElement.textContent = 
+          String(minutes).padStart(2, '0') + ':' + 
+          String(seconds).padStart(2, '0');
+
+        if (totalSeconds > 0) {
+          totalSeconds--;
+        } else {
+          timerElement.textContent = '00:00 - EXTENDING LOCK';
+        }
+      }
+
+      setInterval(updateCountdown, 1000);
+
+      // Button interaction visual feedback
+      const confirmBtn = document.getElementById('confirm-booking-btn');
+      if (confirmBtn) {
+        confirmBtn.addEventListener('click', function() {
+          const originalText = confirmBtn.innerHTML;
+          confirmBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">sync</span><span>Holding Row Lock...</span>';
+          confirmBtn.classList.add('opacity-90');
+          setTimeout(function() {
+            confirmBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span><span>Request Dispatched to Bentota Host</span>';
+            confirmBtn.classList.remove('bg-primary');
+            confirmBtn.classList.add('bg-secondary');
+          }, 1200);
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-low text-on-surface pt-16 pb-12 mt-space-xl"><div class="w-full max-w-[1320px] mx-auto px-gutter-mobile lg:px-gutter"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl pb-12"><div class="lg:col-span-2 space-y-space-md"><div class="flex items-center gap-space-sm"><img alt="DAYOUTS.LK Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Xhc_PsLmC30S_GzdokMLdS4S4uhfCLBKFDSsEPzp8PdzLVXEm9x_DF6godanXEkI22vtRm-BqU4mpvdeZbdR-8dLktmcKkrIzi-hG7Bwk6sD-iN8hXs5CX5ySlrWSLmBk65kXhk663ujyufHDHEd12paJmzQV33Izn6cAZhWGIt5sTudJ1f3TCdzGFhQs6egoWFbb7C-U1udmSube-DP4PRlj8ECgP-ELGyVGQqxt1Jfj3CphiIV3nNA"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold text-primary">DAYOUTS<span class="text-secondary">.LK</span></span><span class="font-label-sm text-label-sm text-on-surface-variant">Verified Escapes Sri Lanka</span></div></div><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Discover, book, and verify luxury day villas, coastal retreats, pool passes, and tea-plantation sanctuaries across the island.</p><div class="inline-flex items-center gap-3 bg-surface-container px-3.5 py-2 rounded-lg"><span class="material-symbols-outlined text-primary text-[24px]">verified_user</span><div class="flex flex-col"><span class="font-label-sm text-label-sm font-bold text-primary uppercase tracking-wide">SLTDA Registered Platform</span><span class="font-code-timer text-code-timer text-on-surface-variant text-[11px]">License No: SLTDA/SQA/APP/2024/0981</span></div></div><div class="flex items-center gap-3 pt-2"><div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[20px]">support_agent</span></div><div><p class="font-label-sm text-label-sm text-on-surface-variant">24/7 Island Concierge &amp; Emergency Support</p><p class="font-headline-sm text-headline-sm text-primary font-bold">+94 11 789 0000</p></div></div></div><div><h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-md">Quick Links</h4><ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" data-path="explore-stays" href="#">Verified Day Escapes</a></li><li><a class="hover:text-primary transition-colors" data-path="day-out-packages" href="#">All-Inclusive Pool Passes</a></li><li><a class="hover:text-primary transition-colors" data-path="deals-and-offers" href="#">Last-Minute Flash Deals</a></li><li><a class="hover:text-primary transition-colors" data-path="for-property-owners" href="#">Host Onboarding &amp; Terms</a></li><li><a class="hover:text-primary transition-colors" href="#">Sri Lanka Tourism Guidelines</a></li></ul></div><div><h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-md">Island Regions</h4><ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" href="#">Western Coast &amp; Colombo</a></li><li><a class="hover:text-primary transition-colors" href="#">Galle &amp; Deep South Reviera</a></li><li><a class="hover:text-primary transition-colors" href="#">Central Tea Country (Kandy, Nuwara Eliya)</a></li><li><a class="hover:text-primary transition-colors" href="#">Ella, Badulla &amp; Mountain Passes</a></li><li><a class="hover:text-primary transition-colors" href="#">East Coast (Arugam Bay, Trincomalee)</a></li></ul></div><div><h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-md">Secure Bookings</h4><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">Instant reservation locks with verified direct-to-resort validation.</p><div class="flex flex-wrap gap-2 text-on-surface-variant"><span class="px-2.5 py-1 bg-surface-container rounded font-label-sm text-label-sm font-semibold">Visa</span><span class="px-2.5 py-1 bg-surface-container rounded font-label-sm text-label-sm font-semibold">MasterCard</span><span class="px-2.5 py-1 bg-surface-container rounded font-label-sm text-label-sm font-semibold">LankaPay</span><span class="px-2.5 py-1 bg-surface-container rounded font-label-sm text-label-sm font-semibold">FriMi</span><span class="px-2.5 py-1 bg-surface-container rounded font-label-sm text-label-sm font-semibold">LankaQR</span></div><div class="mt-space-md p-3 bg-surface-container-high rounded-lg"><p class="font-label-sm text-label-sm font-semibold text-primary flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">lock</span>100% Escrow Refund Protection</p></div></div></div><div class="pt-8 pb-8 border-t border-surface-container-highest"><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md font-semibold text-on-surface">Complete 25 Districts Islandwide Coverage:</span><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Colombo • Gampaha • Kalutara • Kandy • Matale • Nuwara Eliya • Galle • Matara • Hambantota • Jaffna • Kilinochchi • Mannar • Vavuniya • Mullaitivu • Batticaloa • Ampara • Trincomalee • Kurunegala • Puttalam • Anuradhapura • Polonnaruwa • Badulla • Monaragala • Ratnapura • Kegalle</p></div></div><div class="pt-8 border-t border-surface-container-highest flex flex-col md:flex-row items-center justify-between gap-space-md"><p class="font-body-sm text-body-sm text-on-surface-variant">© 2025 DAYOUTS.LK Pvt Ltd. Certified by Sri Lanka Tourism Development Authority. All rights reserved.</p><div class="flex items-center gap-space-md font-label-sm text-label-sm text-on-surface-variant"><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a><a class="hover:text-primary transition-colors" href="#">Guest Booking Terms</a><a class="hover:text-primary transition-colors" href="#">Cancellation Safeguard</a><a class="hover:text-primary transition-colors" href="#">Emergency SOS Protocols</a></div></div></div></footer></body></html>

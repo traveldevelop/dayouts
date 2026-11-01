@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "primary-fixed-dim": "#98d3bd",
+          "error-container": "#ffdad6",
+          "on-tertiary": "#ffffff",
+          "primary-container": "#0d4d3d",
+          "inverse-on-surface": "#e7f3f4",
+          "on-tertiary-fixed": "#321200",
+          "secondary": "#006a66",
+          "error": "#ba1a1a",
+          "tertiary-fixed-dim": "#ffb68c",
+          "surface-bright": "#effcfd",
+          "surface-container-highest": "#d9e5e6",
+          "surface-container-lowest": "#ffffff",
+          "on-tertiary-container": "#ff9756",
+          "on-error-container": "#93000a",
+          "on-surface": "#121d1e",
+          "tertiary-fixed": "#ffdbc9",
+          "surface-container": "#e4f0f1",
+          "surface": "#effcfd",
+          "secondary-container": "#9cf1ec",
+          "secondary-fixed": "#9cf1ec",
+          "on-surface-variant": "#404945",
+          "background": "#effcfd",
+          "on-secondary-fixed": "#00201f",
+          "tertiary-container": "#713200",
+          "surface-dim": "#d0dcdd",
+          "primary-fixed": "#b3efd9",
+          "inverse-surface": "#273233",
+          "secondary-fixed-dim": "#80d5d0",
+          "tertiary": "#4f2100",
+          "primary": "#003528",
+          "surface-variant": "#d9e5e6",
+          "on-primary": "#ffffff",
+          "inverse-primary": "#98d3bd",
+          "surface-tint": "#2f6857",
+          "on-primary-fixed": "#002118",
+          "surface-container-high": "#deeaeb",
+          "on-secondary-container": "#02706d",
+          "on-primary-container": "#82bda8",
+          "on-secondary": "#ffffff",
+          "on-tertiary-fixed-variant": "#753400",
+          "outline-variant": "#bfc9c3",
+          "on-primary-fixed-variant": "#125040",
+          "surface-container-low": "#eaf6f7",
+          "on-error": "#ffffff",
+          "outline": "#707975",
+          "on-background": "#121d1e",
+          "on-secondary-fixed-variant": "#00504d"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "gutter": "1.5rem",
+          "margin-mobile": "1.25rem",
+          "space-xs": "0.25rem",
+          "space-lg": "1.5rem",
+          "gutter-mobile": "1rem",
+          "margin": "3rem",
+          "space-xl": "2.5rem",
+          "space-sm": "0.5rem",
+          "space-md": "1rem"
+        },
+        "fontFamily": {
+          "body-sm": ["Plus Jakarta Sans"],
+          "body-md": ["Plus Jakarta Sans"],
+          "body-lg": ["Plus Jakarta Sans"],
+          "currency-indicator": ["JetBrains Mono"],
+          "headline-lg": ["Epilogue"],
+          "label-md": ["Plus Jakarta Sans"],
+          "headline-xl": ["Epilogue"],
+          "code-timer": ["JetBrains Mono"],
+          "headline-xl-mobile": ["Epilogue"],
+          "headline-md": ["Epilogue"],
+          "label-sm": ["Plus Jakarta Sans"],
+          "headline-sm": ["Epilogue"],
+          "headline-lg-mobile": ["Epilogue"]
+        },
+        "fontSize": {
+          "body-sm": ["13px", {"lineHeight": "20px", "fontWeight": "400"}],
+          "body-md": ["15px", {"lineHeight": "24px", "fontWeight": "400"}],
+          "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+          "currency-indicator": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+          "headline-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+          "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+          "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "code-timer": ["13px", {"lineHeight": "16px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+          "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+          "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+          "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+          "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+          "headline-lg-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+        }
+      }
+    }
+  }</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col pt-5 pb-6 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="px-6 mb-8 flex items-center gap-3"><img alt="DAYOUTS.LK Brand Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Xhc_PsLmC30S_GzdokMLdS4S4uhfCLBKFDSsEPzp8PdzLVXEm9x_DF6godanXEkI22vtRm-BqU4mpvdeZbdR-8dLktmcKkrIzi-hG7Bwk6sD-iN8hXs5CX5ySlrWSLmBk65kXhk663ujyufHDHEd12paJmzQV33Izn6cAZhWGIt5sTudJ1f3TCdzGFhQs6egoWFbb7C-U1udmSube-DP4PRlj8ECgP-ELGyVGQqxt1Jfj3CphiIV3nNA"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold text-primary leading-tight">DAYOUTS<span class="text-secondary">.LK</span></span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Management Portal</span></div></div><nav class="flex-1 px-4 space-y-1.5 overflow-y-auto" data-active-classes="bg-primary-container text-on-primary font-bold"><div class="px-3 pb-2 text-[10px] uppercase tracking-wider font-bold text-on-surface-variant/80">Operations &amp; Hosting</div><a class="flex items-center px-3.5 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="owner-portal" href="#"><span class="material-symbols-outlined mr-3 text-[20px]">dashboard</span>Property Dashboard</a><a aria-current="page" class="flex items-center px-3.5 py-2.5 rounded-lg transition-all bg-primary-container text-on-primary font-bold" data-path="admin-console" href="#"><span class="material-symbols-outlined mr-3 text-[20px]">admin_panel_settings</span>Admin Console</a><a class="flex items-center px-3.5 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="my-bookings" href="#"><span class="material-symbols-outlined mr-3 text-[20px]">receipt_long</span>Booking Ledger</a><a class="flex items-center px-3.5 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="explore-stays" href="#"><span class="material-symbols-outlined mr-3 text-[20px]">travel_explore</span>Public Marketplace</a></nav><div class="px-4 pt-4 border-t border-surface-container-high"><div class="p-3 bg-surface-container rounded-lg flex items-center gap-3"><img alt="Profile" class="w-9 h-9 rounded-full object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCghVdjRr4uY8YbamvSO8fl-ybZhrC5WmECVq4IEyQqJo15HGLZRYEIGa4t3p3xq3fjNW6rKAMMSvgq9B9tfrPsLRgw-KhOpHSqcvUrzhfgOVN1wr11DrOwvEIiJPfComay0XmGtQocV2EciqQS5OiNg1rxhpEkGlgfibjWDCFxN24tlSD395QG-HN36SQfUXX_rFb4xhUYQad-wYSczyEeW7okEek6ImRNZeDlaA7oz7bdzyP3DTSv"/><div class="overflow-hidden flex-1"><p class="font-label-md text-label-md text-on-surface font-semibold truncate">Nalin Jayawardena</p><p class="font-label-sm text-label-sm text-on-surface-variant truncate">Verified Partner</p></div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-20 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter"><div class="flex items-center gap-space-sm"><div class="inline-flex items-center gap-2 bg-surface-container px-3 py-1.5 rounded-lg"><span class="w-2.5 h-2.5 rounded-full bg-secondary"></span><span class="font-label-sm text-label-sm font-semibold text-primary">SLTDA Verification Active</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center bg-surface-container-low rounded-lg px-2.5 py-1.5 gap-2"><span class="font-currency-indicator text-currency-indicator font-semibold text-primary">LKR / USD Real-Time</span><span class="font-code-timer text-code-timer text-on-surface-variant text-[11px]">305.20</span></div><a class="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-on-surface font-label-md text-label-md" data-path="explore-stays" href="#"><span class="material-symbols-outlined text-[18px]">open_in_new</span>View Escapes</a><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCghVdjRr4uY8YbamvSO8fl-ybZhrC5WmECVq4IEyQqJo15HGLZRYEIGa4t3p3xq3fjNW6rKAMMSvgq9B9tfrPsLRgw-KhOpHSqcvUrzhfgOVN1wr11DrOwvEIiJPfComay0XmGtQocV2EciqQS5OiNg1rxhpEkGlgfibjWDCFxN24tlSD395QG-HN36SQfUXX_rFb4xhUYQad-wYSczyEeW7okEek6ImRNZeDlaA7oz7bdzyP3DTSv"/></div></header><main class="w-full pt-20 px-gutter py-8 bg-background"><div class="flex flex-col w-full space-y-8">
+<!-- Top Governance Ticker & Platform State Bar -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-6 shadow-sm">
+<div class="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-secondary/5 blur-3xl pointer-events-none"></div>
+<div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 rounded-full bg-primary-container/10 px-2.5 py-0.5 text-label-sm font-label-sm text-primary">
+<span class="h-1.5 w-1.5 rounded-full bg-secondary animate-pulse"></span>
+            Super Admin Tier 1 (Colombo HQ)
+          </span>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-code-timer">v3.4.1-rc5</span>
+</div>
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">Marketplace Operations &amp; SLTDA Governance</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Real-time inventory orchestration, Sri Lanka Tourism Development Authority regulatory gatekeeping &amp; escrow clearinghouse.</p>
+</div>
+<!-- Live Currency & Multi-lingual Protocol Controls -->
+<div class="flex flex-wrap items-center gap-3">
+<div class="flex items-center gap-1 rounded-lg bg-surface-container px-3 py-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">currency_exchange</span>
+<span class="font-currency-indicator text-currency-indicator text-primary font-bold">1 USD</span>
+<span class="text-on-surface-variant font-body-sm text-[12px]">=</span>
+<span class="font-currency-indicator text-currency-indicator text-on-surface font-semibold">305.20 LKR</span>
+<span class="ml-1 text-[10px] text-secondary font-bold tracking-wider uppercase">CBSL Synced</span>
+</div>
+<div class="flex rounded-lg bg-surface-container p-1 text-label-sm font-label-sm font-semibold">
+<button class="rounded-md bg-surface-container-lowest px-2.5 py-1 text-primary shadow-sm">EN</button>
+<button class="rounded-md px-2.5 py-1 text-on-surface-variant hover:text-on-surface">සිං</button>
+<button class="rounded-md px-2.5 py-1 text-on-surface-variant hover:text-on-surface">தம</button>
+</div>
+<button class="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3.5 py-2 font-label-md text-label-md font-semibold text-on-primary shadow-sm hover:scale-[1.01] transition-transform">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+          Run Integrity Scan
+        </button>
+</div>
+</div>
+<!-- Platform Global Metrics Bar (6 Essential Operational Anchors) -->
+<div class="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+<div class="flex flex-col rounded-lg bg-surface-container p-3.5 transition-all hover:bg-surface-container-high">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm font-medium">Listed Escapes</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">domain</span>
+</div>
+<span class="mt-2 font-headline-sm text-headline-sm font-bold text-on-surface">342</span>
+<div class="mt-1 flex items-center gap-1.5 font-label-sm text-label-sm">
+<span class="text-secondary font-bold">289</span>
+<span class="text-on-surface-variant">verified</span>
+<span class="text-on-tertiary-container font-bold">• 53</span>
+<span class="text-on-surface-variant">pending</span>
+</div>
+</div>
+<div class="flex flex-col rounded-lg bg-surface-container p-3.5 transition-all hover:bg-surface-container-high">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm font-medium">Day Out Packages</span>
+<span class="material-symbols-outlined text-[18px] text-primary">layers</span>
+</div>
+<span class="mt-2 font-headline-sm text-headline-sm font-bold text-on-surface">1,120</span>
+<span class="mt-1 font-label-sm text-label-sm text-secondary font-medium">Across 9 Provinces</span>
+</div>
+<div class="flex flex-col rounded-lg bg-surface-container p-3.5 transition-all hover:bg-surface-container-high">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm font-medium">30-Day Platform GMV</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">trending_up</span>
+</div>
+<span class="mt-2 font-currency-indicator text-[17px] font-bold text-primary">LKR 42.85M</span>
+<span class="mt-1 font-code-timer text-code-timer text-on-surface-variant">~ $140,400 USD</span>
+</div>
+<div class="flex flex-col rounded-lg bg-surface-container p-3.5 transition-all hover:bg-surface-container-high">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm font-medium">Retained Comm. (12%)</span>
+<span class="material-symbols-outlined text-[18px] text-primary">account_balance_wallet</span>
+</div>
+<span class="mt-2 font-currency-indicator text-[17px] font-bold text-secondary">LKR 5.14M</span>
+<span class="mt-1 font-label-sm text-label-sm text-on-surface-variant">Avg Net Yield</span>
+</div>
+<div class="flex flex-col rounded-lg bg-tertiary-fixed/40 p-3.5 transition-all hover:bg-tertiary-fixed/60">
+<div class="flex items-center justify-between text-tertiary">
+<span class="font-label-sm text-label-sm font-bold">Pending Refunds</span>
+<span class="material-symbols-outlined text-[18px] text-on-tertiary-fixed-variant">hourglass_empty</span>
+</div>
+<span class="mt-2 font-headline-sm text-headline-sm font-bold text-tertiary">03 Cases</span>
+<span class="mt-1 font-label-sm text-label-sm text-on-tertiary-fixed-variant font-medium">Audit gate locked</span>
+</div>
+<div class="flex flex-col rounded-lg bg-surface-container p-3.5 transition-all hover:bg-surface-container-high">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm font-medium">DB Inventory Locks</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">lock_clock</span>
+</div>
+<span class="mt-2 font-code-timer text-[17px] font-bold text-on-surface">18 Active</span>
+<span class="mt-1 font-label-sm text-label-sm text-secondary font-medium">09:59m TTL hold active</span>
+</div>
+</div>
+</div>
+<!-- Operational Navigation Tabs -->
+<div class="flex items-center gap-1 overflow-x-auto rounded-xl bg-surface-container p-1.5 text-label-md font-label-md">
+<button class="flex items-center gap-2 rounded-lg bg-primary-container px-4 py-2 font-semibold text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+      Property &amp; Unit Verification
+      <span class="ml-1 rounded-full bg-secondary-container px-2 py-0.2 text-[10px] text-on-secondary-container font-bold">53</span>
+</button>
+<button class="flex items-center gap-2 rounded-lg px-4 py-2 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">schema</span>
+      Day Out Dynamic Facilities Library
+    </button>
+<button class="flex items-center gap-2 rounded-lg px-4 py-2 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">price_change</span>
+      Pricing &amp; Commission Rules
+    </button>
+<button class="flex items-center gap-2 rounded-lg px-4 py-2 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+      Manual Payouts &amp; Refunds
+      <span class="ml-1 rounded-full bg-tertiary px-2 py-0.2 text-[10px] text-on-tertiary font-bold">3</span>
+</button>
+<button class="flex items-center gap-2 rounded-lg px-4 py-2 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">security</span>
+      Audit Logs &amp; 2FA Security
+    </button>
+</div>
+<!-- Main Section: Split Layout (Verification Queue 70% | Audit Snapshot 30%) -->
+<div class="grid grid-cols-1 gap-6 lg:grid-cols-12">
+<!-- Property Verification & Owner Audit Table (Col 8) -->
+<div class="flex flex-col space-y-4 lg:col-span-8">
+<div class="flex items-center justify-between">
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Escapes Verification Backlog</h2>
+<span class="rounded bg-secondary/10 px-2 py-0.5 text-label-sm font-label-sm text-secondary font-semibold">SLTDA Act No. 22 / 2024</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Inspecting legal deed authenticity, health clearances, and pool safety protocols before public deployment.</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sort by:</span>
+<button class="rounded-lg bg-surface-container px-3 py-1.5 font-label-sm text-label-sm font-medium text-on-surface flex items-center gap-1">
+            Newest Submissions
+            <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Verification Cards List -->
+<div class="space-y-3">
+<!-- Entry 1: Bentota Blue Lagoon Resort (Actionable Pending Item) -->
+<div class="rounded-xl bg-surface-container-lowest p-5 shadow-sm transition-all hover:shadow-md">
+<div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+<div class="flex gap-4">
+<img class="h-20 w-28 rounded-lg object-cover flex-shrink-0" data-alt="A sunlit infinity pool overlooking Bentota river lagoon in Sri Lanka, surrounded by lush tropical frangipani trees and modern Geoffrey Bawa style open verandas under clear sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIle7QMSAz_zW15tk7rvL0s5B9P8S4eHpav1fXotU1yQSpvf97xp22C7w-4Nasbd9hihTvp6gPDyRmidU-2TJ7Ilil3HfdS41GGY-NiMGZ21Ns2Ze_VZzYrOlf8drDfXp0FjuxlZz2UYkc5XbLYx6TuAbb7Ts6PVzjytQZeFCqzO9gTS-gS-nqn-0Ul3z15ij3t5LdA_kXfoMR_P8DCGKSeILoess02H1DeKA5QJRV_XZ8UTxo-tkp"/>
+<div class="space-y-1.5 min-w-0">
+<div class="flex flex-wrap items-center gap-2">
+<h3 class="font-headline-sm text-[17px] font-bold text-on-surface truncate">Bentota Blue Lagoon Resort</h3>
+<span class="inline-flex items-center gap-1 rounded-full bg-tertiary-fixed px-2.5 py-0.5 text-label-sm font-label-sm font-bold text-on-tertiary-fixed">
+<span class="h-1.5 w-1.5 rounded-full bg-tertiary animate-ping"></span>
+                    PENDING_VERIFICATION
+                  </span>
+</div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-label-sm font-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">person</span>
+                    Owner: <strong class="text-on-surface font-semibold">Kamal Perera</strong>
+</span>
+<span class="flex items-center gap-1 font-code-timer">
+<span class="material-symbols-outlined text-[16px] text-primary">badge</span>
+                    SLTDA Lic: #SLTDA-2024-88
+                  </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">pin_drop</span>
+                    Bentota, Southern Province
+                  </span>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<span class="rounded bg-surface-container px-2 py-0.5 text-label-sm font-label-sm text-on-surface-variant">4 Day Packages Attached</span>
+<span class="rounded bg-surface-container px-2 py-0.5 text-label-sm font-label-sm text-on-surface-variant">Max Group: 45 pax</span>
+<span class="rounded bg-error-container/40 px-2 py-0.5 text-label-sm font-label-sm text-error font-medium">Lifeguard Cert Expiring</span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-2 sm:flex-col sm:items-end flex-shrink-0">
+<button class="inline-flex items-center gap-1 rounded-lg bg-primary px-3.5 py-1.5 font-label-md text-label-md font-semibold text-on-primary shadow-sm hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+                Approve &amp; Issue Badge
+              </button>
+<div class="flex items-center gap-1.5">
+<button class="inline-flex items-center gap-1 rounded-lg bg-surface-container px-3 py-1.5 font-label-md text-label-md font-medium text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[16px]">folder_open</span>
+                  Inspect Docs
+                </button>
+<button class="rounded-lg bg-error-container/30 px-2.5 py-1.5 text-label-md font-label-md text-error hover:bg-error-container/60 transition-colors" title="Suspend Owner">
+<span class="material-symbols-outlined text-[16px]">block</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Entry 2: Mirissa Surf Villas (Active Verified Item) -->
+<div class="rounded-xl bg-surface-container-lowest p-5 shadow-sm transition-all hover:shadow-md">
+<div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+<div class="flex gap-4">
+<img class="h-20 w-28 rounded-lg object-cover flex-shrink-0" data-alt="A luxury beachfront coastal day villa in Mirissa Sri Lanka with coconut palms, private plunge pool, and Indian Ocean surf in background during golden sunset." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0YJ7mDMWhqc-NzGkzQXvf_iIdkdeDqiSAVpTrRi5GHH78x5JBSdE0SBLwti2xcUnWF51lecspCtuTPFpU3OFXLa5A98EcCYeKehUwaxaSdxqocX679K5tGCfGFnybZhdL9z16gT7N6dmZwOYqPUqEBpXr6QNdQdWWA70qGwnxep7sX4Uq8DPHe86MUy73nQnrXPi6Qg5OfBvKaizHjKgF3Ype9TFXoJYK1LsorGOPiupQ4wTAtB7T"/>
+<div class="space-y-1.5 min-w-0">
+<div class="flex flex-wrap items-center gap-2">
+<h3 class="font-headline-sm text-[17px] font-bold text-on-surface truncate">Mirissa Surf Villas</h3>
+<span class="inline-flex items-center gap-1 rounded-full bg-secondary-container px-2.5 py-0.5 text-label-sm font-label-sm font-semibold text-on-secondary-container">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                    VERIFIED PARTNER
+                  </span>
+<span class="text-label-sm font-label-sm text-secondary font-code-timer font-semibold">12% Standard Rate</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-label-sm font-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">person</span>
+                    Owner: <strong class="text-on-surface font-semibold">Dharshana Senanayake</strong>
+</span>
+<span class="flex items-center gap-1 font-code-timer">
+<span class="material-symbols-outlined text-[16px] text-primary">badge</span>
+                    SLTDA Lic: #SLTDA-2023-149
+                  </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">star</span>
+                    4.94 (812 verified day-outs)
+                  </span>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<span class="rounded bg-surface-container px-2 py-0.5 text-label-sm font-label-sm text-on-surface-variant">Direct Escrow Settlement</span>
+<span class="rounded bg-surface-container px-2 py-0.5 text-label-sm font-label-sm text-on-surface-variant">3 Cabanas Included</span>
+<span class="rounded bg-primary-fixed/50 px-2 py-0.5 text-label-sm font-label-sm text-on-primary-fixed-variant font-medium">Auto-Book Enabled</span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-2 sm:flex-col sm:items-end flex-shrink-0">
+<button class="inline-flex items-center gap-1.5 rounded-lg bg-surface-container-high px-3.5 py-2 font-label-md text-label-md font-semibold text-primary hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[16px]">percent</span>
+                Set Commission Override
+              </button>
+<button class="inline-flex items-center gap-1 text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+                Manage Inventory Matrix
+              </button>
+</div>
+</div>
+</div>
+<!-- Entry 3: Nuwara Eliya Tea Loft (High-altitude Sanctuary) -->
+<div class="rounded-xl bg-surface-container-lowest p-5 shadow-sm transition-all hover:shadow-md">
+<div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+<div class="flex gap-4">
+<img class="h-20 w-28 rounded-lg object-cover flex-shrink-0" data-alt="A colonial-modern tea estate bungalow in Nuwara Eliya misty hills with outdoor heated hydrotherapy jacuzzi overlooking emerald green Ceylon tea plantations." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFTe7Zk-sWKCylUiHAAh6ySclIEaYamtC7wmhwUtJdI56jvoevxIEEzv8l5yh_UOPdLl3eaiQkt8dcX_FuQRewYj8urdmiWhgurfuX48Pic3mFdg2C6gnTD9Ca8XWa3409KIPgQPE4YVn7vZqeyMfRTsNLIGt0uBOO-aZb8nP6OzGh59CofoyjYTXh5c7U10Lm22-gfjrG93f4xZJNIjS90hy8bgT-tFzVzwgxMbIMGSCJ5jDUxekA"/>
+<div class="space-y-1.5 min-w-0">
+<div class="flex flex-wrap items-center gap-2">
+<h3 class="font-headline-sm text-[17px] font-bold text-on-surface truncate">Nuwara Eliya Tea Loft &amp; Spa</h3>
+<span class="inline-flex items-center gap-1 rounded-full bg-secondary-container px-2.5 py-0.5 text-label-sm font-label-sm font-semibold text-on-secondary-container">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                    VERIFIED PARTNER
+                  </span>
+<span class="text-label-sm font-label-sm text-tertiary-container font-code-timer font-semibold bg-tertiary-fixed/60 px-2 py-0.2 rounded">10% Promo Override</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-label-sm font-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">person</span>
+                    Owner: <strong class="text-on-surface font-semibold">Senani Weerakoon</strong>
+</span>
+<span class="flex items-center gap-1 font-code-timer">
+<span class="material-symbols-outlined text-[16px] text-primary">badge</span>
+                    SLTDA Lic: #SLTDA-2022-302
+                  </span>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<span class="rounded bg-surface-container px-2 py-0.5 text-label-sm font-label-sm text-on-surface-variant">High Tea + Jacuzzi Pass</span>
+<span class="rounded bg-surface-container px-2 py-0.5 text-label-sm font-label-sm text-on-surface-variant">Adults Only</span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-2 sm:flex-col sm:items-end flex-shrink-0">
+<button class="inline-flex items-center gap-1.5 rounded-lg bg-surface-container-high px-3.5 py-2 font-label-md text-label-md font-semibold text-primary hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[16px]">edit_note</span>
+                Edit Override Terms
+              </button>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Expires in 14 days</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Rail: Dynamic Facilities Library Quick Config & Verification Metrics (Col 4) -->
+<div class="flex flex-col space-y-6 lg:col-span-4">
+<!-- Section 9 Spec: Dynamic Facilities & Custom Fields Manager -->
+<div class="rounded-xl bg-surface-container-lowest p-5 shadow-sm space-y-4">
+<div class="flex items-center justify-between">
+<div class="space-y-0.5">
+<h3 class="font-headline-sm text-[18px] font-bold text-on-surface">Facilities Taxonomy</h3>
+<p class="font-body-sm text-[12px] text-on-surface-variant">Section 9 Spec — Dynamic attribute rules</p>
+</div>
+<button class="rounded-lg bg-secondary/10 p-1.5 text-secondary hover:bg-secondary/20 transition-colors" title="Reload Schema">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+</button>
+</div>
+<div class="space-y-3">
+<!-- Attribute 1: Pool Type -->
+<div class="rounded-lg bg-surface-container p-3 space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">pool</span>
+                Pool Type
+              </span>
+<span class="text-label-sm font-label-sm font-code-timer text-on-surface-variant">ENUM • REQUIRED</span>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="rounded bg-surface-container-lowest px-2 py-0.5 font-label-sm text-label-sm text-primary font-medium">Infinity Edge</span>
+<span class="rounded bg-surface-container-lowest px-2 py-0.5 font-label-sm text-label-sm text-primary font-medium">Natural Spring</span>
+<span class="rounded bg-surface-container-lowest px-2 py-0.5 font-label-sm text-label-sm text-primary font-medium">Plunge Pool</span>
+<span class="rounded bg-surface-container-lowest px-2 py-0.5 font-label-sm text-label-sm text-primary font-medium">Kids Wading</span>
+</div>
+<div class="flex items-center justify-between text-[11px] text-on-surface-variant pt-1 font-code-timer">
+<span>EN / SI / TA Ready</span>
+<span class="text-secondary font-semibold">Attached to 304 stays</span>
+</div>
+</div>
+<!-- Attribute 2: Meal Plans -->
+<div class="rounded-lg bg-surface-container p-3 space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">restaurant</span>
+                Meal Plans &amp; Dining
+              </span>
+<span class="text-label-sm font-label-sm font-code-timer text-on-surface-variant">MULTI-SELECT</span>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="rounded bg-surface-container-lowest px-2 py-0.5 font-label-sm text-label-sm text-primary font-medium">Full Sri Lankan Buffet</span>
+<span class="rounded bg-surface-container-lowest px-2 py-0.5 font-label-sm text-label-sm text-primary font-medium">3-Course Set Menu</span>
+<span class="rounded bg-surface-container-lowest px-2 py-0.5 font-label-sm text-label-sm text-primary font-medium">Live Seafood BBQ</span>
+<span class="rounded bg-surface-container-lowest px-2 py-0.5 font-label-sm text-label-sm text-primary font-medium">High Tea Only</span>
+</div>
+</div>
+<!-- Attribute 3: Alcohol & Beverage Policy -->
+<div class="rounded-lg bg-surface-container p-3 space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">liquor</span>
+                Alcohol Policy
+              </span>
+<span class="text-label-sm font-label-sm font-code-timer text-error font-semibold">EXCISE REGULATED</span>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="rounded bg-surface-container-lowest px-2 py-0.5 font-label-sm text-label-sm text-on-surface font-medium">Free BYOB Allowed</span>
+<span class="rounded bg-surface-container-lowest px-2 py-0.5 font-label-sm text-label-sm text-on-surface font-medium">Corkage Fee Applied</span>
+<span class="rounded bg-surface-container-lowest px-2 py-0.5 font-label-sm text-label-sm text-on-surface font-medium">Licensed Bar Onsite</span>
+</div>
+</div>
+<!-- Attribute 4: Time Slot Rules -->
+<div class="rounded-lg bg-surface-container p-3 space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">schedule</span>
+                Day Out Access Hours
+              </span>
+<span class="text-label-sm font-label-sm font-code-timer text-on-surface-variant">RANGE VALIDATED</span>
+</div>
+<div class="grid grid-cols-2 gap-2 text-label-sm font-label-sm">
+<div class="rounded bg-surface-container-lowest p-2">
+<span class="block text-on-surface-variant text-[10px]">Morning Access</span>
+<span class="font-bold text-primary font-code-timer">08:30 - 15:30</span>
+</div>
+<div class="rounded bg-surface-container-lowest p-2">
+<span class="block text-on-surface-variant text-[10px]">Sunset &amp; Dinner</span>
+<span class="font-bold text-primary font-code-timer">15:00 - 22:00</span>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-surface-container-high py-2.5 font-label-md text-label-md font-bold text-primary hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+          + New Field Definition (EN / SI / TA)
+        </button>
+</div>
+<!-- Inventory Lock Gauge Visualization -->
+<div class="rounded-xl bg-surface-container-lowest p-5 shadow-sm space-y-3">
+<div class="flex items-center justify-between">
+<h4 class="font-headline-sm text-[16px] font-bold text-on-surface">Checkout Hold Queue</h4>
+<span class="font-code-timer text-code-timer text-secondary font-bold">18 active locks</span>
+</div>
+<p class="font-body-sm text-[13px] text-on-surface-variant">Guests currently in payment gateway checkout. Holds expire after 10:00 mins to prevent double-booking.</p>
+<!-- Live SVG Progress Ring / Visual Representation -->
+<div class="flex items-center gap-4 pt-2">
+<div class="relative h-16 w-16 flex-shrink-0">
+<svg class="h-16 w-16 -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-secondary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="72, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center font-code-timer text-[12px] font-bold text-on-surface">
+              72%
+            </div>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="h-2 w-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">18 / 25 Peak Cluster</span>
+</div>
+<p class="font-code-timer text-[11px] text-on-surface-variant">Shortest TTL: DO-9812 (01:42s left)</p>
+<button class="font-label-sm text-label-sm text-primary font-bold hover:underline">Flush Stale Micro-Locks →</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Manual Refund & Payout Workflow Console (Section 17 & 18 of Spec) -->
+<div class="rounded-xl bg-surface-container-lowest p-6 shadow-sm space-y-5">
+<div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Escrow Reconciliation &amp; Refund Adjudication</h2>
+<span class="rounded bg-tertiary-fixed px-2 py-0.5 text-label-sm font-label-sm font-bold text-on-tertiary-fixed">Section 17/18 Manual Audit</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Auditing dispute logs before triggering bank API dispatches or updating property escrow accounts.</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Gateway: Direct Commercial Bank of Ceylon IPG</span>
+</div>
+</div>
+<!-- Active High Priority Refund Case: #REF-2041 -->
+<div class="rounded-xl bg-surface-container-low p-5 space-y-4">
+<div class="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
+<div class="space-y-2">
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-code-timer text-code-timer font-bold text-primary bg-primary-fixed/60 px-2 py-0.5 rounded">Case #REF-2041</span>
+<span class="font-code-timer text-code-timer text-on-surface-variant">Booking #DO-9801</span>
+<span class="rounded-full bg-tertiary px-2.5 py-0.5 text-label-sm font-label-sm font-bold text-on-tertiary">
+              ADMIN REVIEW PENDING
+            </span>
+</div>
+<div class="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-3 text-label-md font-label-md">
+<div>
+<span class="block text-on-surface-variant text-[11px]">Guest Name &amp; Contact</span>
+<strong class="font-semibold text-on-surface">Kasun Silva</strong>
+<span class="block font-code-timer text-[11px] text-on-surface-variant">+94 77 123 4567</span>
+</div>
+<div>
+<span class="block text-on-surface-variant text-[11px]">Cancellation Reason (Weather Event)</span>
+<span class="text-tertiary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">thunderstorm</span>
+                Torrential Rain Weather Cancellation
+              </span>
+<span class="block text-[11px] text-on-surface-variant">Southwest Monsoon Red Alert</span>
+</div>
+<div>
+<span class="block text-on-surface-variant text-[11px]">Original Amount &amp; Policy Rule</span>
+<div class="flex items-baseline gap-2">
+<span class="font-currency-indicator font-bold text-on-surface">LKR 18,000</span>
+<span class="rounded bg-secondary/15 px-1.5 py-0.2 text-[10px] font-bold text-secondary">100% ELIGIBLE</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Matrix -->
+<div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+<button class="inline-flex items-center justify-center gap-1.5 rounded-lg bg-primary px-4 py-2 font-label-md text-label-md font-semibold text-on-primary shadow-sm hover:scale-[1.01] transition-transform">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+            Approve &amp; Record Payout
+          </button>
+<button class="inline-flex items-center justify-center gap-1 rounded-lg bg-surface-container px-3.5 py-2 font-label-md text-label-md font-medium text-error hover:bg-error-container/40 transition-colors">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+            Reject with Reason
+          </button>
+</div>
+</div>
+<!-- Critical Specification Compliance Banner -->
+<div class="flex items-center gap-3 rounded-lg bg-surface-container-lowest p-3">
+<span class="material-symbols-outlined text-[20px] text-secondary">info</span>
+<div class="flex-1 text-body-sm text-[12px] text-on-surface">
+<strong class="font-semibold text-primary">Payment Mode Pre-Check:</strong> Guest selected <em class="font-medium text-secondary">"Pay-at-Property Direct Guarantee"</em> — <strong>No fictitious credit card refund will be processed.</strong> Approving will clear the pending cancellation fee penalty from Kasun Silva's customer profile and restock villa inventory slot.
+        </div>
+<span class="font-code-timer text-[11px] text-on-surface-variant font-semibold">RULE §17.4</span>
+</div>
+</div>
+</div>
+<!-- Security & Immutable Audit Trail (Section 6 Requirements) -->
+<div class="rounded-xl bg-surface-container-lowest p-6 shadow-sm space-y-4">
+<div class="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Cryptographic Audit Trail &amp; Access Log</h2>
+<span class="rounded-full bg-secondary-container px-2 py-0.5 text-label-sm font-label-sm font-bold text-on-secondary-container flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+            2FA Enforced
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Immutable administrative telemetry stream recorded per platform governance standards.</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="inline-flex items-center gap-1 rounded-lg bg-surface-container px-3 py-1.5 font-label-md text-label-md text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[16px]">download</span>
+          Export Signed Ledger (.CSV)
+        </button>
+</div>
+</div>
+<!-- Audit Event Log Table -->
+<div class="overflow-x-auto">
+<div class="min-w-[760px] space-y-2">
+<!-- Log Row 1 (From prompt requirement) -->
+<div class="flex items-center justify-between rounded-lg bg-surface-container p-3 font-body-sm text-body-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px] text-secondary flex-shrink-0">vpn_key</span>
+<div class="space-y-0.5">
+<p class="text-on-surface">
+                Admin staff user <strong class="font-semibold text-primary">chathura@dayouts.lk</strong> updated commission override for <span class="font-semibold text-on-surface">Property #412</span> to <strong class="text-secondary font-bold">10%</strong>.
+              </p>
+<div class="flex items-center gap-2 font-code-timer text-[11px] text-on-surface-variant">
+<span>IP: 124.43.14.88 (SLT Colombo Fiber)</span>
+<span>•</span>
+<span class="text-primary font-semibold">[2FA Authenticated - TOTP Token Verified]</span>
+</div>
+</div>
+</div>
+<div class="text-right flex-shrink-0 font-code-timer text-code-timer text-on-surface-variant">
+            2024-11-19 14:22:01 UTC
+          </div>
+</div>
+<!-- Log Row 2 -->
+<div class="flex items-center justify-between rounded-lg bg-surface-container p-3 font-body-sm text-body-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px] text-primary flex-shrink-0">verified_user</span>
+<div class="space-y-0.5">
+<p class="text-on-surface">
+                SLTDA Regulatory Bot marked license <strong class="font-semibold text-primary">#SLTDA-2024-88</strong> as verified via automated government gazette lookup.
+              </p>
+<div class="flex items-center gap-2 font-code-timer text-[11px] text-on-surface-variant">
+<span>Webhook System Dispatch: SLTDA-API-GATE-01</span>
+<span>•</span>
+<span class="text-secondary font-semibold">Integrity Hash: 0x8f2d...93a1</span>
+</div>
+</div>
+</div>
+<div class="text-right flex-shrink-0 font-code-timer text-code-timer text-on-surface-variant">
+            2024-11-19 13:45:18 UTC
+          </div>
+</div>
+<!-- Log Row 3 -->
+<div class="flex items-center justify-between rounded-lg bg-surface-container p-3 font-body-sm text-body-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px] text-tertiary flex-shrink-0">report</span>
+<div class="space-y-0.5">
+<p class="text-on-surface">
+                Staff auditor <strong class="font-semibold text-primary">nalin@dayouts.lk</strong> flagged cancellation ticket <span class="font-semibold text-on-surface">#REF-2041</span> for weather force-majeure review.
+              </p>
+<div class="flex items-center gap-2 font-code-timer text-[11px] text-on-surface-variant">
+<span>Met Department Advisory #R-812 Attached</span>
+<span>•</span>
+<span class="text-primary font-semibold">[2FA Authenticated - Hardware Key]</span>
+</div>
+</div>
+</div>
+<div class="text-right flex-shrink-0 font-code-timer text-code-timer text-on-surface-variant">
+            2024-11-19 11:10:04 UTC
+          </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interaction for console simulation
+  document.addEventListener('DOMContentLoaded', () => {
+    const approveBtn = document.querySelector('button:has(.material-symbols-outlined)');
+    console.log('DAYOUTS.LK Super Admin Governance Module initialized.');
+  });
+</script></main></div></body></html>
