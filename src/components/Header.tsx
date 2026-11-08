@@ -9,6 +9,7 @@ interface HeaderProps {
   language: Language;
   onLanguageChange: (lang: Language) => void;
   bookingCount: number;
+  onOpenAiCreator?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -18,7 +19,8 @@ export const Header: React.FC<HeaderProps> = ({
   onCurrencyChange,
   language,
   onLanguageChange,
-  bookingCount
+  bookingCount,
+  onOpenAiCreator
 }) => {
   const [profileOpen, setProfileOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -167,6 +169,18 @@ export const Header: React.FC<HeaderProps> = ({
               தமிழ்
             </button>
           </div>
+
+          {/* AI Listing Creator CTA */}
+          {onOpenAiCreator && (
+            <button
+              onClick={onOpenAiCreator}
+              className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-teal-600 to-emerald-700 hover:from-teal-700 hover:to-emerald-800 text-white transition-all text-xs font-bold cursor-pointer shrink-0 shadow-2xs"
+              title="Add hotel or dayout listing automatically by pasting promo text"
+            >
+              <span className="material-symbols-outlined text-[16px]">auto_awesome</span>
+              <span>✨ AI Listing</span>
+            </button>
+          )}
 
           {/* List Your Property / Host CTA */}
           <button

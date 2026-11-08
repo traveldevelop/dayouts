@@ -667,6 +667,32 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = ({
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </button>
 
+              {/* Direct Host WhatsApp & Call Actions */}
+              {(property.whatsapp || property.phone) && (
+                <div className="pt-2.5 grid grid-cols-2 gap-2 text-xs">
+                  {property.whatsapp && (
+                    <a
+                      href={`https://wa.me/${property.whatsapp.replace(/[^0-9]/g, '')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="py-2.5 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 font-bold flex items-center justify-center gap-1.5 transition"
+                    >
+                      <span className="material-symbols-outlined text-sm text-emerald-600">chat</span>
+                      <span>WhatsApp</span>
+                    </a>
+                  )}
+                  {property.phone && (
+                    <a
+                      href={`tel:${property.phone.replace(/[^0-9+]/g, '')}`}
+                      className="py-2.5 px-3 rounded-xl bg-[#f4f7f6] hover:bg-[#e8eee9] text-[#003528] border border-[#e2e8e5] font-bold flex items-center justify-center gap-1.5 transition"
+                    >
+                      <span className="material-symbols-outlined text-sm text-[#006a66]">call</span>
+                      <span>Call Host</span>
+                    </a>
+                  )}
+                </div>
+              )}
+
               <p className="text-[11px] text-center text-[#55635e] mt-2 flex items-center justify-center gap-1">
                 <span className="material-symbols-outlined text-xs text-[#006a66]">lock</span>
                 Instant SLTDA Digital QR Gate Pass generated upon confirmation

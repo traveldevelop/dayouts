@@ -15,6 +15,7 @@ import { CheckoutPage } from './pages/CheckoutPage';
 import { OwnerPortalPage } from './pages/OwnerPortalPage';
 import { AdminConsolePage } from './pages/AdminConsolePage';
 import { MyBookingsPage } from './pages/MyBookingsPage';
+import { AiListingGeneratorModal } from './components/AiListingGeneratorModal';
 import { testConnection } from './lib/firebase';
 import {
   fetchBookingsFromDb,
@@ -22,6 +23,7 @@ import {
   updateBookingStatusInDb,
   subscribeToBookings
 } from './services/bookingService';
+import { fetchPropertiesFromDb, savePropertyToDb } from './services/propertyService';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<PageType>('explore-stays');
@@ -33,9 +35,19 @@ export default function App() {
   const [activeVoucherBooking, setActiveVoucherBooking] = useState<BookingState | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
+  const [properties, setProperties] = useState<SanctuaryProperty[]>(PROPERTIES);
+  const [isAiModalOpen, setIsAiModalOpen] = useState(false);
+
   // Initialize and synchronize with real-time Firestore database
   useEffect(() => {
     testConnection();
+
+    // Fetch properties from Firestore
+    fetchPropertiesFromDb().then((dbProps) => {
+      if (dbProps && dbProps.length > 0) {
+        setProperties(dbProps);
+      }
+    });
 
     // Initial fetch from Firestore
     fetchBookingsFromDb().then((dbBookings) => {
@@ -51,6 +63,14 @@ export default function App() {
 
     return () => unsubscribe();
   }, []);
+
+  const handleListingCreated = async (newProperty: SanctuaryProperty) => {
+    setProperties((prev) => [newProperty, ...prev]);
+    setSelectedProperty(newProperty);
+    setCurrentPage('property-detail');
+    showToast(`✨ Listing "${newProperty.name}" published with AI!`);
+    await savePropertyToDb(newProperty);
+  };
 
   // Parameter bundle passed from PropertyDetailPage to CheckoutPage
   const [checkoutParams, setCheckoutParams] = useState<{
@@ -211,6 +231,7 @@ export default function App() {
           language={language}
           onLanguageChange={setLanguage}
           bookingCount={bookings.length}
+          onOpenAiCreator={() => setIsAiModalOpen(true)}
         />
       )}
 
@@ -225,6 +246,8 @@ export default function App() {
             wishlist={wishlist}
             onToggleWishlist={handleToggleWishlist}
             currentPage={currentPage}
+            properties={properties}
+            onOpenAiCreator={() => setIsAiModalOpen(true)}
           />
         ) : currentPage === 'day-out-packages' ? (
           <DayOutsPage
@@ -295,6 +318,7 @@ export default function App() {
             bookings={bookings}
             onApproveBooking={handleApproveBooking}
             onRejectBooking={handleRejectBooking}
+            onOpenAiCreator={() => setIsAiModalOpen(true)}
           />
         ) : currentPage === 'admin-console' ? (
           <AdminConsolePage
@@ -317,6 +341,8 @@ export default function App() {
             onNavigate={handleNavigate}
             wishlist={wishlist}
             onToggleWishlist={handleToggleWishlist}
+            properties={properties}
+            onOpenAiCreator={() => setIsAiModalOpen(true)}
           />
         )}
       </main>
@@ -326,6 +352,15 @@ export default function App() {
 
       {/* Floating Concierge Assistant on public pages */}
       {!isPortalMode && <FloatingConcierge />}
+
+      {/* AI Instant Listing Creator Modal */}
+      {isAiModalOpen && (
+        <AiListingGeneratorModal
+          currency={currency}
+          onClose={() => setIsAiModalOpen(false)}
+          onListingCreated={handleListingCreated}
+        />
+      )}
 
       {/* Verified SLTDA QR Voucher Modal */}
       <VoucherModal

@@ -9,6 +9,7 @@ interface OwnerPortalPageProps {
   bookings: BookingState[];
   onApproveBooking: (id: string) => void;
   onRejectBooking: (id: string) => void;
+  onOpenAiCreator?: () => void;
 }
 
 export const OwnerPortalPage: React.FC<OwnerPortalPageProps> = ({
@@ -16,7 +17,8 @@ export const OwnerPortalPage: React.FC<OwnerPortalPageProps> = ({
   onNavigate,
   bookings,
   onApproveBooking,
-  onRejectBooking
+  onRejectBooking,
+  onOpenAiCreator
 }) => {
   const [dayPassCap, setDayPassCap] = useState<number>(30);
   const [payoutModalOpen, setPayoutModalOpen] = useState(false);
@@ -70,6 +72,13 @@ export const OwnerPortalPage: React.FC<OwnerPortalPageProps> = ({
               <span>View Public Listing</span>
             </button>
             <button
+              onClick={onOpenAiCreator}
+              className="px-4 py-2 rounded-xl bg-gradient-to-r from-teal-400 to-emerald-500 hover:from-teal-500 hover:to-emerald-600 text-[#002118] text-xs font-extrabold shadow-md transition flex items-center gap-1.5 cursor-pointer"
+            >
+              <span className="material-symbols-outlined text-sm">auto_awesome</span>
+              <span>✨ AI Listing Creator</span>
+            </button>
+            <button
               onClick={() => setPayoutModalOpen(true)}
               className="px-4 py-2 rounded-xl bg-[#006a66] hover:bg-[#00524f] text-white text-xs font-bold shadow-md transition flex items-center gap-1.5 cursor-pointer"
             >
@@ -81,6 +90,32 @@ export const OwnerPortalPage: React.FC<OwnerPortalPageProps> = ({
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+        {/* AI Quick Listing Generator Banner */}
+        <div className="p-6 rounded-3xl bg-gradient-to-r from-[#003528] via-[#004d3b] to-[#006a66] text-white border border-teal-500/30 shadow-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="space-y-1.5 max-w-2xl">
+            <div className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-teal-300 text-lg animate-pulse">auto_awesome</span>
+              <span className="text-[11px] font-mono text-teal-300 uppercase tracking-wider font-bold">
+                NEW · AI MAGIC LISTING CREATOR (AI ස්වයංක්‍රීය දැන්වීම් පද්ධතිය)
+              </span>
+            </div>
+            <h2 className="font-headline text-xl sm:text-2xl font-bold">
+              Paste WhatsApp or Facebook Promo &amp; Let AI Add the Property
+            </h2>
+            <p className="text-xs text-white/80 leading-relaxed">
+              Have promotional text from Facebook, WhatsApp, or a flyer (e.g. <em>&quot;Pavana Beach Hotel Negombo... Couple Dayout 3,990... Night Stay 3,000&quot;</em>)? Paste it in one click — Gemini 3.8 AI extracts all room tiers, Day Out/Night Stay pricing, contacts, and facilities. You only add the photos!
+            </p>
+          </div>
+
+          <button
+            onClick={onOpenAiCreator}
+            className="px-5 py-3 rounded-2xl bg-white text-[#003528] hover:bg-teal-50 font-bold text-xs shadow-md transition flex items-center gap-2 shrink-0 cursor-pointer"
+          >
+            <span className="material-symbols-outlined text-base text-[#006a66]">auto_awesome</span>
+            <span>Open AI Listing Creator</span>
+          </button>
+        </div>
+
         {/* KPI Summary Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           <div className="bg-white p-5 rounded-2xl border border-[#e2e8e5] shadow-xs">

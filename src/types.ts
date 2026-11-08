@@ -98,6 +98,9 @@ export interface SanctuaryProperty {
   features: string[];
   description?: string;
   category?: 'cabana' | 'villa' | 'glamping' | 'cottages' | 'chalets' | string;
+  phone?: string;
+  whatsapp?: string;
+  nightStaySlot?: string;
   subUnits?: CabanaUnit[];
 }
 

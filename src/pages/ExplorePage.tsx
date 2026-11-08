@@ -10,6 +10,8 @@ interface ExplorePageProps {
   wishlist: string[];
   onToggleWishlist: (propertyId: string) => void;
   currentPage?: PageType;
+  properties?: SanctuaryProperty[];
+  onOpenAiCreator?: () => void;
 }
 
 const TYPOLOGIES = [
@@ -28,7 +30,9 @@ export const ExplorePage: React.FC<ExplorePageProps> = ({
   onNavigate,
   wishlist,
   onToggleWishlist,
-  currentPage = 'explore-stays'
+  currentPage = 'explore-stays',
+  properties = PROPERTIES,
+  onOpenAiCreator
 }) => {
   const [selectedDestination, setSelectedDestination] = useState<string>('all');
   const [selectedTypology, setSelectedTypology] = useState<string>('all');
@@ -49,7 +53,8 @@ export const ExplorePage: React.FC<ExplorePageProps> = ({
   }, [currentPage]);
 
   // Filter properties
-  const filteredProperties = PROPERTIES.filter((p) => {
+  const allPropertiesList = properties && properties.length > 0 ? properties : PROPERTIES;
+  const filteredProperties = allPropertiesList.filter((p) => {
     // Destination filter
     if (selectedDestination !== 'all') {
       const destClean = selectedDestination.toLowerCase().replace(/-/g, ' ');
@@ -267,6 +272,21 @@ export const ExplorePage: React.FC<ExplorePageProps> = ({
               </div>
             </div>
           </div>
+
+          {/* AI Listing Quick Banner for Hosts */}
+          {onOpenAiCreator && (
+            <div className="mt-5 flex items-center justify-center">
+              <button
+                type="button"
+                onClick={onOpenAiCreator}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md text-white text-xs font-semibold border border-white/30 transition shadow-sm cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-sm text-teal-300 animate-pulse">auto_awesome</span>
+                <span>Hotel or Villa Owner? <strong>Paste WhatsApp/Promo Text to Add Listing with AI</strong></span>
+                <span className="material-symbols-outlined text-xs">arrow_forward</span>
+              </button>
+            </div>
+          )}
         </div>
       </section>
 

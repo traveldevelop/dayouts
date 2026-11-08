@@ -58,3 +58,12 @@ export async function fetchPropertyById(id: string): Promise<SanctuaryProperty |
     return null;
   }
 }
+
+export async function savePropertyToDb(property: SanctuaryProperty): Promise<void> {
+  try {
+    const docRef = doc(db, PROPERTIES_COLLECTION, property.id);
+    await setDoc(docRef, property, { merge: true });
+  } catch (error) {
+    handleFirestoreError(error, OperationType.WRITE, `${PROPERTIES_COLLECTION}/${property.id}`);
+  }
+}
