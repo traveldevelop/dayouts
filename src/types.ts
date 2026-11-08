@@ -13,6 +13,7 @@ export type PageType =
   | 'checkout'
   | 'owner-portal'
   | 'admin-console'
+  | 'admin-dashboard'
   | 'my-bookings';
 
 export interface CabanaPackageTier {

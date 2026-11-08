@@ -182,6 +182,16 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
           )}
 
+          {/* Owners Admin Dashboard CTA */}
+          <button
+            onClick={() => onNavigate('admin-dashboard')}
+            className="hidden xl:flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-emerald-600/40 bg-emerald-50 hover:bg-[#003528] text-[#003528] hover:text-white transition-all text-xs font-bold cursor-pointer shrink-0 shadow-2xs"
+            title="Open Central Property & Reservations Admin Dashboard (/admin-dashboard)"
+          >
+            <span className="material-symbols-outlined text-[16px] text-emerald-700">dashboard_customize</span>
+            <span>Admin Dashboard</span>
+          </button>
+
           {/* List Your Property / Host CTA */}
           <button
             onClick={() => onNavigate('owner-portal')}
@@ -215,7 +225,7 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Dropdown Menu */}
             {profileOpen && (
               <div
-                className="absolute right-0 top-full mt-2 w-64 bg-white rounded-2xl shadow-xl border border-[#e2e8e5] p-2 z-50 animate-in fade-in zoom-in-95"
+                className="absolute right-0 top-full mt-2 w-72 bg-white rounded-2xl shadow-xl border border-[#e2e8e5] p-2 z-50 animate-in fade-in zoom-in-95"
                 onMouseLeave={() => setProfileOpen(false)}
               >
                 <div className="px-3 py-2.5 border-b border-[#f0f4f2] mb-1">
@@ -223,9 +233,25 @@ export const Header: React.FC<HeaderProps> = ({
                     Nalin Jayawardena
                   </p>
                   <p className="text-xs text-[#006a66] font-medium">
-                    Verified SLTDA Explorer
+                    Verified SLTDA Explorer &amp; Property Owner
                   </p>
                 </div>
+
+                <button
+                  onClick={() => {
+                    onNavigate('admin-dashboard');
+                    setProfileOpen(false);
+                  }}
+                  className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold text-[#003528] bg-emerald-50 hover:bg-emerald-100 transition-colors cursor-pointer text-left mb-1"
+                >
+                  <span className="flex items-center gap-2">
+                    <span className="material-symbols-outlined text-base text-emerald-700">dashboard_customize</span>
+                    Owner Admin Dashboard
+                  </span>
+                  <span className="text-[10px] font-mono bg-emerald-200/80 text-emerald-900 px-1.5 py-0.5 rounded">
+                    /admin-dashboard
+                  </span>
+                </button>
 
                 <button
                   onClick={() => {
@@ -396,6 +422,21 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <span>Tour Packages</span>
             <span className="px-1.5 py-0.5 rounded-md bg-emerald-100 text-emerald-800 text-[10px] font-bold">New</span>
+          </button>
+          <button
+            onClick={() => {
+              onNavigate('admin-dashboard');
+              setMobileMenuOpen(false);
+            }}
+            className="w-full text-left py-2.5 px-3 rounded-lg text-sm font-bold text-emerald-950 bg-emerald-50 hover:bg-emerald-100 flex items-center justify-between"
+          >
+            <div className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-[18px] text-emerald-700">dashboard_customize</span>
+              <span>Owner Admin Dashboard</span>
+            </div>
+            <span className="text-[10px] font-mono bg-emerald-200 text-emerald-900 px-1.5 py-0.5 rounded">
+              /admin-dashboard
+            </span>
           </button>
           <button
             onClick={() => {

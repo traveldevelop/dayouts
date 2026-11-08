@@ -3,6 +3,32 @@ export { getPropertyCabanas, CABANA_IMAGE_SETS } from './cabanasData';
 
 export const USD_EXCHANGE_RATE = 305.20;
 
+export interface DistrictOption {
+  name: string;
+  sinhala: string;
+}
+
+export const SRI_LANKAN_DISTRICTS: DistrictOption[] = [
+  { name: 'Colombo', sinhala: 'කොළඹ' },
+  { name: 'Negombo', sinhala: 'මීගමුව' },
+  { name: 'Gampaha', sinhala: 'ගම්පහ' },
+  { name: 'Kalutara', sinhala: 'කළුතර' },
+  { name: 'Bentota', sinhala: 'බෙන්තොට' },
+  { name: 'Kandy', sinhala: 'මහනුවර' },
+  { name: 'Galle', sinhala: 'ගාල්ල' },
+  { name: 'Matara', sinhala: 'මාතර' },
+  { name: 'Nuwara Eliya', sinhala: 'නුවරඑළිය' },
+  { name: 'Ella', sinhala: 'ඇල්ල' },
+  { name: 'Hambantota', sinhala: 'හම්බන්තොට' },
+  { name: 'Sigiriya & Dambulla', sinhala: 'සීගිරිය / දඹුල්ල' },
+  { name: 'Trincomalee', sinhala: 'ත්‍රිකුණාමලය' },
+  { name: 'Batticaloa', sinhala: 'මඩකලපුව' },
+  { name: 'Anuradhapura', sinhala: 'අනුරාධපුරය' },
+  { name: 'Polonnaruwa', sinhala: 'පොළොන්නරුව' },
+  { name: 'Kurunegala', sinhala: 'කුරුණෑගල' },
+  { name: 'Ratnapura', sinhala: 'රත්නපුරය' }
+];
+
 export const HERO_BANNER_IMAGE = '/src/assets/images/hero_sri_lanka_luxury_escape_1792932448818.jpg';
 
 export const PROPERTIES: SanctuaryProperty[] = [

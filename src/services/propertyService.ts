@@ -4,6 +4,7 @@ import {
   getDocs,
   getDoc,
   setDoc,
+  deleteDoc,
   query,
   orderBy
 } from 'firebase/firestore';
@@ -65,5 +66,14 @@ export async function savePropertyToDb(property: SanctuaryProperty): Promise<voi
     await setDoc(docRef, property, { merge: true });
   } catch (error) {
     handleFirestoreError(error, OperationType.WRITE, `${PROPERTIES_COLLECTION}/${property.id}`);
+  }
+}
+
+export async function deletePropertyFromDb(propertyId: string): Promise<void> {
+  try {
+    const docRef = doc(db, PROPERTIES_COLLECTION, propertyId);
+    await deleteDoc(docRef);
+  } catch (error) {
+    handleFirestoreError(error, OperationType.DELETE, `${PROPERTIES_COLLECTION}/${propertyId}`);
   }
 }

@@ -23,10 +23,27 @@ import {
   updateBookingStatusInDb,
   subscribeToBookings
 } from './services/bookingService';
-import { fetchPropertiesFromDb, savePropertyToDb } from './services/propertyService';
+import { fetchPropertiesFromDb, savePropertyToDb, deletePropertyFromDb } from './services/propertyService';
+import { AdminDashboardPage } from './pages/AdminDashboardPage';
+
+const getInitialPage = (): PageType => {
+  if (typeof window !== 'undefined') {
+    const path = window.location.pathname.toLowerCase();
+    const hash = window.location.hash.toLowerCase();
+    if (
+      path === '/admin-dashboard' ||
+      path.startsWith('/admin-dashboard') ||
+      hash === '#/admin-dashboard' ||
+      hash.startsWith('#/admin-dashboard')
+    ) {
+      return 'admin-dashboard';
+    }
+  }
+  return 'explore-stays';
+};
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<PageType>('explore-stays');
+  const [currentPage, setCurrentPage] = useState<PageType>(getInitialPage);
   const [selectedProperty, setSelectedProperty] = useState<SanctuaryProperty>(PROPERTIES[0]);
   const [currency, setCurrency] = useState<Currency>('LKR');
   const [language, setLanguage] = useState<Language>('EN');
@@ -37,6 +54,30 @@ export default function App() {
 
   const [properties, setProperties] = useState<SanctuaryProperty[]>(PROPERTIES);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
+
+  // Sync browser URL with routing (Back/Forward or hash change)
+  useEffect(() => {
+    const syncRouteFromUrl = () => {
+      if (typeof window === 'undefined') return;
+      const path = window.location.pathname.toLowerCase();
+      const hash = window.location.hash.toLowerCase();
+      if (
+        path === '/admin-dashboard' ||
+        path.startsWith('/admin-dashboard') ||
+        hash === '#/admin-dashboard' ||
+        hash.startsWith('#/admin-dashboard')
+      ) {
+        setCurrentPage('admin-dashboard');
+      }
+    };
+
+    window.addEventListener('popstate', syncRouteFromUrl);
+    window.addEventListener('hashchange', syncRouteFromUrl);
+    return () => {
+      window.removeEventListener('popstate', syncRouteFromUrl);
+      window.removeEventListener('hashchange', syncRouteFromUrl);
+    };
+  }, []);
 
   // Initialize and synchronize with real-time Firestore database
   useEffect(() => {
@@ -70,6 +111,26 @@ export default function App() {
     setCurrentPage('property-detail');
     showToast(`✨ Listing "${newProperty.name}" published with AI!`);
     await savePropertyToDb(newProperty);
+  };
+
+  const handleSaveProperty = async (property: SanctuaryProperty) => {
+    setProperties((prev) => {
+      const idx = prev.findIndex((p) => p.id === property.id);
+      if (idx >= 0) {
+        const next = [...prev];
+        next[idx] = property;
+        return next;
+      }
+      return [property, ...prev];
+    });
+    showToast(`Property "${property.name}" saved successfully!`);
+    await savePropertyToDb(property);
+  };
+
+  const handleDeleteProperty = async (propertyId: string) => {
+    setProperties((prev) => prev.filter((p) => p.id !== propertyId));
+    showToast(`Property removed successfully.`);
+    await deletePropertyFromDb(propertyId);
   };
 
   // Parameter bundle passed from PropertyDetailPage to CheckoutPage
@@ -185,15 +246,26 @@ export default function App() {
 
   const handleNavigate = (page: PageType) => {
     setCurrentPage(page);
+    if (typeof window !== 'undefined') {
+      if (page === 'admin-dashboard') {
+        if (window.location.pathname !== '/admin-dashboard') {
+          window.history.pushState(null, '', '/admin-dashboard');
+        }
+      } else {
+        if (window.location.pathname === '/admin-dashboard') {
+          window.history.pushState(null, '', '/');
+        }
+      }
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const isPortalMode = currentPage === 'owner-portal' || currentPage === 'admin-console';
+  const isPortalMode = currentPage === 'owner-portal' || currentPage === 'admin-console' || currentPage === 'admin-dashboard';
 
   return (
     <div className="min-h-screen bg-[#effcfd] text-[#121d1e] flex flex-col font-body selection:bg-[#006a66]/20 selection:text-[#003528]">
       {/* Top Banner Quick-Nav if in Owner or Admin Console */}
-      {isPortalMode && (
+      {isPortalMode && currentPage !== 'admin-dashboard' && (
         <aside aria-label="Portal Navigation Bar" className="bg-[#003528] text-white px-4 py-2 text-xs flex items-center justify-between z-50 fixed top-0 left-0 right-0 h-10 border-b border-white/10">
           <div className="flex items-center gap-3">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -212,10 +284,10 @@ export default function App() {
             </button>
             <span className="text-white/40">|</span>
             <button
-              onClick={() => handleNavigate(currentPage === 'owner-portal' ? 'admin-console' : 'owner-portal')}
+              onClick={() => handleNavigate('admin-dashboard')}
               className="text-white hover:text-teal-200 font-medium transition"
             >
-              Switch to {currentPage === 'owner-portal' ? 'Admin Console' : 'Owner Portal'}
+              Open Central Admin Dashboard
             </button>
           </div>
         </aside>
@@ -236,7 +308,7 @@ export default function App() {
       )}
 
       {/* Main Content Area */}
-      <main className={`flex-1 ${!isPortalMode ? 'pt-20' : 'pt-10'}`}>
+      <main className={`flex-1 ${currentPage === 'admin-dashboard' ? 'pt-0' : !isPortalMode ? 'pt-20' : 'pt-10'}`}>
         {currentPage === 'explore-stays' ? (
           <ExplorePage
             currency={currency}
@@ -309,6 +381,21 @@ export default function App() {
             currency={currency}
             onNavigate={handleNavigate}
             onBookingConfirmed={handleBookingConfirmed}
+          />
+        ) : currentPage === 'admin-dashboard' ? (
+          <AdminDashboardPage
+            properties={properties}
+            bookings={bookings}
+            currency={currency}
+            onCurrencyChange={setCurrency}
+            onNavigate={handleNavigate}
+            onSelectProperty={handleSelectProperty}
+            onApproveBooking={handleApproveBooking}
+            onRejectBooking={handleRejectBooking}
+            onSaveProperty={handleSaveProperty}
+            onDeleteProperty={handleDeleteProperty}
+            onOpenAiCreator={() => setIsAiModalOpen(true)}
+            onViewVoucher={(booking) => setActiveVoucherBooking(booking)}
           />
         ) : currentPage === 'owner-portal' ? (
           <OwnerPortalPage
